@@ -1,0 +1,896 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Devops for Advance Level | Documentation</title>
+<meta name="description" content="
+
+Topics
+
+DevOps TOC (40 Hrs)
+
+Overview of DevOps
+Introduction to DevOps
+Benefits of working in a DevOps environment
+DevOps Lifecycle
+DevOps Stages …&lt;/!--&gt;&lt;/!--&gt;&lt;/!--&gt;&lt;/!--&gt;&lt;/!--&gt;&lt;/!--&gt;">
+<meta property="og:title" content="Devops for Advance Level" />
+<meta property="og:description" content=" Topics DevOps TOC (40 Hrs) Overview of DevOps Introduction to DevOps Benefits of working in a DevOps environment DevOps Lifecycle DevOps Stages DevOps Delivery Pipeline Version Control with Git Topics Version Control Git Introduction Git Installation Commonly used commands in Git Working with Remote repository Hands-on Projects Git Common Commands Working with Remote Repository Skills You will Learn Tracking and managing changes to code Source code management Tracking and saving changes in files Git, Jenkins &amp; Maven Integration Topics Branching and merging in Git Merge Conflicts Stashing, Rebasing, Reverting, and Resetting Git Workflows Introduction to Maven Maven Architecture Introduction to Continuous Integration Hands On Branching and Merging Merge Conflicts Stashing, Rebasing, Reverting, and Resetting Configuring Maven Skills You will Learn Creating multiple branches in a repository Build and manage projects Automating Continuous integration Continuous Integration using Jenkins Topics Jenkins Architecture Plugin Management in Jenkins Jenkins Security Management Notification in Jenkins Jenkins Master-slave architecture Jenkins Delivery Pipeline Jenkins Declarative pipeline Hands-on Create pipeline view Adding Slave node in Jenkins Build Pipeline project Skills You will Learn Creating Jenkins pipeline Enable Jenkins Pipeline Plugin Configuring plugin for email notification Configuration Management Using Ansible Topics Introduction to Configuration Management Infrastructure as Code Introduction to Ansible Ansible Architecture Inventory Management Ansible Modules AD-HOC Commands Ansible Playbooks Ansible Roles Hands-on Ad-Hoc Commands Running a Simple Playbook Using Variables and handlers Using Ansible Roles Skills You will Learn Configuration management Ansible ad hoc commands Creating Ansible Playbook and Roles Containerization using Docker Part – I Topics Containerization Namespaces Docker Docker Architecture Container Lifecycle Docker CLI Port Binding Detached and Foreground Mode Dockerfile Dockerfile Instructions Docker Image Hands-on Docker CLI Commands Port Binding Starting Containers in Different Modes Writing a Dockerfile to Create an Image Skills You will Learn Continuous Deployment Writing a Dockerfile to create an Image Containerization using Docker Part – II Topics Docker Registry Container Storage Volumes Docker Compose Docker Swarm Hands-on Setting up Docker Hub Docker Volumes Installing Docker Compose Installing a Multi-Container Application using Compose Running Docker in Swarm Mode Skills You will Learn Configuring Local Registry Creating persistent storage solutions Deploying a Multi-container Application Orchestration using Kubernetes Part - I Topics Introduction to Container Orchestration Kubernetes Core Concepts Understanding Pods ReplicaSet and Replication Controller Deployments DaemonSets Rolling Updates and Rollbacks Scaling Application Hands-on Kubectl Common Commands Deployments DaemonSets Rolling-update and Rollbacks Scaling in Kubernetes Skills You will Learn Container Orchestration Deploying pods Application Scaling Orchestration using Kubernetes Part - II Topics Services Persistent Storage in Kubernetes Primitives for PersistentVolumeClaims Secrets and ConfigMaps Headless Services StatefulSets Helm Charts Hands On Deploying Services Persistent Volumes and Persistent Volume Claims StatefulSets ConfigMaps and Secrets Helm Charts Skills You will Learn Deploying PersistentVolume Application Deployment Monitoring using Prometheus and Grafana Topics Introduction to Prometheus and Grafana Prometheus and Grafana Setup Monitoring using Prometheus Dashboard Visualization using Grafana Creating a Dashboard to monitor the Pipeline Hands On Monitoring Service using Prometheus Alerting using Prometheus Grafana Dashboards Monitoring a Pipeline Skills You will Learn Event monitoring and alerting Metric visualizations Provisioning using Terraform Part - I Topics Introduction to Terraform Terraform vs Ansible Terraform Architecture Terraform Configuration Terraform Common Commands Managing Terraform Resources Hands On Setting Up AWS and Terraform Executing a Terraform Configuration Managing Terraform Resources Referencing Terraform Resources Skills You will Learn Orchestrate infrastructure changes Resource Provisioning Managing Resources in Terraform Provisioning using Terraform Part - II Topics Terraform State Terraform Project Hands On Terraform State Commands Terraform Project Skills You will Learn Storing infrastructure information " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/devops/devops-advance/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2024-06-01T18:32:23+05:30" />
+
+<meta itemprop="name" content="Devops for Advance Level">
+<meta itemprop="description" content=" Topics DevOps TOC (40 Hrs) Overview of DevOps Introduction to DevOps Benefits of working in a DevOps environment DevOps Lifecycle DevOps Stages DevOps Delivery Pipeline Version Control with Git Topics Version Control Git Introduction Git Installation Commonly used commands in Git Working with Remote repository Hands-on Projects Git Common Commands Working with Remote Repository Skills You will Learn Tracking and managing changes to code Source code management Tracking and saving changes in files Git, Jenkins &amp; Maven Integration Topics Branching and merging in Git Merge Conflicts Stashing, Rebasing, Reverting, and Resetting Git Workflows Introduction to Maven Maven Architecture Introduction to Continuous Integration Hands On Branching and Merging Merge Conflicts Stashing, Rebasing, Reverting, and Resetting Configuring Maven Skills You will Learn Creating multiple branches in a repository Build and manage projects Automating Continuous integration Continuous Integration using Jenkins Topics Jenkins Architecture Plugin Management in Jenkins Jenkins Security Management Notification in Jenkins Jenkins Master-slave architecture Jenkins Delivery Pipeline Jenkins Declarative pipeline Hands-on Create pipeline view Adding Slave node in Jenkins Build Pipeline project Skills You will Learn Creating Jenkins pipeline Enable Jenkins Pipeline Plugin Configuring plugin for email notification Configuration Management Using Ansible Topics Introduction to Configuration Management Infrastructure as Code Introduction to Ansible Ansible Architecture Inventory Management Ansible Modules AD-HOC Commands Ansible Playbooks Ansible Roles Hands-on Ad-Hoc Commands Running a Simple Playbook Using Variables and handlers Using Ansible Roles Skills You will Learn Configuration management Ansible ad hoc commands Creating Ansible Playbook and Roles Containerization using Docker Part – I Topics Containerization Namespaces Docker Docker Architecture Container Lifecycle Docker CLI Port Binding Detached and Foreground Mode Dockerfile Dockerfile Instructions Docker Image Hands-on Docker CLI Commands Port Binding Starting Containers in Different Modes Writing a Dockerfile to Create an Image Skills You will Learn Continuous Deployment Writing a Dockerfile to create an Image Containerization using Docker Part – II Topics Docker Registry Container Storage Volumes Docker Compose Docker Swarm Hands-on Setting up Docker Hub Docker Volumes Installing Docker Compose Installing a Multi-Container Application using Compose Running Docker in Swarm Mode Skills You will Learn Configuring Local Registry Creating persistent storage solutions Deploying a Multi-container Application Orchestration using Kubernetes Part - I Topics Introduction to Container Orchestration Kubernetes Core Concepts Understanding Pods ReplicaSet and Replication Controller Deployments DaemonSets Rolling Updates and Rollbacks Scaling Application Hands-on Kubectl Common Commands Deployments DaemonSets Rolling-update and Rollbacks Scaling in Kubernetes Skills You will Learn Container Orchestration Deploying pods Application Scaling Orchestration using Kubernetes Part - II Topics Services Persistent Storage in Kubernetes Primitives for PersistentVolumeClaims Secrets and ConfigMaps Headless Services StatefulSets Helm Charts Hands On Deploying Services Persistent Volumes and Persistent Volume Claims StatefulSets ConfigMaps and Secrets Helm Charts Skills You will Learn Deploying PersistentVolume Application Deployment Monitoring using Prometheus and Grafana Topics Introduction to Prometheus and Grafana Prometheus and Grafana Setup Monitoring using Prometheus Dashboard Visualization using Grafana Creating a Dashboard to monitor the Pipeline Hands On Monitoring Service using Prometheus Alerting using Prometheus Grafana Dashboards Monitoring a Pipeline Skills You will Learn Event monitoring and alerting Metric visualizations Provisioning using Terraform Part - I Topics Introduction to Terraform Terraform vs Ansible Terraform Architecture Terraform Configuration Terraform Common Commands Managing Terraform Resources Hands On Setting Up AWS and Terraform Executing a Terraform Configuration Managing Terraform Resources Referencing Terraform Resources Skills You will Learn Orchestrate infrastructure changes Resource Provisioning Managing Resources in Terraform Provisioning using Terraform Part - II Topics Terraform State Terraform Project Hands On Terraform State Commands Terraform Project Skills You will Learn Storing infrastructure information ">
+<meta itemprop="dateModified" content="2024-06-01T18:32:23+05:30" />
+<meta itemprop="wordCount" content="581">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Devops for Advance Level"/>
+<meta name="twitter:description" content=" Topics DevOps TOC (40 Hrs) Overview of DevOps Introduction to DevOps Benefits of working in a DevOps environment DevOps Lifecycle DevOps Stages DevOps Delivery Pipeline Version Control with Git Topics Version Control Git Introduction Git Installation Commonly used commands in Git Working with Remote repository Hands-on Projects Git Common Commands Working with Remote Repository Skills You will Learn Tracking and managing changes to code Source code management Tracking and saving changes in files Git, Jenkins &amp; Maven Integration Topics Branching and merging in Git Merge Conflicts Stashing, Rebasing, Reverting, and Resetting Git Workflows Introduction to Maven Maven Architecture Introduction to Continuous Integration Hands On Branching and Merging Merge Conflicts Stashing, Rebasing, Reverting, and Resetting Configuring Maven Skills You will Learn Creating multiple branches in a repository Build and manage projects Automating Continuous integration Continuous Integration using Jenkins Topics Jenkins Architecture Plugin Management in Jenkins Jenkins Security Management Notification in Jenkins Jenkins Master-slave architecture Jenkins Delivery Pipeline Jenkins Declarative pipeline Hands-on Create pipeline view Adding Slave node in Jenkins Build Pipeline project Skills You will Learn Creating Jenkins pipeline Enable Jenkins Pipeline Plugin Configuring plugin for email notification Configuration Management Using Ansible Topics Introduction to Configuration Management Infrastructure as Code Introduction to Ansible Ansible Architecture Inventory Management Ansible Modules AD-HOC Commands Ansible Playbooks Ansible Roles Hands-on Ad-Hoc Commands Running a Simple Playbook Using Variables and handlers Using Ansible Roles Skills You will Learn Configuration management Ansible ad hoc commands Creating Ansible Playbook and Roles Containerization using Docker Part – I Topics Containerization Namespaces Docker Docker Architecture Container Lifecycle Docker CLI Port Binding Detached and Foreground Mode Dockerfile Dockerfile Instructions Docker Image Hands-on Docker CLI Commands Port Binding Starting Containers in Different Modes Writing a Dockerfile to Create an Image Skills You will Learn Continuous Deployment Writing a Dockerfile to create an Image Containerization using Docker Part – II Topics Docker Registry Container Storage Volumes Docker Compose Docker Swarm Hands-on Setting up Docker Hub Docker Volumes Installing Docker Compose Installing a Multi-Container Application using Compose Running Docker in Swarm Mode Skills You will Learn Configuring Local Registry Creating persistent storage solutions Deploying a Multi-container Application Orchestration using Kubernetes Part - I Topics Introduction to Container Orchestration Kubernetes Core Concepts Understanding Pods ReplicaSet and Replication Controller Deployments DaemonSets Rolling Updates and Rollbacks Scaling Application Hands-on Kubectl Common Commands Deployments DaemonSets Rolling-update and Rollbacks Scaling in Kubernetes Skills You will Learn Container Orchestration Deploying pods Application Scaling Orchestration using Kubernetes Part - II Topics Services Persistent Storage in Kubernetes Primitives for PersistentVolumeClaims Secrets and ConfigMaps Headless Services StatefulSets Helm Charts Hands On Deploying Services Persistent Volumes and Persistent Volume Claims StatefulSets ConfigMaps and Secrets Helm Charts Skills You will Learn Deploying PersistentVolume Application Deployment Monitoring using Prometheus and Grafana Topics Introduction to Prometheus and Grafana Prometheus and Grafana Setup Monitoring using Prometheus Dashboard Visualization using Grafana Creating a Dashboard to monitor the Pipeline Hands On Monitoring Service using Prometheus Alerting using Prometheus Grafana Dashboards Monitoring a Pipeline Skills You will Learn Event monitoring and alerting Metric visualizations Provisioning using Terraform Part - I Topics Introduction to Terraform Terraform vs Ansible Terraform Architecture Terraform Configuration Terraform Common Commands Managing Terraform Resources Hands On Setting Up AWS and Terraform Executing a Terraform Configuration Managing Terraform Resources Referencing Terraform Resources Skills You will Learn Orchestrate infrastructure changes Resource Provisioning Managing Resources in Terraform Provisioning using Terraform Part - II Topics Terraform State Terraform Project Hands On Terraform State Commands Terraform Project Skills You will Learn Storing infrastructure information "/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" as="style">
+<link href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/devops/" ><i class='fas fa-user-check'></i><span class="active">Devops </span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span>Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span>Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberneteshardway/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberneteshardway"><span class="">Kubernets Installation From Scatch on rocky 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousminio-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousminio-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousminio-check"><a href="/docs/kubernetes/docs/miscellaneous/minio/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousminio"><span class="">The Object Store for AI Data Infrastructure</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsdevops-li">
+  <input type="checkbox" id="m-docsdevops-check" checked/>
+  <label for="m-docsdevops-check"><a href="/docs/devops/" title="Devops" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsdevops"><i class="fas fa-user-check"></i><span class="">Devops </span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevops-advance-li">
+  <input type="checkbox" id="m-docsdevopsdevops-advance-check"/>
+  <label for="m-docsdevopsdevops-advance-check"><a href="/docs/devops/devops-advance/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevops-advance"><span class="td-sidebar-nav-active-item">Devops for Advance Level</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevopsl1-li">
+  <input type="checkbox" id="m-docsdevopsdevopsl1-check"/>
+  <label for="m-docsdevopsdevopsl1-check"><a href="/docs/devops/devopsl1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevopsl1"><span class="">Devops for Begineers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopselk-stack-li">
+  <input type="checkbox" id="m-docsdevopselk-stack-check"/>
+  <label for="m-docsdevopselk-stack-check"><a href="/docs/devops/elk-stack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopselk-stack"><span class="">ELK statck </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopspostgresql-li">
+  <input type="checkbox" id="m-docsdevopspostgresql-check"/>
+  <label for="m-docsdevopspostgresql-check"><a href="/docs/devops/postgresql/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopspostgresql"><span class="">Postgres Installation </span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check"/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformdiscussions-li">
+  <input type="checkbox" id="m-docsterraformdiscussions-check"/>
+  <label for="m-docsterraformdiscussions-check"><a href="/docs/terraform/discussions/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformdiscussions"><span class="">Discussions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-baremetalmd-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-baremetalmd-check"/>
+  <label for="m-docsopenshiftopenshift-baremetalmd-check"><a href="/docs/openshift/openshift-baremetal.md/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-baremetalmd"><span class="">Openshift Baremetal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocpsetup-li">
+  <input type="checkbox" id="m-docsopenshiftocpsetup-check"/>
+  <label for="m-docsopenshiftocpsetup-check"><a href="/docs/openshift/ocpsetup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocpsetup"><span class="">Openshift Installation and Upgradation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshifttoc-li">
+  <input type="checkbox" id="m-docsopenshifttoc-check"/>
+  <label for="m-docsopenshifttoc-check"><a href="/docs/openshift/toc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshifttoc"><span class="">Openshift TOC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-1-li">
+  <input type="checkbox" id="m-docsopenshiftpart-1-check"/>
+  <label for="m-docsopenshiftpart-1-check"><a href="/docs/openshift/part-1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-1"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-2-li">
+  <input type="checkbox" id="m-docsopenshiftpart-2-check"/>
+  <label for="m-docsopenshiftpart-2-check"><a href="/docs/openshift/part-2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-2"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Devops/Devops-advance.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Devops/Devops-advance.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#devops-toc-40-hrs">DevOps TOC (40 Hrs)</a></li>
+    <li><a href="#overview-of-devops">Overview of DevOps</a></li>
+    <li><a href="#version-control-with-git">Version Control with Git</a>
+      <ul>
+        <li><a href="#topics-1">Topics</a></li>
+        <li><a href="#hands-on-projects">Hands-on Projects</a></li>
+        <li><a href="#skills-you-will-learn">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#git-jenkins--maven-integration">Git, Jenkins &amp; Maven Integration</a>
+      <ul>
+        <li><a href="#topics-2">Topics</a></li>
+        <li><a href="#hands-on">Hands On</a></li>
+        <li><a href="#skills-you-will-learn-1">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#continuous-integration-using-jenkins">Continuous Integration using Jenkins</a>
+      <ul>
+        <li><a href="#topics-3">Topics</a></li>
+        <li><a href="#hands-on-1">Hands-on</a></li>
+        <li><a href="#skills-you-will-learn-2">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration-management-using-ansible">Configuration Management Using Ansible</a>
+      <ul>
+        <li><a href="#topics-4">Topics</a></li>
+        <li><a href="#hands-on-2">Hands-on</a></li>
+        <li><a href="#skills-you-will-learn-3">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#containerization-using-docker-part--i">Containerization using Docker Part – I</a>
+      <ul>
+        <li><a href="#topics-5">Topics</a></li>
+        <li><a href="#hands-on-3">Hands-on</a></li>
+        <li><a href="#skills-you-will-learn-4">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#containerization-using-docker-part--ii">Containerization using Docker Part – II</a>
+      <ul>
+        <li><a href="#topics-6">Topics</a></li>
+        <li><a href="#hands-on-4">Hands-on</a></li>
+        <li><a href="#skills-you-will-learn-5">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#orchestration-using-kubernetes-part---i">Orchestration using Kubernetes Part - I</a>
+      <ul>
+        <li><a href="#topics-7">Topics</a></li>
+        <li><a href="#hands-on-5">Hands-on</a></li>
+        <li><a href="#skills-you-will-learn-6">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#orchestration-using-kubernetes-part---ii">Orchestration using Kubernetes Part - II</a>
+      <ul>
+        <li><a href="#topics-8">Topics</a></li>
+        <li><a href="#hands-on-6">Hands On</a></li>
+        <li><a href="#skills-you-will-learn-7">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#monitoring-using-prometheus-and-grafana">Monitoring using Prometheus and Grafana</a>
+      <ul>
+        <li><a href="#topics-9">Topics</a></li>
+        <li><a href="#hands-on-7">Hands On</a></li>
+        <li><a href="#skills-you-will-learn-8">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#provisioning-using-terraform-part---i">Provisioning using Terraform Part - I</a>
+      <ul>
+        <li><a href="#topics-10">Topics</a></li>
+        <li><a href="#hands-on-8">Hands On</a></li>
+        <li><a href="#skills-you-will-learn-9">Skills You will Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="#provisioning-using-terraform-part---ii">Provisioning using Terraform Part - II</a>
+      <ul>
+        <li><a href="#topics-11">Topics</a></li>
+        <li><a href="#hands-on-9">Hands On</a></li>
+        <li><a href="#skills-you-will-learn-10">Skills You will Learn</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/devops/">Devops </a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/devops/devops-advance/">Devops for Advance Level</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Devops for Advance Level</h1>
+	
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics" data-heading="Topics" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="topics">Topics</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="devops-toc-40-hrs" data-heading="DevOps TOC (40 Hrs)" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="devops-toc-40-hrs">DevOps TOC (40 Hrs)</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-of-devops" data-heading="Overview of DevOps" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="overview-of-devops">Overview of DevOps</h2><ul>
+<li>Introduction to DevOps</li>
+<li>Benefits of working in a DevOps environment</li>
+<li>DevOps Lifecycle</li>
+<li>DevOps Stages</li>
+<li>DevOps Delivery Pipeline</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="version-control-with-git" data-heading="Version Control with Git" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="version-control-with-git">Version Control with Git</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-1" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-1">Topics</h3><ul>
+<li>Version Control</li>
+<li>Git Introduction</li>
+<li>Git Installation</li>
+<li>Commonly used commands in Git</li>
+<li>Working with Remote repository</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-projects" data-heading="Hands-on Projects" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-projects">Hands-on Projects</h3><ul>
+<li>Git Common Commands</li>
+<li>Working with Remote Repository</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn">Skills You will Learn</h3><ul>
+<li>Tracking and managing changes to code</li>
+<li>Source code management</li>
+<li>Tracking and saving changes in files</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="git-jenkins--maven-integration" data-heading="Git, Jenkins &amp; Maven Integration" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="git-jenkins--maven-integration">Git, Jenkins &amp; Maven Integration</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-2" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-2">Topics</h3><ul>
+<li>Branching and merging in Git</li>
+<li>Merge Conflicts</li>
+<li>Stashing, Rebasing, Reverting, and Resetting</li>
+<li>Git Workflows</li>
+<li>Introduction to Maven</li>
+<li>Maven Architecture</li>
+<li>Introduction to Continuous Integration</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on" data-heading="Hands On" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on">Hands On</h3><ul>
+<li>Branching and Merging</li>
+<li>Merge Conflicts</li>
+<li>Stashing, Rebasing, Reverting, and Resetting</li>
+<li>Configuring Maven</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-1" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-1">Skills You will Learn</h3><ul>
+<li>Creating multiple branches in a repository</li>
+<li>Build and manage projects</li>
+<li>Automating Continuous integration</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-integration-using-jenkins" data-heading="Continuous Integration using Jenkins" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="continuous-integration-using-jenkins">Continuous Integration using Jenkins</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-3" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-3">Topics</h3><ul>
+<li>Jenkins Architecture</li>
+<li>Plugin Management in Jenkins</li>
+<li>Jenkins Security Management</li>
+<li>Notification in Jenkins</li>
+<li>Jenkins Master-slave architecture</li>
+<li>Jenkins Delivery Pipeline</li>
+<li>Jenkins Declarative pipeline</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-1" data-heading="Hands-on" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-1">Hands-on</h3><ul>
+<li>Create pipeline view</li>
+<li>Adding Slave node in Jenkins</li>
+<li>Build Pipeline project</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-2" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-2">Skills You will Learn</h3><ul>
+<li>Creating Jenkins pipeline</li>
+<li>Enable Jenkins Pipeline Plugin</li>
+<li>Configuring plugin for email notification</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuration-management-using-ansible" data-heading="Configuration Management Using Ansible" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="configuration-management-using-ansible">Configuration Management Using Ansible</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-4" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-4">Topics</h3><ul>
+<li>Introduction to Configuration Management</li>
+<li>Infrastructure as Code</li>
+<li>Introduction to Ansible</li>
+<li>Ansible Architecture</li>
+<li>Inventory Management</li>
+<li>Ansible Modules</li>
+<li>AD-HOC Commands</li>
+<li>Ansible Playbooks</li>
+<li>Ansible Roles</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-2" data-heading="Hands-on" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-2">Hands-on</h3><ul>
+<li>Ad-Hoc Commands</li>
+<li>Running a Simple Playbook</li>
+<li>Using Variables and handlers</li>
+<li>Using Ansible Roles</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-3" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-3">Skills You will Learn</h3><ul>
+<li>Configuration management</li>
+<li>Ansible ad hoc commands</li>
+<li>Creating Ansible Playbook and Roles</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="containerization-using-docker-part--i" data-heading="Containerization using Docker Part – I" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="containerization-using-docker-part--i">Containerization using Docker Part – I</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-5" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-5">Topics</h3><ul>
+<li>Containerization</li>
+<li>Namespaces</li>
+<li>Docker</li>
+<li>Docker Architecture</li>
+<li>Container Lifecycle</li>
+<li>Docker CLI</li>
+<li>Port Binding</li>
+<li>Detached and Foreground Mode</li>
+<li>Dockerfile</li>
+<li>Dockerfile Instructions</li>
+<li>Docker Image</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-3" data-heading="Hands-on" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-3">Hands-on</h3><ul>
+<li>Docker CLI Commands</li>
+<li>Port Binding</li>
+<li>Starting Containers in Different Modes</li>
+<li>Writing a Dockerfile to Create an Image</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-4" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-4">Skills You will Learn</h3><ul>
+<li>Continuous Deployment</li>
+<li>Writing a Dockerfile to create an Image</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="containerization-using-docker-part--ii" data-heading="Containerization using Docker Part – II" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="containerization-using-docker-part--ii">Containerization using Docker Part – II</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-6" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-6">Topics</h3><ul>
+<li>Docker Registry</li>
+<li>Container Storage</li>
+<li>Volumes</li>
+<li>Docker Compose</li>
+<li>Docker Swarm</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-4" data-heading="Hands-on" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-4">Hands-on</h3><ul>
+<li>Setting up Docker Hub</li>
+<li>Docker Volumes</li>
+<li>Installing Docker Compose</li>
+<li>Installing a Multi-Container Application using Compose</li>
+<li>Running Docker in Swarm Mode</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-5" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-5">Skills You will Learn</h3><ul>
+<li>Configuring Local Registry</li>
+<li>Creating persistent storage solutions</li>
+<li>Deploying a Multi-container Application</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="orchestration-using-kubernetes-part---i" data-heading="Orchestration using Kubernetes Part - I" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="orchestration-using-kubernetes-part---i">Orchestration using Kubernetes Part - I</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-7" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-7">Topics</h3><ul>
+<li>Introduction to Container Orchestration</li>
+<li>Kubernetes Core Concepts</li>
+<li>Understanding Pods</li>
+<li>ReplicaSet and Replication Controller</li>
+<li>Deployments</li>
+<li>DaemonSets</li>
+<li>Rolling Updates and Rollbacks</li>
+<li>Scaling Application</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-5" data-heading="Hands-on" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-5">Hands-on</h3><ul>
+<li>Kubectl Common Commands</li>
+<li>Deployments</li>
+<li>DaemonSets</li>
+<li>Rolling-update and Rollbacks</li>
+<li>Scaling in Kubernetes</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-6" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-6">Skills You will Learn</h3><ul>
+<li>Container Orchestration</li>
+<li>Deploying pods</li>
+<li>Application Scaling</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="orchestration-using-kubernetes-part---ii" data-heading="Orchestration using Kubernetes Part - II" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="orchestration-using-kubernetes-part---ii">Orchestration using Kubernetes Part - II</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-8" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-8">Topics</h3><ul>
+<li>Services</li>
+<li>Persistent Storage in Kubernetes</li>
+<li>Primitives for PersistentVolumeClaims</li>
+<li>Secrets and ConfigMaps</li>
+<li>Headless Services</li>
+<li>StatefulSets</li>
+<li>Helm Charts</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-6" data-heading="Hands On" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-6">Hands On</h3><ul>
+<li>Deploying Services</li>
+<li>Persistent Volumes and Persistent Volume Claims</li>
+<li>StatefulSets</li>
+<li>ConfigMaps and Secrets</li>
+<li>Helm Charts</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-7" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-7">Skills You will Learn</h3><ul>
+<li>Deploying PersistentVolume</li>
+<li>Application Deployment</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitoring-using-prometheus-and-grafana" data-heading="Monitoring using Prometheus and Grafana" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="monitoring-using-prometheus-and-grafana">Monitoring using Prometheus and Grafana</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-9" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-9">Topics</h3><ul>
+<li>Introduction to Prometheus and Grafana</li>
+<li>Prometheus and Grafana Setup</li>
+<li>Monitoring using Prometheus</li>
+<li>Dashboard Visualization using Grafana</li>
+<li>Creating a Dashboard to monitor the Pipeline</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-7" data-heading="Hands On" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-7">Hands On</h3><ul>
+<li>Monitoring Service using Prometheus</li>
+<li>Alerting using Prometheus</li>
+<li>Grafana Dashboards</li>
+<li>Monitoring a Pipeline</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-8" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-8">Skills You will Learn</h3><ul>
+<li>Event monitoring and alerting</li>
+<li>Metric visualizations</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="provisioning-using-terraform-part---i" data-heading="Provisioning using Terraform Part - I" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="provisioning-using-terraform-part---i">Provisioning using Terraform Part - I</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-10" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-10">Topics</h3><ul>
+<li>Introduction to Terraform</li>
+<li>Terraform vs Ansible</li>
+<li>Terraform Architecture</li>
+<li>Terraform Configuration</li>
+<li>Terraform Common Commands</li>
+<li>Managing Terraform Resources</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-8" data-heading="Hands On" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-8">Hands On</h3><ul>
+<li>Setting Up AWS and Terraform</li>
+<li>Executing a Terraform Configuration</li>
+<li>Managing Terraform Resources</li>
+<li>Referencing Terraform Resources</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-9" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-9">Skills You will Learn</h3><ul>
+<li>Orchestrate infrastructure changes</li>
+<li>Resource Provisioning</li>
+<li>Managing Resources in Terraform</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="provisioning-using-terraform-part---ii" data-heading="Provisioning using Terraform Part - II" data-level="2" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h2 id="provisioning-using-terraform-part---ii">Provisioning using Terraform Part - II</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics-11" data-heading="Topics" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="topics-11">Topics</h3><ul>
+<li>Terraform State</li>
+<li>Terraform Project</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="hands-on-9" data-heading="Hands On" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="hands-on-9">Hands On</h3><ul>
+<li>Terraform State Commands</li>
+<li>Terraform Project</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="skills-you-will-learn-10" data-heading="Skills You will Learn" data-level="3" data-permalink="/docs/devops/devops-advance/" data-title="Devops for Advance Level" -->
+<h3 id="skills-you-will-learn-10">Skills You will Learn</h3><ul>
+<li>Storing infrastructure information</li>
+</ul>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

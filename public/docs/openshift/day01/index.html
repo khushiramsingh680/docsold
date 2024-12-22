@@ -1,0 +1,803 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Day01 | Documentation</title>
+<meta name="description" content="Day01">
+<meta property="og:title" content="Day01" />
+<meta property="og:description" content="Day01" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/openshift/day01/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-05T00:00:00+00:00" />
+
+<meta itemprop="name" content="Day01">
+<meta itemprop="description" content="Day01"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1153">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Day01"/>
+<meta name="twitter:description" content="Day01"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.3bf9019cc598e755d4124f2b8cdaa9bd8fb8882cb56a470be9983e5fee3bbd7c.css" as="style">
+<link href="/scss/main.min.3bf9019cc598e755d4124f2b8cdaa9bd8fb8882cb56a470be9983e5fee3bbd7c.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span class="active">Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span>Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.98e46b1b70fb665bcdc0d9e2215dc380.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.98e46b1b70fb665bcdc0d9e2215dc380.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check"/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check" checked/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftday01-li">
+  <input type="checkbox" id="m-docsopenshiftday01-check"/>
+  <label for="m-docsopenshiftday01-check"><a href="/docs/openshift/day01/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftday01"><span class="td-sidebar-nav-active-item">Day01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftday02-li">
+  <input type="checkbox" id="m-docsopenshiftday02-check"/>
+  <label for="m-docsopenshiftday02-check"><a href="/docs/openshift/day02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftday02"><span class="">Day02</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/OpenShift/Day01.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/OpenShift/Day01.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#openshift-cluster-installation-upgradation-and-management">Openshift Cluster Installation ,Upgradation and Management.</a></li>
+        <li><a href="#prequisites">Prequisites:</a></li>
+        <li><a href="#debugging-openshift--nodes-with-crictl">Debugging Openshift  nodes with crictl</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#rbac-required-to-manage-the-installation">RBAC required to manage the installation</a></li>
+    <li><a href="#informations-about-dns">Informations about DNS</a></li>
+    <li><a href="#steps-to-be-performed-prior-to-installation">Steps To be Performed Prior to Installation</a></li>
+    <li><a href="#steps-to-generate-ssh-key">Steps to Generate SSH Key</a></li>
+    <li><a href="#example-of-install-configyaml">Example of install-config.yaml</a></li>
+    <li><a href="#obtaining-the-installation-program">Obtaining the installation program</a></li>
+    <li><a href="#deploying-the-cluster">Deploying the cluster</a></li>
+    <li><a href="#important-links">Important Links</a></li>
+    <li><a href="#crictl-command-line-tool-for-managing-cri-o-based-containers-and-images">Crictl (Command line tool for managing cri-o based containers and images)</a></li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/openshift/">Openshift</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/openshift/day01/">Day01</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Day01</h1>
+	<div class="lead">Day01</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	
+
+<div class="pageinfo pageinfo-primary">
+<p>Openshift Cluster Installation ,Upgradation and Management.</p>
+
+</div>
+
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="openshift-cluster-installation-upgradation-and-management" data-heading="Openshift Cluster Installation ,Upgradation and Management." data-level="3" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h3 id="openshift-cluster-installation-upgradation-and-management">Openshift Cluster Installation ,Upgradation and Management.</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prequisites" data-heading="Prequisites:" data-level="3" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h3 id="prequisites">Prequisites:</h3><ul>
+<li>
+<p>Login to <a href="https://aws.amazon.com/console/" target="_blank" rel="noopener">AWS Cloud </a></p>
+</li>
+<li>
+<p>Create a Virtual Machine</p>
+</li>
+<li>
+<p>Create a admin role and assign to the ec2 instance.</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> Create your account on <a href="https://console.redhat.com/" target="_blank" rel="noopener">Cloud.redhat.com</a>
+<img src="/ocp01.png" alt=""></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> Download Installer and Pull secret</p>
+<p><img src="/ocp02.png" alt=""></p>
+</li>
+<li>
+<p>Follow the <a href="https://docs.openshift.com/container-platform/4.10/installing/installing_aws/installing-aws-default.html" target="_blank" rel="noopener">Redhat document</a> for Installation</p>
+</li>
+<li>
+<p>Configure AWS Account using <a href="https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-account.html#installing-aws-account" target="_blank" rel="noopener">link</a></p>
+</li>
+<li>
+<p>Get Domain from <a href="https://www.freenom.com/en/index.html?lang=en" target="_blank" rel="noopener">Freenom.com</a></p>
+</li>
+<li>
+<p>Know AWS account <a href="https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-account.html#installing-aws-account" target="_blank" rel="noopener">Limit </a></p>
+</li>
+<li>
+<p>Create one Ec2 instance</p>
+</li>
+<li>
+<p>Configure <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener">AWS Cli</a> with Admin access on newly created ec2 instance.</p>
+</li>
+<li>
+<p>Make a test using below command</p>
+</li>
+</ul>
+<pre tabindex="0"><code>aws s3 ls
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> List the OpenShift Container Platform web console route:</li>
+</ul>
+<pre tabindex="0"><code>oc get routes -n openshift-console | grep &#39;console-openshift&#39;
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Login to Opeshift Cluster.</li>
+</ul>
+<pre tabindex="0"><code>oc login -u &lt;username&gt; -p &lt;Password&gt;
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Login to Openshift using kubeconfig</li>
+<li><input disabled="" type="checkbox"> Login to OpenShift using Token</li>
+</ul>
+<pre tabindex="0"><code>oc login --token=&lt;token&gt; --server=&lt;CLuster URL&gt;
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Verifying the Health of OpenShift Nodes</li>
+</ul>
+<pre tabindex="0"><code>oc get nodes
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check the cpu and memory usage of each node</li>
+</ul>
+<pre tabindex="0"><code>oc adm top nodes
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check more information about a node</li>
+</ul>
+<pre tabindex="0"><code>oc describe node my-node-name
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check Openshift cluster Version</li>
+</ul>
+<pre tabindex="0"><code>oc get clusterversion
+oc describe clusterversion
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check Cluster Operator</li>
+</ul>
+<pre tabindex="0"><code>oc get co
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Displaying the Logs of OpenShift Nodes</li>
+</ul>
+<pre tabindex="0"><code>oc adm node-logs -u crio my-node-name
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check the logs for kubelet Service</li>
+</ul>
+<pre tabindex="0"><code>oc adm node-logs -u kubelet my-node-name
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> check all type of logs for a node</li>
+</ul>
+<pre tabindex="0"><code>oc adm node-logs my-node-name
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Login to Cluster node using below command and check kubelet service</li>
+</ul>
+<pre tabindex="0"><code>oc debug node/my-node-name
+systemctl is-active kubelet
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Display the currently authenticated user</li>
+</ul>
+<pre tabindex="0"><code>oc whoami
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check the openshift URL</li>
+</ul>
+<pre tabindex="0"><code>oc whoami  --show-console
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check openshift Api using below command</li>
+</ul>
+<pre tabindex="0"><code>oc whoami  --show-server 
+</code></pre><ul>
+<li><input disabled="" type="checkbox"> Check the token used by user</li>
+</ul>
+<pre tabindex="0"><code>oc whoami  --show-token
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="debugging-openshift--nodes-with-crictl" data-heading="Debugging Openshift  nodes with crictl" data-level="3" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h3 id="debugging-openshift--nodes-with-crictl">Debugging Openshift  nodes with crictl</h3><p><a href="https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="openshift-4-installation-on-aws" data-heading="Openshift 4 installation on AWS" data-level="1" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h1 id="openshift-4-installation-on-aws">Openshift 4 installation on AWS</h1><!-- end-chunk -->
+<!-- begin-chunk data-anchor="description" data-heading="Description" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="description">Description</h2><p>This document describes the installation of OCP4 on the AWS</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rbac-required-to-manage-the-installation" data-heading="RBAC required to manage the installation" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="rbac-required-to-manage-the-installation">RBAC required to manage the installation</h2><p>Be sure to be able to access to :</p>
+<ul>
+<li>the dedicated AWS environment as Admin for that cluster.</li>
+<li>the Redhat Account.</li>
+<li>to Azure account as Admin to create service Principles.</li>
+<li>Bastion environment.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="informations-about-dns" data-heading="Informations about DNS" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="informations-about-dns">Informations about DNS</h2><p>There should be existing Public Hosted Zone in Route53. In case of stratus, we were having &ldquo;stratus.soprasteria.com&rdquo; as Hosted Zone.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-be-performed-prior-to-installation" data-heading="Steps To be Performed Prior to Installation" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="steps-to-be-performed-prior-to-installation">Steps To be Performed Prior to Installation</h2><p><strong>Create a SSH key</strong></p>
+<p>For production OpenShift Container Platform clusters on which you want to perform installation debugging or disaster recovery, you must provide an SSH key that your ssh-agent process uses to the installer. You can use this key to access the bootstrap machine in a public cluster to troubleshoot installation issues.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="steps-to-generate-ssh-key" data-heading="Steps to Generate SSH Key" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="steps-to-generate-ssh-key">Steps to Generate SSH Key</h2><ul>
+<li>Generate the ssh-key through below command.
+<pre tabindex="0"><code>ssh-keygen
+</code></pre></li>
+<li>Start the ssh-agent process as a background task</li>
+</ul>
+<pre tabindex="0"><code>eval &#34;$(ssh-agent -s)&#34;
+</code></pre><ul>
+<li>Add SSH private key to the ssh-agent</li>
+</ul>
+<pre tabindex="0"><code>ssh-add /root/.ssh/id_rsa
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="example-of-install-configyaml" data-heading="Example of install-config.yaml" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="example-of-install-configyaml">Example of install-config.yaml</h2><pre tabindex="0"><code>[root@ip-172-31-32-217 ec2-user]# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:vr+aWqjvwNJCkqS7ZSdZWzJjt0N1uSAqukjilRd4I/I root@ip-172-31-32-217.eu-west-3.compute.internal
+The key&#39;s randomart image is:
++---[RSA 3072]----+
+|                 |
+|           .     |
+| .    . o o      |
+|o.  .. o o .     |
+|+.ooB++ S .      |
+| =oB+Oo+         |
+|+.BE*.+ o        |
+|==.=.o o o       |
+|+.  .o+.+oo.     |
++----[SHA256]-----+
+[root@ip-172-31-32-217 ec2-user]# eval &#34;$(ssh-agent -s)&#34;
+Agent pid 13802
+[root@ip-172-31-32-217 ec2-user]# ssh-add /root/.ssh/id_rsa
+Identity added: /root/.ssh/id_rsa (root@ip-172-31-32-217.eu-west-3.compute.internal)
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="obtaining-the-installation-program" data-heading="Obtaining the installation program" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="obtaining-the-installation-program">Obtaining the installation program</h2><ul>
+<li>Access the Infrastructure Provider page on the OpenShift Cluster Manager site and Login to the Redhat Account.</li>
+<li>Select your infrastructure provider.</li>
+<li>Navigate to the page for your installation type, download the installation program for your operating system, and place the    file in the directory where you will store the installation configuration files.</li>
+</ul>
+<pre tabindex="0"><code>wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz
+</code></pre><ul>
+<li>Extract the installation program</li>
+</ul>
+<pre tabindex="0"><code>tar xvf openshift-install-linux.tar.gz
+</code></pre><ul>
+<li>Also download the pull secret from the Red Hat OpenShift Cluster Manager.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="deploying-the-cluster" data-heading="Deploying the cluster" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="deploying-the-cluster">Deploying the cluster</h2><ul>
+<li>
+<p>Login to the Bastion server.</p>
+</li>
+<li>
+<p>Run the below command to generate the Installation Config file.</p>
+</li>
+</ul>
+<pre tabindex="0"><code>./openshift-install create install-config --dir install-new --log-level=debug
+</code></pre><p><strong>NOTE :- As soon as you run the above command, it will ask for basic information like you need to select the Hosted zone, name of the cluster, Zone where you want your VM&rsquo;s to run, ssh key and Pull secret.</strong></p>
+<p>This will create the Install config file. Example for the Installation Config file shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">install-config</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    apiVersion: v1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    baseDomain: &lt;domian&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    compute:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - architecture: amd64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      hyperthreading: Enabled
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: worker
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      platform: {}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      replicas: 3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    controlPlane:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      architecture: amd64
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      hyperthreading: Enabled
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: master
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      platform: {}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      replicas: 3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    metadata:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      creationTimestamp: null
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: newname
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    networking:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      clusterNetwork:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - cidr: 10.128.0.0/14
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        hostPrefix: 23
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      machineNetwork:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - cidr: 10.0.0.0/16
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      networkType: OpenShiftSDN
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      serviceNetwork:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - 172.30.0.0/16
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    platform:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      aws:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        region: eu-west-3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    publish: External
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    pullSecret: &#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    sshKey: |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeRsMvsXUxzVsnn70zziGkmoCMGwS7A7gswhlvcCoswq1/q3j9yrh91Q8gF0aiKFJmsm45uD1r1DrXc10v+61fmdWcf862YldDBEKF34VN+SJT0wYEy8y3zso8hJ0csi2IB49ywXdw9OZaNk3UrCPbgVhhVZgP4g/thPGNjpJsI10ksuMIE+0Z4cQUbNPR8D1UbOrzPe45ziE1eKYsrRLj0tnQ2Zf8dBRF1NbnmpsfThoQhsQ8e/MGPIaD61BgRr6a/iFHDLYtn1TqyRaUqBrGM1r5hX4Kh6+zI8J1cPmgtNcJhoKvY38npkuKoJYqfhcuvxgKC7k3F43haTwR+5Sz ec2-user@ip-172-31-45-81.eu-west-3.compute.internal</span>    
+</span></span></code></pre></div><p><strong>NOTE :- Verify the Install config file to check if you have the desired cluster configuration.</strong></p>
+<ul>
+<li>Now run the below command to start the Cluster creation Process</li>
+</ul>
+<pre tabindex="0"><code>./openshift-install create cluster --dir &lt;directory where install-config is present&gt; --log-level=debug
+</code></pre><p>Now, wait for the around 40-50 mins for the setup of the cluster where you will get the output similar to below one which will have kube-admin details as well as API cluster link.</p>
+<pre tabindex="0"><code>...
+INFO Install complete!
+INFO To access the cluster as the system:admin user when using &#39;oc&#39;, run &#39;export KUBECONFIG=/home/myuser/install_dir/auth/kubeconfig&#39;
+INFO Access the OpenShift web-console here: https://console-openshift-console.apps.mycluster.example.com
+INFO Login to the console with user: &#34;kubeadmin&#34;, and password: &#34;4vYBz-Ee6gm-ymBZj-Wt5AL&#34;
+INFO Time elapsed: 36m22s
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="important-links" data-heading="Important Links" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="important-links">Important Links</h2><ul>
+<li>
+<p>Openshift on AWS Installation Link.
+<a href="https://docs.openshift.com/container-platform/4.7/installing/installing_aws/installing-aws-default.html" target="_blank" rel="noopener">https://docs.openshift.com/container-platform/4.7/installing/installing_aws/installing-aws-default.html</a></p>
+</li>
+<li>
+<p>Installation Program Link.
+<a href="https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/" target="_blank" rel="noopener">https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/</a></p>
+</li>
+<li>
+<p>ovnkube resource containers from the nodes (Optional)</p>
+</li>
+</ul>
+<pre tabindex="0"><code>for i in $(oc get node | grep master | awk {&#39;print $1&#39;}); do echo $i; oc debug node/${i} -- chroot /host sh -c &#34;mkdir /tmp/ovnlogs &amp;&amp; cp /var/log/containers/ovnkube*.log /tmp/ovnlogs&#34;; done
+</code></pre><ul>
+<li>Test Api server if any issue occurs</li>
+</ul>
+<pre tabindex="0"><code>oc exec -it apiserver-xxx -c openshift-apiserver -n openshift-apiserver sh
+
+curl -v 10.131.34.32:8443
+</code></pre><ul>
+<li>Simultaneously we collected tcpdump on all master nodes:</li>
+</ul>
+<pre tabindex="0"><code>$ tcpdump -nn -i any -w /tmp/$(hostname)-$(date +&#34;%Y-%m-%d-%H-%M-%S&#34;).pcap
+</code></pre><ul>
+<li>if Api server is not reachanble from outside ,login to one of the master node and try below command</li>
+</ul>
+<pre tabindex="0"><code>curl -k https://{IP}:8443/readyz` to all openshift-apiserver pods
+</code></pre><ul>
+<li>How to collect the inspect information for all co</li>
+</ul>
+<pre tabindex="0"><code>https://access.redhat.com/solutions/6995290
+oc adm inspect co --request-timeout=30m
+</code></pre><ul>
+<li>Collect the inspect report for a single project</li>
+</ul>
+<pre tabindex="0"><code>oc adm ns inspect ns/openshift-apiserver
+</code></pre><ul>
+<li>you get the below message once the installation is completed.</li>
+</ul>
+<pre tabindex="0"><code>
+INFO     export KUBECONFIG=/home/ec2-user/auth/kubeconfig
+INFO Access the OpenShift web-console here: https://console-openshift-console.apps.myapp.openshift.gq
+INFO Login to the console with user: &#34;kubeadmin&#34;, and password: &#34;479aZ-Z2QZy-UdCQy-9d9VN&#34;
+</code></pre><ul>
+<li>If you have lost all the password like kubeadmin password and kubeconfig file as well you can still run the command.</li>
+</ul>
+<pre tabindex="0"><code> cd /etc/kubernetes/static-pod-resources/kube-apiserver-certs/secrets/node-kubeconfigs/
+ export KUBECONFIG=$(pwd)/localhost.kubeconfig
+ oc whoami
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="crictl-command-line-tool-for-managing-cri-o-based-containers-and-images" data-heading="Crictl (Command line tool for managing cri-o based containers and images)" data-level="2" data-permalink="/docs/openshift/day01/" data-title="Day01" -->
+<h2 id="crictl-command-line-tool-for-managing-cri-o-based-containers-and-images">Crictl (Command line tool for managing cri-o based containers and images)</h2><ul>
+<li>pull ubuntu image</li>
+</ul>
+<pre tabindex="0"><code>sudo crictl pull ubuntu
+</code></pre><ul>
+<li>List Images</li>
+</ul>
+<pre tabindex="0"><code>sudo crictl images
+</code></pre><ul>
+<li>Delete an image</li>
+</ul>
+<pre tabindex="0"><code>sudo crictl rmi 08d22c0ceb150
+</code></pre><ul>
+<li>Print information about specific containers</li>
+</ul>
+<pre tabindex="0"><code>crictl inspect [container_id1 container_id2 ...]
+</code></pre><ul>
+<li>Open a specific shell inside a running container</li>
+</ul>
+<pre tabindex="0"><code> crictl exec -it [container_id] [sh]
+</code></pre><ul>
+<li>Pull a specific image from a registry</li>
+</ul>
+<pre tabindex="0"><code> crictl pull [image:tag]
+</code></pre><ul>
+<li>Print and [f]ollow logs of a specific container</li>
+</ul>
+<pre tabindex="0"><code> crictl logs -f [container_id]
+</code></pre><ul>
+<li>Remove one or more images</li>
+</ul>
+<pre tabindex="0"><code> crictl rmi [image_id1 image_id2 ...]
+</code></pre>
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

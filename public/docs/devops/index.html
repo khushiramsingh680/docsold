@@ -1,0 +1,1029 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/devops/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Devops | Documentation</title>
+<meta name="description" content="
+
+Topics
+Overview of Devops
+Overview of SDLC model
+
+Waterfall
+Agile
+
+
+Vm management
+
+Virtualbox
+Vagrant
+Google Cloud
+
+
+Linux Basics Overview
+
+Linux …&lt;/!--&gt;&lt;/!--&gt;">
+<meta property="og:title" content="Devops" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/devops/" />
+
+<meta itemprop="name" content="Devops">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Devops"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" as="style">
+<link href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/devops/" ><i class='fas fa-user-check'></i><span class="active">Devops </span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span>Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span>Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberneteshardway/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberneteshardway"><span class="">Kubernets Installation From Scatch on rocky 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousminio-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousminio-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousminio-check"><a href="/docs/kubernetes/docs/miscellaneous/minio/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousminio"><span class="">The Object Store for AI Data Infrastructure</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsdevops-li">
+  <input type="checkbox" id="m-docsdevops-check"/>
+  <label for="m-docsdevops-check"><a href="/docs/devops/" title="Devops" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsdevops"><i class="fas fa-user-check"></i><span class="td-sidebar-nav-active-item">Devops </span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevops-advance-li">
+  <input type="checkbox" id="m-docsdevopsdevops-advance-check"/>
+  <label for="m-docsdevopsdevops-advance-check"><a href="/docs/devops/devops-advance/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevops-advance"><span class="">Devops for Advance Level</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevopsl1-li">
+  <input type="checkbox" id="m-docsdevopsdevopsl1-check"/>
+  <label for="m-docsdevopsdevopsl1-check"><a href="/docs/devops/devopsl1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevopsl1"><span class="">Devops for Begineers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopselk-stack-li">
+  <input type="checkbox" id="m-docsdevopselk-stack-check"/>
+  <label for="m-docsdevopselk-stack-check"><a href="/docs/devops/elk-stack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopselk-stack"><span class="">ELK statck </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopspostgresql-li">
+  <input type="checkbox" id="m-docsdevopspostgresql-check"/>
+  <label for="m-docsdevopspostgresql-check"><a href="/docs/devops/postgresql/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopspostgresql"><span class="">Postgres Installation </span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check"/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformdiscussions-li">
+  <input type="checkbox" id="m-docsterraformdiscussions-check"/>
+  <label for="m-docsterraformdiscussions-check"><a href="/docs/terraform/discussions/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformdiscussions"><span class="">Discussions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-baremetalmd-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-baremetalmd-check"/>
+  <label for="m-docsopenshiftopenshift-baremetalmd-check"><a href="/docs/openshift/openshift-baremetal.md/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-baremetalmd"><span class="">Openshift Baremetal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocpsetup-li">
+  <input type="checkbox" id="m-docsopenshiftocpsetup-check"/>
+  <label for="m-docsopenshiftocpsetup-check"><a href="/docs/openshift/ocpsetup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocpsetup"><span class="">Openshift Installation and Upgradation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshifttoc-li">
+  <input type="checkbox" id="m-docsopenshifttoc-check"/>
+  <label for="m-docsopenshifttoc-check"><a href="/docs/openshift/toc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshifttoc"><span class="">Openshift TOC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-1-li">
+  <input type="checkbox" id="m-docsopenshiftpart-1-check"/>
+  <label for="m-docsopenshiftpart-1-check"><a href="/docs/openshift/part-1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-1"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-2-li">
+  <input type="checkbox" id="m-docsopenshiftpart-2-check"/>
+  <label for="m-docsopenshiftpart-2-check"><a href="/docs/openshift/part-2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-2"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Devops/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Devops/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#topics">Topics</a>
+      <ul>
+        <li><a href="#devops-overview">Devops Overview</a></li>
+        <li><a href="#the-devops-lifecycle-and-how-devops-works">The DevOps lifecycle and how DevOps works</a>
+          <ul>
+            <li><a href="#plan">Plan</a></li>
+            <li><a href="#create">Create</a></li>
+            <li><a href="#verify">Verify</a></li>
+            <li><a href="#package">Package</a></li>
+            <li><a href="#secure">Secure</a></li>
+            <li><a href="#release">Release</a></li>
+            <li><a href="#configure">Configure</a></li>
+            <li><a href="#monitor">Monitor</a></li>
+            <li><a href="#govern">Govern</a></li>
+          </ul>
+        </li>
+        <li><a href="#what-is-cicd">What is CI/CD?</a></li>
+      </ul>
+    </li>
+    <li><a href="#monitoring">Monitoring</a>
+      <ul>
+        <li><a href="#prometheus">Prometheus</a>
+          <ul>
+            <li><a href="#features">Features:</a></li>
+            <li><a href="#the-prometheus-ecosystem-encompasses-several-components-they-include">The Prometheus ecosystem encompasses several components. They include:</a></li>
+            <li><a href="#prerequisites-for-prometheus-installation">Prerequisites for Prometheus Installation</a>
+              <ul>
+                <li><a href="#add-prometheus-repositories">Add Prometheus Repositories</a></li>
+                <li><a href="#you-can-access-prometheus-using-the-url-httpip_address9090">you can access Prometheus using the URL http://IP_Address:9090</a></li>
+              </ul>
+            </li>
+            <li><a href="#install-and-configure-node-exporter">Install and Configure Node Exporter</a></li>
+            <li><a href="#install-and-configure-blackbox-exporter">Install and Configure Blackbox exporter</a></li>
+          </ul>
+        </li>
+        <li><a href="#configuring-alert-manager">Configuring Alert Manager</a></li>
+        <li><a href="#promql-wip">Promql (WIP)</a>
+          <ul>
+            <li><a href="#promqul-basics">Promqul: Basics</a></li>
+            <li><a href="#prometheus-metric-and-data-types">Prometheus Metric and Data Types</a></li>
+            <li><a href="#prometheus-has-four-metric-types">Prometheus has four metric types:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/devops/">Devops </a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Devops</h1>
+  
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics" data-heading="Topics" data-level="2" data-permalink="/docs/devops/" data-title="Devops" -->
+<h2 id="topics">Topics</h2><ul>
+<li>Overview of Devops</li>
+<li>Overview of SDLC model
+<ul>
+<li>Waterfall</li>
+<li>Agile</li>
+</ul>
+</li>
+<li>Vm management
+<ul>
+<li>Virtualbox</li>
+<li>Vagrant</li>
+<li>Google Cloud</li>
+</ul>
+</li>
+<li>Linux Basics Overview
+<ul>
+<li>Linux File Structure</li>
+<li>Linux file management</li>
+<li>Linux Network Management</li>
+<li>Linux Process Management</li>
+<li>Linux User Management</li>
+<li>Linux Service Management</li>
+</ul>
+</li>
+<li>Web Server
+<ul>
+<li>Http with ssl</li>
+<li>Reverse Proxy</li>
+<li>Letus encrypt for ssl certificate</li>
+<li>SSL related commands</li>
+</ul>
+</li>
+<li>ApplicationServer
+<ul>
+<li>Tomcat</li>
+<li>Securing tomcat with ssl</li>
+</ul>
+</li>
+<li>DNS Overview and testing utilities
+<ul>
+<li>nslookup</li>
+<li>dig</li>
+</ul>
+</li>
+<li>Tools Covered
+<ul>
+<li>Code Management
+<ul>
+<li>Git</li>
+</ul>
+</li>
+<li>CICD Tools
+<ul>
+<li>Jenkins</li>
+<li>Gitlab</li>
+<li>Github</li>
+</ul>
+</li>
+<li>Infrastracture as a code
+<ul>
+<li>Terraform</li>
+</ul>
+</li>
+<li>Configuration Management
+<ul>
+<li>Ansible</li>
+</ul>
+</li>
+<li>Containerization
+<ul>
+<li>Docker</li>
+<li>Kubernetes</li>
+</ul>
+</li>
+<li>Static Code Testing
+<ul>
+<li>Sonarqube</li>
+</ul>
+</li>
+<li>Monitoring &amp; Logging
+<ul>
+<li>Prometheus</li>
+<li>Grafana</li>
+<li>Grafana Loki</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="devops-overview" data-heading="Devops Overview" data-level="3" data-permalink="/docs/devops/" data-title="Devops" -->
+<h3 id="devops-overview">Devops Overview</h3><p>DevOps is a set of practices, tools, and a cultural philosophy that automate and integrate the processes between software development and IT teams. It emphasizes team empowerment, cross-team communication and collaboration, and technology automation.</p>
+<p>DevOps combines development and operations to increase the efficiency, speed, and security of software development and delivery compared to traditional processes. A more nimble software development lifecycle results in a competitive advantage for businesses and their customers.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="the-devops-lifecycle-and-how-devops-works" data-heading="The DevOps lifecycle and how DevOps works" data-level="3" data-permalink="/docs/devops/" data-title="Devops" -->
+<h3 id="the-devops-lifecycle-and-how-devops-works">The DevOps lifecycle and how DevOps works</h3><p>The DevOps lifecyle stretches from the beginning of software development through to delivery, maintenance, and security. The stages of the DevOps lifecycle are:</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="plan" data-heading="Plan" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="plan">Plan</h4><p>Organize the work that needs to be done, prioritize it, and track its completion.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="create" data-heading="Create" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="create">Create</h4><p>Write, design, develop and securely manage code and project data with your team.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="verify" data-heading="Verify" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="verify">Verify</h4><p>Ensure that your code works correctly and adheres to your quality standards — ideally with automated testing.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="package" data-heading="Package" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="package">Package</h4><p>Package your applications and dependencies, manage containers, and build artifacts.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="secure" data-heading="Secure" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="secure">Secure</h4><p>Check for vulnerabilities through static and dynamic tests, fuzz testing, and dependency scanning.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="release" data-heading="Release" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="release">Release</h4><p>Deploy the software to end users.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure" data-heading="Configure" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="configure">Configure</h4><p>Manage and configure the infrastructure required to support your applications.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitor" data-heading="Monitor" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="monitor">Monitor</h4><p>Track performance metrics and errors to help reduce the severity and frequency of incidents.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="govern" data-heading="Govern" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="govern">Govern</h4><p>Manage security vulnerabilities, policies, and compliance across your organization.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="what-is-cicd" data-heading="What is CI/CD?" data-level="3" data-permalink="/docs/devops/" data-title="Devops" -->
+<h3 id="what-is-cicd">What is CI/CD?</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="monitoring" data-heading="Monitoring" data-level="2" data-permalink="/docs/devops/" data-title="Devops" -->
+<h2 id="monitoring">Monitoring</h2><ul>
+<li>Prometheus</li>
+<li>Node_Exporter</li>
+<li>Wmi Exporter</li>
+<li>BlackBox Exporter</li>
+<li>AlertManager</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prometheus" data-heading="Prometheus" data-level="3" data-permalink="/docs/devops/" data-title="Devops" -->
+<h3 id="prometheus">Prometheus</h3><p>Prometheus is a free and open-source toolkit used for time series event monitoring and alerting. It was originally developed by SoundCloud in 2012. Prometheus was then adopted by several companies and active developers around the world. In 2016, it was elevated to the Cloud Native Computing Foundation as the second hosted project after Kubernetes.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="features" data-heading="Features:" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="features">Features:</h4><ul>
+<li>Time-series metrics collection which happens via a pull model over HTTP</li>
+<li>It uses PromQL, which is a flexible query language to leverage this dimensionality</li>
+<li>It doesn’t rely on distributed storage; single server nodes are autonomous</li>
+<li>It uses a multi-dimensional data model where time series data is identified by metric name and key/value pairs</li>
+<li>Targets are discovered via service discovery or static configuration</li>
+<li>It supports multiple modes of graphing and dashboarding.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="the-prometheus-ecosystem-encompasses-several-components-they-include" data-heading="The Prometheus ecosystem encompasses several components. They include:" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="the-prometheus-ecosystem-encompasses-several-components-they-include">The Prometheus ecosystem encompasses several components. They include:</h4><ul>
+<li><strong>Prometheus server</strong> – scrapes and stores time series data</li>
+<li><strong>Client libraries</strong> – used to instrument application code</li>
+<li><strong>Push gateway</strong> – to support short-lived jobs</li>
+<li><strong>Special-purpose exporters</strong> – for services such as HAProxy, StatsD, Graphite e.t.c</li>
+<li><strong>Alert manager</strong> – for alert handling</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-for-prometheus-installation" data-heading="Prerequisites for Prometheus Installation" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="prerequisites-for-prometheus-installation">Prerequisites for Prometheus Installation</h4><ul>
+<li>Virtualbox</li>
+<li>Prometheus</li>
+<li>Linux Server 1 CPU and 2Gb of Memory</li>
+<li>Create 2 linux vms</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"></code></pre></div><ul>
+<li>Update the linux Os</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>dnf update -y
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="add-prometheus-repositories" data-heading="Add Prometheus Repositories" data-level="5" data-permalink="/docs/devops/" data-title="Devops" -->
+<h5 id="add-prometheus-repositories">Add Prometheus Repositories</h5><ul>
+<li>Enable Epel Repo</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo dnf -y install epel-release vim
+</span></span></code></pre></div><ul>
+<li>Add prometheus Repo</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -s https://packagecloud.io/install/repositories/prometheus-rpm/release/script.rpm.sh | sudo bash
+</span></span></code></pre></div><ul>
+<li>Install Prometheus</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo dnf install prometheus -y
+</span></span></code></pre></div><ul>
+<li>
+<p>Once installed, Prometheus stores its data at /var/lib/prometheus and config files at /etc/prometheus/.</p>
+</li>
+<li>
+<p>The default configuration file is at /etc/prometheus/prometheus.yml</p>
+</li>
+<li>
+<p>Start and enable service using below commands:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl start prometheus
+</span></span><span style="display:flex;"><span>sudo systemctl enable prometheus
+</span></span></code></pre></div><ul>
+<li>check the status of prometheus service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemctl status prometheus
+</span></span></code></pre></div><ul>
+<li>Allow the port through the firewall if firewall is in use</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo firewall-cmd --add-port<span style="color:#f92672">=</span>9090/tcp --permanent
+</span></span><span style="display:flex;"><span>sudo firewall-cmd --reload
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="you-can-access-prometheus-using-the-url-httpip_address9090" data-heading="you can access Prometheus using the URL http://IP_Address:9090" data-level="5" data-permalink="/docs/devops/" data-title="Devops" -->
+<h5 id="you-can-access-prometheus-using-the-url-httpip_address9090">you can access Prometheus using the URL http://IP_Address:9090</h5><ul>
+<li>Check all targets</li>
+<li>Configuration files and other details</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="install-and-configure-node-exporter" data-heading="Install and Configure Node Exporter" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="install-and-configure-node-exporter">Install and Configure Node Exporter</h4><ul>
+<li>Add prometheus Repo</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl -s https://packagecloud.io/install/repositories/prometheus-rpm/release/script.rpm.sh | sudo bash
+</span></span></code></pre></div><ul>
+<li>Install node_exporter</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo dnf -y install node_exporter
+</span></span></code></pre></div><ul>
+<li>Start and enable the service after installation:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl enable --now node_exporter
+</span></span></code></pre></div><ul>
+<li>Check node_exporter service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemctl status node_exporter
+</span></span></code></pre></div><ul>
+<li>Check the port used</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo ss -aplnt | grep node
+</span></span></code></pre></div><ul>
+<li>Add to firewall if firewall is running already</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo firewall-cmd --add-port<span style="color:#f92672">=</span>9100/tcp --permanent
+</span></span><span style="display:flex;"><span>sudo firewall-cmd --reload
+</span></span></code></pre></div><ul>
+<li>Now on Prometheus server make the entry of this newly added node</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vim /etc/prometheus/prometheus.yml
+</span></span><span style="display:flex;"><span>- job_name: <span style="color:#e6db74">&#39;node_exporter_metrics&#39;</span>
+</span></span><span style="display:flex;"><span>    scrape_interval: 5s
+</span></span><span style="display:flex;"><span>    static_configs:
+</span></span><span style="display:flex;"><span>      - targets: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;SERVER-IP:9100&#39;</span><span style="color:#f92672">]</span>
+</span></span></code></pre></div><ul>
+<li>Restart Prometheus service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl restart prometheus
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="install-and-configure-blackbox-exporter" data-heading="Install and Configure Blackbox exporter" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="install-and-configure-blackbox-exporter">Install and Configure Blackbox exporter</h4><p>The Blackbox exporter enables probing of endpoints over HTTP, HTTPS, DNS, TCP, and ICMP. You can install from YUM repository or manually.</p>
+<ul>
+<li>Install Blackbox exporter from Prometheus repository</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo dnf -y install blackbox_exporter
+</span></span></code></pre></div><p>The settings of Blackbox exporter are in the file /etc/prometheus/blackbox.yml. You can modify or just start and enable the service:</p>
+<ul>
+<li>Start and enable node-exporter service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl enable --now blackbox_exporter
+</span></span></code></pre></div><ul>
+<li>Enable firewall if running</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo firewall-cmd --add-port<span style="color:#f92672">=</span>9115/tcp --permanent
+</span></span><span style="display:flex;"><span>sudo firewall-cmd --reload
+</span></span></code></pre></div><ul>
+<li>How to check prometheus configuration file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> promtool  check config /etc/prometheus/prometheus.yml
+</span></span></code></pre></div><ul>
+<li>Make an entry in Prometheus.yaml file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  - job_name: <span style="color:#e6db74">&#39;Blackbox_ssh&#39;</span>
+</span></span><span style="display:flex;"><span>   metrics_path: /probe
+</span></span><span style="display:flex;"><span>   params:
+</span></span><span style="display:flex;"><span>     module: <span style="color:#f92672">[</span>ssh_banner<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>   static_configs:
+</span></span><span style="display:flex;"><span>     - targets:
+</span></span><span style="display:flex;"><span>       - 172.16.16.120:26
+</span></span><span style="display:flex;"><span>   relabel_configs:
+</span></span><span style="display:flex;"><span>     - source_labels: <span style="color:#f92672">[</span>__address__<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>       target_label: __param_target
+</span></span><span style="display:flex;"><span>     - source_labels: <span style="color:#f92672">[</span>__param_target<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>       target_label: instance
+</span></span><span style="display:flex;"><span>     - target_label: __address__
+</span></span><span style="display:flex;"><span>       replacement: 172.16.16.120:9115
+</span></span></code></pre></div><ul>
+<li>Restart prometheus service</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>systemct restart prometheus
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-alert-manager" data-heading="Configuring Alert Manager" data-level="3" data-permalink="/docs/devops/" data-title="Devops" -->
+<h3 id="configuring-alert-manager">Configuring Alert Manager</h3><p>Alertmanager is the application that handles the alerts sent by the applications and notifies the user via E-mail, Slack, or other tools. Alert rules defined in Prometheus are taken into consideration when scraping metrics. If any of the alert conditions are hit depending on the rules, Prometheus pushes them to the AlertManager.</p>
+<p>The Alertmanager can handle grouping, deduplication, and routing of alerts to the correct receiver. It manages alerts through its pipelines, which are:</p>
+<ul>
+<li><strong>Silencing:</strong> mutes alerts for a given period</li>
+<li><strong>Grouping</strong>: groups alerts of similar nature into a single notification to avoid sending multiple notifications.</li>
+<li><strong>Inhibition:</strong> suppresses specific alerts if other alerts are already fired.</li>
+<li>Install Alert Manager</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> dnf install alertmanager -y
+</span></span></code></pre></div><ul>
+<li>Alert Manager config file</li>
+</ul>
+<pre tabindex="0"><code>/etc/alertmanager/alertmanager.yml
+/etc/prometheus/alertmanager.yml
+</code></pre><ul>
+<li>
+<p><strong>repeat_interval</strong> tells the AlertManager to wait for the set time before sending another notification. The default value is 1 hour, but you can adjust it as desired.</p>
+</li>
+<li>
+<p><strong>receiver:</strong> ’email’ sets the default receiver to be used. For this tutorial, we have set the default receiver as email.</p>
+</li>
+<li>
+<p><strong>receivers:</strong> lists the available receivers with their configurations. for example web.hook and email as above</p>
+</li>
+<li>
+<p>Modify AlertManager config</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>route:
+</span></span><span style="display:flex;"><span>  group_by: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;alertname&#39;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  group_wait: 30s
+</span></span><span style="display:flex;"><span>  group_interval: 5m
+</span></span><span style="display:flex;"><span>  repeat_interval: 1h
+</span></span><span style="display:flex;"><span>  receiver: <span style="color:#e6db74">&#39;email&#39;</span>
+</span></span><span style="display:flex;"><span>receivers:
+</span></span><span style="display:flex;"><span>  - name: <span style="color:#e6db74">&#39;email&#39;</span>
+</span></span><span style="display:flex;"><span>    email_configs:
+</span></span><span style="display:flex;"><span>    - to: <span style="color:#e6db74">&#39;Test@gmail.com&#39;</span>
+</span></span><span style="display:flex;"><span>      from: <span style="color:#e6db74">&#39;test@gmail.com&#39;</span>
+</span></span><span style="display:flex;"><span>      smarthost: smtp.gmail.com:587
+</span></span><span style="display:flex;"><span>      auth_username: <span style="color:#e6db74">&#39;test@gmail.com&#39;</span>
+</span></span><span style="display:flex;"><span>      auth_password: <span style="color:#e6db74">&#39;pzckclkrhpfnscts&#39;</span>
+</span></span><span style="display:flex;"><span>      send_resolved: true
+</span></span></code></pre></div><ul>
+<li>Check alert manager configuration</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>amtool check-config /etc/alertmanager/alertmanager.yml
+</span></span><span style="display:flex;"><span>amtool check-config /etc/prometheus/alertmanager.yml
+</span></span></code></pre></div><ul>
+<li>Modify the pormetheus configuration settings</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># my global config</span>
+</span></span><span style="display:flex;"><span>global:
+</span></span><span style="display:flex;"><span>  scrape_interval: 15s <span style="color:#75715e"># Set the scrape interval to every 15 seconds. Default is every 1 minute.</span>
+</span></span><span style="display:flex;"><span>  evaluation_interval: 15s <span style="color:#75715e"># Evaluate rules every 15 seconds. The default is every 1 minute.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># scrape_timeout is set to the global default (10s).</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Alertmanager configuration</span>
+</span></span><span style="display:flex;"><span>alerting:
+</span></span><span style="display:flex;"><span>  alertmanagers:
+</span></span><span style="display:flex;"><span>    - static_configs:
+</span></span><span style="display:flex;"><span>        - targets:
+</span></span><span style="display:flex;"><span>           - localhost:9093
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load rules once and periodically evaluate them according to the global &#39;evaluation_interval&#39;.</span>
+</span></span><span style="display:flex;"><span>rule_files:
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;alert_rules.yml&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># - &#34;second_rules.yml&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Create a file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /etc/prometheus/alert_rules.yml
+</span></span><span style="display:flex;"><span>groups:
+</span></span><span style="display:flex;"><span>- name: alert_rules
+</span></span><span style="display:flex;"><span>  rules:
+</span></span><span style="display:flex;"><span>   - alert: InstanceDown
+</span></span><span style="display:flex;"><span>     expr: up <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">for</span>: 1m
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="promql-wip" data-heading="Promql (WIP)" data-level="3" data-permalink="/docs/devops/" data-title="Devops" -->
+<h3 id="promql-wip">Promql (WIP)</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="promqul-basics" data-heading="Promqul: Basics" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="promqul-basics">Promqul: Basics</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prometheus-metric-and-data-types" data-heading="Prometheus Metric and Data Types" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="prometheus-metric-and-data-types">Prometheus Metric and Data Types</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prometheus-has-four-metric-types" data-heading="Prometheus has four metric types:" data-level="4" data-permalink="/docs/devops/" data-title="Devops" -->
+<h4 id="prometheus-has-four-metric-types">Prometheus has four metric types:</h4><ul>
+<li>Counters</li>
+<li>Gauges</li>
+<li>Histograms</li>
+<li>Summaries</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>https://logz.io/blog/promql-examples-introduction/
+</span></span></code></pre></div><ul>
+<li>Matcher and Selector:
+Filters are used with {&ldquo;job&rdquo;=&ldquo;prometheus&rdquo;}
+{&ldquo;job&rdquo;=&ldquo;prometheus&rdquo;,&ldquo;node&rdquo;=&ldquo;node1&rdquo;}</li>
+</ul>
+<p>Equality Mactcher =
+Negative Equality Matcher {&ldquo;job&rdquo;!=&ldquo;node2&rdquo;}
+Regualar Expression: {=~}
+prometheus_http_request_total{handler=~&quot;/api.*&quot;}
+Negative Regular Expression Matcher
+{!~}</p>
+<p>Range Vector: [1d]
+[1m]</p>
+<p>Binary Operator:
+Arithmatic</p>
+<p>Aggregator:</p>
+<ul>
+<li>Find the number of pods per namespace</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sum by <span style="color:#f92672">(</span>namespace<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>kube_pod_info<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li>Find CPU overcommit</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>kube_pod_container_resource_limits<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cpu&#34;</span><span style="color:#f92672">})</span> - sum<span style="color:#f92672">(</span>kube_node_status_capacity<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cpu&#34;</span><span style="color:#f92672">})</span>
+</span></span></code></pre></div><ul>
+<li>Memory overcommit</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>kube_pod_container_resource_limits<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;memory&#34;</span><span style="color:#f92672">})</span> - sum<span style="color:#f92672">(</span>kube_node_status_capacity<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;memory&#34;</span><span style="color:#f92672">})</span>
+</span></span></code></pre></div><ul>
+<li>Find unhealthy Kubernetes pods</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>min_over_time<span style="color:#f92672">(</span>sum by <span style="color:#f92672">(</span>namespace, pod<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>kube_pod_status_phase<span style="color:#f92672">{</span>phase<span style="color:#f92672">=</span>~<span style="color:#e6db74">&#34;Pending|Unknown|Failed&#34;</span><span style="color:#f92672">})[</span>15m:1m<span style="color:#f92672">])</span> &gt; <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><ul>
+<li>Find Kubernetes pods CrashLooping</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>increase<span style="color:#f92672">(</span>kube_pod_container_status_restarts_total<span style="color:#f92672">[</span>15m<span style="color:#f92672">])</span> &gt; <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><ul>
+<li>Find the number of containers without CPU limits in each namespace</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>count by <span style="color:#f92672">(</span>namespace<span style="color:#f92672">)(</span>sum by <span style="color:#f92672">(</span>namespace,pod,container<span style="color:#f92672">)(</span>kube_pod_container_info<span style="color:#f92672">{</span>container!<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">})</span> unless sum by <span style="color:#f92672">(</span>namespace,pod,container<span style="color:#f92672">)(</span>kube_pod_container_resource_limits<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cpu&#34;</span><span style="color:#f92672">}))</span>
+</span></span></code></pre></div><ul>
+<li>Find PersistentVolumeClaim in the pending state</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kube_persistentvolumeclaim_status_phase<span style="color:#f92672">{</span>phase<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Pending&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li>Find unstable nodes</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>changes<span style="color:#f92672">(</span>kube_node_status_condition<span style="color:#f92672">{</span>status<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>,condition<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ready&#34;</span><span style="color:#f92672">}[</span>15m<span style="color:#f92672">]))</span> by <span style="color:#f92672">(</span>node<span style="color:#f92672">)</span> &gt; <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><ul>
+<li>Find idle CPU cores</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">((</span>rate<span style="color:#f92672">(</span>container_cpu_usage_seconds_total<span style="color:#f92672">{</span>container!<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POD&#34;</span>,container!<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">}[</span>30m<span style="color:#f92672">])</span> - on <span style="color:#f92672">(</span>namespace,pod,container<span style="color:#f92672">)</span> group_left avg by <span style="color:#f92672">(</span>namespace,pod,container<span style="color:#f92672">)(</span>kube_pod_container_resource_requests<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cpu&#34;</span><span style="color:#f92672">}))</span> * -1 &gt;0<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li>Find idle memory</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">((</span>container_memory_usage_bytes<span style="color:#f92672">{</span>container!<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POD&#34;</span>,container!<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">}</span> - on <span style="color:#f92672">(</span>namespace,pod,container<span style="color:#f92672">)</span> avg by <span style="color:#f92672">(</span>namespace,pod,container<span style="color:#f92672">)(</span>kube_pod_container_resource_requests<span style="color:#f92672">{</span>resource<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;memory&#34;</span><span style="color:#f92672">}))</span> * -1 &gt;0 <span style="color:#f92672">)</span> / <span style="color:#f92672">(</span>1024*1024*1024<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li>Find node status</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>kube_node_status_condition<span style="color:#f92672">{</span>condition<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ready&#34;</span>,status<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>kube_node_status_condition<span style="color:#f92672">{</span>condition<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;NotReady&#34;</span>,status<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>sum<span style="color:#f92672">(</span>kube_node_spec_unschedulable<span style="color:#f92672">)</span> by <span style="color:#f92672">(</span>node<span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
+<li><a href="https://demo.promlabs.com/" target="_blank" rel="noopener">Prometheus Demo</a></li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

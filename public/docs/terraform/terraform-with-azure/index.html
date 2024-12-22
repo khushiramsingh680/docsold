@@ -1,0 +1,1408 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/terraform/terraform-with-azure/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Terraform with Azure | Documentation</title>
+<meta name="description" content="Terraform with Azure Public Cloud">
+<meta property="og:title" content="Terraform with Azure" />
+<meta property="og:description" content="Terraform with Azure Public Cloud" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/terraform/terraform-with-azure/" />
+
+<meta itemprop="name" content="Terraform with Azure">
+<meta itemprop="description" content="Terraform with Azure Public Cloud"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Terraform with Azure"/>
+<meta name="twitter:description" content="Terraform with Azure Public Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" as="style">
+<link href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/devops/" ><i class='fas fa-user-check'></i><span>Devops </span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span>Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span class="active">Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberneteshardway/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberneteshardway"><span class="">Kubernets Installation From Scatch on rocky 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousminio-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousminio-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousminio-check"><a href="/docs/kubernetes/docs/miscellaneous/minio/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousminio"><span class="">The Object Store for AI Data Infrastructure</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsdevops-li">
+  <input type="checkbox" id="m-docsdevops-check"/>
+  <label for="m-docsdevops-check"><a href="/docs/devops/" title="Devops" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsdevops"><i class="fas fa-user-check"></i><span class="">Devops </span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevops-advance-li">
+  <input type="checkbox" id="m-docsdevopsdevops-advance-check"/>
+  <label for="m-docsdevopsdevops-advance-check"><a href="/docs/devops/devops-advance/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevops-advance"><span class="">Devops for Advance Level</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevopsl1-li">
+  <input type="checkbox" id="m-docsdevopsdevopsl1-check"/>
+  <label for="m-docsdevopsdevopsl1-check"><a href="/docs/devops/devopsl1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevopsl1"><span class="">Devops for Begineers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopselk-stack-li">
+  <input type="checkbox" id="m-docsdevopselk-stack-check"/>
+  <label for="m-docsdevopselk-stack-check"><a href="/docs/devops/elk-stack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopselk-stack"><span class="">ELK statck </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopspostgresql-li">
+  <input type="checkbox" id="m-docsdevopspostgresql-check"/>
+  <label for="m-docsdevopspostgresql-check"><a href="/docs/devops/postgresql/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopspostgresql"><span class="">Postgres Installation </span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check" checked/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformdiscussions-li">
+  <input type="checkbox" id="m-docsterraformdiscussions-check"/>
+  <label for="m-docsterraformdiscussions-check"><a href="/docs/terraform/discussions/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformdiscussions"><span class="">Discussions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="td-sidebar-nav-active-item">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-baremetalmd-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-baremetalmd-check"/>
+  <label for="m-docsopenshiftopenshift-baremetalmd-check"><a href="/docs/openshift/openshift-baremetal.md/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-baremetalmd"><span class="">Openshift Baremetal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocpsetup-li">
+  <input type="checkbox" id="m-docsopenshiftocpsetup-check"/>
+  <label for="m-docsopenshiftocpsetup-check"><a href="/docs/openshift/ocpsetup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocpsetup"><span class="">Openshift Installation and Upgradation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshifttoc-li">
+  <input type="checkbox" id="m-docsopenshifttoc-check"/>
+  <label for="m-docsopenshifttoc-check"><a href="/docs/openshift/toc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshifttoc"><span class="">Openshift TOC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-1-li">
+  <input type="checkbox" id="m-docsopenshiftpart-1-check"/>
+  <label for="m-docsopenshiftpart-1-check"><a href="/docs/openshift/part-1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-1"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-2-li">
+  <input type="checkbox" id="m-docsopenshiftpart-2-check"/>
+  <label for="m-docsopenshiftpart-2-check"><a href="/docs/openshift/part-2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-2"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Terraform/Terraform%20with%20Azure/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Terraform/Terraform%20with%20Azure/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#topics">Topics</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#iac">IAC</a></li>
+        <li><a href="#terraform-alternatives">Terraform Alternatives</a></li>
+        <li><a href="#terraform--provider">Terraform  Provider</a></li>
+        <li><a href="#terraform-block">Terraform Block</a>
+          <ul>
+            <li><a href="#terraform-block-1">Terraform Block</a></li>
+            <li><a href="#provide-block">Provide Block</a></li>
+            <li><a href="#data-block">Data Block</a></li>
+            <li><a href="#resource-block">Resource Block</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#building-cloud-infrastructure-with-terraform">Building Cloud Infrastructure with Terraform</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#tasks-to-do">Tasks to do</a></li>
+            <li><a href="#prerequisites-1">Prerequisites</a>
+              <ul>
+                <li><a href="#terraform-and-azure-cloud">Terraform and Azure cloud.</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#authentication-and-configuration">Authentication and Configuration</a>
+          <ul>
+            <li><a href="#environment-variable">Environment Variable</a></li>
+            <li><a href="#configuring-a-vm-to-use-a-system-assigned-managed-identity">Configuring a VM to use a system-assigned managed identity</a></li>
+          </ul>
+        </li>
+        <li><a href="#module-3---read-generate-modify-configurations">Module 3 - Read, Generate, Modify Configurations</a></li>
+        <li><a href="#module-4---terraform-provisioners">Module 4 - Terraform Provisioners</a>
+          <ul>
+            <li><a href="#variable-definition-precedence">Variable Definition Precedence</a></li>
+          </ul>
+        </li>
+        <li><a href="#multiple-provider-configurations">Multiple Provider Configurations</a></li>
+      </ul>
+    </li>
+    <li><a href="#description-learn-concepts-like-terraform-resource-syntax-behavior-and-state">title: Terraform Resource Syntax, Behavior and State
+description: Learn concepts like Terraform Resource Syntax, Behavior and State</a></li>
+    <li><a href="#step-01-introduction">Step-01: Introduction</a></li>
+    <li><a href="#step-02-understand-resource-syntax">Step-02: Understand Resource Syntax</a></li>
+    <li><a href="#step-03-c1-versionstf">Step-03: c1-versions.tf</a></li>
+    <li><a href="#step-04-c2-resource-grouptf">Step-04: c2-resource-group.tf</a></li>
+    <li><a href="#step-05-c3-virtual-networktf">Step-05: c3-virtual-network.tf</a></li>
+    <li><a href="#step-06-understand-resource-behavior">Step-06: Understand Resource Behavior</a></li>
+    <li><a href="#step-07-resource-create-resources">Step-07: Resource: Create Resources</a></li>
+    <li><a href="#step-08-understanding-terraform-state-file">Step-08: Understanding Terraform State File</a></li>
+    <li><a href="#step-09-review-terraformtfstate-file">Step-09: Review terraform.tfstate file</a></li>
+    <li><a href="#step-10-resource-update-in-place-make-changes-by-adding-new-tag-to-virtual-network-resource">Step-10: Resource: Update In-Place: Make changes by adding new tag to Virtual Network Resource</a></li>
+    <li><a href="#step-11-resource-destroy-and-re-create-resources-update-virtual-network-name">Step-11: Resource: Destroy and Re-create Resources: Update Virtual Network Name</a></li>
+    <li><a href="#step-12-resource-destroy-resource">Step-12: Resource: Destroy Resource</a></li>
+    <li><a href="#step-13-understand-desired-and-current-states-high-level-only">Step-13: Understand Desired and Current States (High-Level Only)</a></li>
+    <li><a href="#step-14-clean-up">Step-14: Clean-Up</a></li>
+    <li><a href="#step-15-revert-files-to-demo-state-for-students">Step-15: Revert files to Demo State for Students</a></li>
+    <li><a href="#references">References</a>
+      <ul>
+        <li><a href="#module-5---terraform-modules--workspaces">Module 5 - Terraform Modules &amp; Workspaces</a></li>
+        <li><a href="#module-6---remote-state-management">Module 6 - Remote State Management</a></li>
+        <li><a href="#module-7--terraform-cloud-and-enterprise-overview">Module 7 – Terraform Cloud and Enterprise Overview</a></li>
+        <li><a href="#terraform-best-practices">Terraform Best Practices.</a>
+          <ul>
+            <li><a href="#terraform-all-supported-extensions">Terraform all supported extensions</a></li>
+          </ul>
+        </li>
+        <li><a href="#terraform-files-name-can-be">Terraform files name can be:</a>
+          <ul>
+            <li><a href="#terraform-overrider-files-name-can-be-">Terraform Overrider files name can be :</a></li>
+          </ul>
+        </li>
+        <li><a href="#terraform-variable-file-names-can-be-">Terraform variable file names can be :</a></li>
+        <li><a href="#variable-definition-precedence-1">Variable Definition Precedence</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/terraform/">Terraform</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/terraform/terraform-with-azure/">Terraform with Azure</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Terraform with Azure</h1>
+  <div class="lead">Terraform with Azure Public Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics" data-heading="Topics" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="topics">Topics</h2><ul>
+<li>
+<p>Overview of Git</p>
+</li>
+<li>
+<p>What is IAC ?</p>
+</li>
+<li>
+<p>Terraform Overview</p>
+</li>
+<li>
+<p>Terraform Alternatives</p>
+<ul>
+<li>Ansible</li>
+<li>AWS Cloudformarion</li>
+<li>Azurerm template</li>
+<li>Google deployment manager</li>
+</ul>
+</li>
+<li>
+<p>Terraform Block</p>
+</li>
+<li>
+<p>Terraform Providers</p>
+<ul>
+<li>AzureRM</li>
+<li>Local</li>
+<li>random</li>
+<li>null</li>
+</ul>
+</li>
+<li>
+<p>Terraform Resources and DataSources</p>
+</li>
+<li>
+<p>Hashicop Configuration Language</p>
+<ul>
+<li>Blocks</li>
+<li>Arguments</li>
+<li>Comments</li>
+<li>Identifiers</li>
+</ul>
+</li>
+<li>
+<p>Resource Blocks</p>
+</li>
+<li>
+<p>Meta-Arguments</p>
+<ul>
+<li>depends_on</li>
+<li>count</li>
+<li>for_each</li>
+<li>provider</li>
+<li>lifecycle</li>
+</ul>
+</li>
+<li>
+<p>Terraform Variables</p>
+<ul>
+<li>Input Variables
+<ul>
+<li>Prompt Vriables</li>
+<li>Optional Variables</li>
+<li>Variables Validation</li>
+<li>Data Type of Variables:
+<ul>
+<li>String</li>
+<li>Numbers</li>
+<li>Booleans</li>
+<li>Object</li>
+</ul>
+</li>
+<li>Type of Variables
+<ul>
+<li>Scaler</li>
+<li>List</li>
+<li>Map</li>
+<li>Tuple</li>
+<li>set</li>
+</ul>
+</li>
+<li>Change variables values using different ways
+<ul>
+<li>At runtime</li>
+<li>with tfvars file</li>
+</ul>
+</li>
+<li>Defining variable using Terraform environment variables</li>
+</ul>
+</li>
+<li>Output values</li>
+<li>local Values</li>
+</ul>
+</li>
+<li>
+<p>Terraform State Management</p>
+<ul>
+<li>Local file</li>
+<li>Lock in state file</li>
+<li>State management on cloud storage</li>
+<li>Pull and push state file</li>
+<li>update state file</li>
+</ul>
+</li>
+<li>
+<p>Terraform Workspace</p>
+<ul>
+<li>Managing multiple environment with workspace</li>
+</ul>
+</li>
+<li>
+<p>Terraform Provisioners</p>
+<ul>
+<li>Local</li>
+<li>file</li>
+<li>Remote-exec</li>
+</ul>
+</li>
+<li>
+<p>Terraform Module</p>
+<ul>
+<li>Local Module</li>
+<li>remote module</li>
+<li>Publish module on Terraform Registry</li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.hashicorp.com/terraform/language/functions" target="_blank" rel="noopener">Terraform Functions</a></p>
+</li>
+<li>
+<p>Terraform import</p>
+</li>
+<li>
+<p>Terraform deprecated resources</p>
+</li>
+<li>
+<p>Terraform cloud</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites" data-heading="Prerequisites" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="prerequisites">Prerequisites</h3><ul>
+<li>Install vscode on your Laptop using below click</li>
+<li><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener"> Click here to download vscode</a></li>
+<li>Install gitbash on your Laptop</li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener"> Click here to download gitbash</a></li>
+<li>Install Terraform on your Laptop</li>
+<li><a href="https://www.terraform.io/downloads.html" target="_blank" rel="noopener"> Click here to download Terraform</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="iac" data-heading="IAC" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="iac">IAC</h3><ul>
+<li>
+<p>Infrastructure as Code (IaC) tools allow you to manage infrastructure with configuration files rather than through a graphical user interface.</p>
+</li>
+<li>
+<p>IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.</p>
+</li>
+<li>
+<p>Terraform is HashiCorp&rsquo;s infrastructure as code tool.</p>
+</li>
+<li>
+<p>It lets you define resources and infrastructure in human-readable, declarative configuration files, and manages your infrastructure&rsquo;s lifecycle.</p>
+</li>
+<li>
+<p>Using Terraform has several advantages over manually managing your infrastructure:</p>
+<ul>
+<li>Terraform can manage infrastructure on multiple cloud platforms.</li>
+<li>The human-readable configuration language helps you write infrastructure code quickly.</li>
+<li>Terraform&rsquo;s state allows you to track resource changes throughout your deployments.</li>
+<li>You can commit your configurations to version control to safely collaborate on infrastructure.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-alternatives" data-heading="Terraform Alternatives" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="terraform-alternatives">Terraform Alternatives</h3><ul>
+<li>Ansible</li>
+<li>AWS Cloudformation</li>
+<li>Azure Arm Template</li>
+<li>Google deployment manager</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform--provider" data-heading="Terraform  Provider" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="terraform--provider">Terraform  Provider</h3><p>Terraform plugins called providers let Terraform interact with cloud platforms and other services via their application programming interfaces (APIs).</p>
+<p>HashiCorp and the Terraform community have written over 1,000 providers to manage resources on Amazon Web Services (AWS), Azure, Google Cloud Platform (GCP), Kubernetes, Helm, GitHub, Splunk, and DataDog, just to name a few.</p>
+<p>Find providers for many of the platforms and services you already use in the <a href="https://registry.terraform.io/browse/providers" target="_blank" rel="noopener">Terraform Registry.</a></p>
+<ul>
+<li>Use the Amazon Web Services (AWS) provider to interact with the many resources supported by AWS.</li>
+<li>You must configure the provider with the proper credentials before you can use it.</li>
+<li>There are currently 1332 resources and 544 data sources available in the provider.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-block" data-heading="Terraform Block" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="terraform-block">Terraform Block</h3><ul>
+<li>Terraform Block</li>
+<li>Provider Block</li>
+<li>Data Block</li>
+<li>Resource Block</li>
+<li>Module Block</li>
+<li>Variable Block</li>
+<li>Output Block</li>
+<li>Locals Block</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-block-1" data-heading="Terraform Block" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="terraform-block-1">Terraform Block</h4><ul>
+<li>It is used to define global configuration and behavior for terraform execution.</li>
+<li>Setting the required Terraform version.</li>
+<li>Configuring the backend for storing the state file.</li>
+<li>Defining experimental or optional features.</li>
+<li>Specifying variables used across multiple modules or configurations.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="provide-block" data-heading="Provide Block" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="provide-block">Provide Block</h4><p>The provider block is used to configure and define the provider for a specific cloud or infrastructure program,It specifies details such as the provider name and version, authentication credentials, and other settings. By correctly configuring the provider block, you ensure that Terraform knows which provider to use and how to authenticate with it.</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="data-block" data-heading="Data Block" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="data-block">Data Block</h4><p>This block is used to fetch data from external sources or existing resources. we can use a data block to fetch information about existing resources, such as a list of available AWS AMIs or the currently existing state of a Kubernetes cluster. By utilizing data blocks, you can incorporate external data into your infrastructure configuration and make informed decisions based on that information.</p>
+<ul>
+<li>Retrieving information about existing infrastructure to be used in the Terraform configuration.</li>
+<li>Querying and filtering data for use in resource configuration.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="resource-block" data-heading="Resource Block" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="resource-block">Resource Block</h4><p>It is used to declare and define the provider for a specific cloud or infrastructure program. Resources represent components such as virtual machines, networks, storage, databases, and other services. Each resource block specifies the resource type, name, and configuration parameters specific to that resource. By using resource blocks effectively, we can create and manage the desired infrastructure resources in a consistent and repeatable manner.</p>
+<ul>
+<li>Configuring the properties and attributes of the resources.</li>
+<li>Specifying dependencies and relationships between resources.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="building-cloud-infrastructure-with-terraform" data-heading="Building Cloud Infrastructure with Terraform" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="building-cloud-infrastructure-with-terraform">Building Cloud Infrastructure with Terraform</h2><ul>
+<li>Introduction to Terraform with Azure</li>
+<li>Create Resource Group</li>
+<li>Terraform Destroy</li>
+<li>Azure Virtual Networks</li>
+<li>Azure Subnet</li>
+<li>Azure Public IP</li>
+<li>Azure Network Interface</li>
+<li>Create Windows and Linux VM</li>
+<li>Azure Storage</li>
+<li>Security Groups</li>
+<li>Load Balancers</li>
+<li>Understanding Terraform State files</li>
+<li>Understanding Desired &amp; Current States</li>
+<li>Terraform Provider Versioning</li>
+<li>Types of Terraform Providers</li>
+<li>Methods to define Terraform provider Version</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="tasks-to-do" data-heading="Tasks to do" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="tasks-to-do">Tasks to do</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites-1" data-heading="Prerequisites" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="prerequisites-1">Prerequisites</h4><ul>
+<li>Create Azure Account</li>
+<li>Walk through Azure console (UI)</li>
+<li>Configure Az Cli</li>
+<li>Create a resource group and Vm using Az cli</li>
+<li>Query the resources on Azure using az cli</li>
+<li>Set up default subscription using az cli</li>
+<li>Create service principal using az cli</li>
+<li>Login with Service principal using az cli</li>
+<li>Download and Install visual studio code</li>
+<li>Install az extension in visual studio code</li>
+<li>Download and install terraform</li>
+<li>Download and install Gitbash to run linux commands</li>
+<li>Create your account on Gitlab</li>
+<li>Perform some tasks using git commands like clone repo,commit, push etc.</li>
+<li>Create a branch and push to gitlabsh</li>
+<li>create a merge request and get the approve.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-and-azure-cloud" data-heading="Terraform and Azure cloud." data-level="5" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h5 id="terraform-and-azure-cloud">Terraform and Azure cloud.</h5><ul>
+<li>Install terraform extension with visual studio code</li>
+<li>Configure authentication with provider block.</li>
+<li>configure multiple provider configuration</li>
+<li>Configure different ways of authentication</li>
+<li>configure local provider</li>
+<li>configure random provider</li>
+<li>configure azure provider</li>
+<li>configure gcp provider</li>
+<li>configure aws provider</li>
+<li>Initalize a provider using below command</li>
+<li>Check the provider available with current directory</li>
+<li>Create a resource group using below tf file.</li>
+<li>create  a vm</li>
+<li>check the resource created</li>
+<li>Destroy the resource created</li>
+<li>destroy only single resources</li>
+<li>Use some arguments along with azure resource</li>
+<li>use the attributes associated to resource.</li>
+<li>Use output variable to print the attributes information</li>
+<li>Azure Virtual Networks</li>
+<li>Azure Subnet</li>
+<li>Azure Public IP</li>
+<li>Azure Network Interface</li>
+<li>Create Windows and Linux VM</li>
+<li>How to configure ssh key for Linux vm</li>
+<li>How to attach a disk to vm</li>
+<li>Azure Storage</li>
+<li>Security Groups</li>
+<li>Load Balancers</li>
+<li>Understanding Terraform State files</li>
+<li>Understanding Desired &amp; Current States</li>
+<li>Use the data source to fetch the information of resources available on azure.</li>
+<li>Data source while creating other resources with terraform.</li>
+<li>Commit all the files</li>
+<li>Create a new branch with Day 1 and push the branch to gitlab.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="authentication-and-configuration" data-heading="Authentication and Configuration" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="authentication-and-configuration">Authentication and Configuration</h3><ul>
+<li>Login to Azure Account</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az login
+</span></span></code></pre></div><ul>
+<li>Check all subscription details</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az account list
+</span></span></code></pre></div><ul>
+<li>Set the default subscription if you have many</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az account set <span style="color:#f92672">--</span>subscription<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SUBSCRIPTION_ID&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Create a service principal</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az ad sp create<span style="color:#f92672">-</span><span style="color:#66d9ef">for</span><span style="color:#f92672">-</span>rbac <span style="color:#f92672">--</span>role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Contributor&#34;</span> <span style="color:#f92672">--</span>scopes<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/subscriptions/SUBSCRIPTION_ID&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Login with Service Principal</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az login <span style="color:#f92672">--</span>service<span style="color:#f92672">-</span>principal <span style="color:#f92672">-</span>u CLIENT_ID <span style="color:#f92672">-</span>p CLIENT_SECRET <span style="color:#f92672">--</span>tenant TENANT_ID
+</span></span></code></pre></div><ul>
+<li>Az command example</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az vm list<span style="color:#f92672">-</span>sizes <span style="color:#f92672">--</span>location westus
+</span></span></code></pre></div><ul>
+<li>Log out from Azure account</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az logout
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="environment-variable" data-heading="Environment Variable" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="environment-variable">Environment Variable</h4><ul>
+<li>Use environment variable to work with terraform and and Az client_id:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> export ARM_CLIENT_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span> export ARM_CLIENT_SECRET<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span> export ARM_SUBSCRIPTION_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span> export ARM_TENANT_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div><ul>
+<li>use below example to mention in provider file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>In Provider file
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;azurerm&#34;</span> {
+</span></span><span style="display:flex;"><span> features {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> subscription_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span> client_id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span> client_secret   <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>client_secret
+</span></span><span style="display:flex;"><span> tenant_id       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;00000000-0000-0000-0000-000000000000&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="configuring-a-vm-to-use-a-system-assigned-managed-identity" data-heading="Configuring a VM to use a system-assigned managed identity" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="configuring-a-vm-to-use-a-system-assigned-managed-identity">Configuring a VM to use a system-assigned managed identity</h4><ul>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#:~:text=When%20you%20enable%20a%20system,request%20tokens%20from%20Azure%20AD" target="_blank" rel="noopener">Click Here to know more about managed identity and use this for authentication against terraform </a></p>
+</li>
+<li>
+<p>Login with Managed Identity</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>az login <span style="color:#f92672">--</span>identity
+</span></span></code></pre></div><ul>
+<li>check few commands</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>az group create <span style="color:#f92672">--</span>name myResourceGroup <span style="color:#f92672">--</span>location eastus
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>az vm create <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">--</span>resource<span style="color:#f92672">-</span>group myResourceGroup <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">--</span>name myVM <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">--</span>image Win2019Datacenter <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">--</span>public<span style="color:#f92672">-</span>ip<span style="color:#f92672">-</span>sku Standard <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">--</span>admin<span style="color:#f92672">-</span>username azureuser 
+</span></span></code></pre></div><ul>
+<li>Provider file contents</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  required_providers {
+</span></span><span style="display:flex;"><span>    azurerm <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hashicorp/azurerm&#34;</span>
+</span></span><span style="display:flex;"><span>      version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.81.0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;azurerm&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Configuration options</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-3---read-generate-modify-configurations" data-heading="Module 3 - Read, Generate, Modify Configurations" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="module-3---read-generate-modify-configurations">Module 3 - Read, Generate, Modify Configurations</h3><ul>
+<li>Understanding Attributes and Output Values in Terraform</li>
+<li>Terraform Variables</li>
+<li>Methods to Define Variables</li>
+<li>Data Types for Variables</li>
+<li>Fetching Data from Maps and List in Variable</li>
+<li>Count and Count Index</li>
+<li>For_each</li>
+<li>Create multiple VMs with Terraform</li>
+<li>Conditional Expressions</li>
+<li>Local Values</li>
+<li>Splat Expressions</li>
+<li>Terraform Functions</li>
+<li>Lookup Function</li>
+<li>Element Function</li>
+<li>Zipmap Function</li>
+<li>Data Sources</li>
+<li>Debugging in Terraform</li>
+<li>Terraform Format</li>
+<li>Validating Terraform</li>
+<li>Configuration FilesLoad</li>
+<li>Order &amp; Semantics</li>
+<li>Dynamic Blocks</li>
+<li>Tainting Resources</li>
+<li>Terraform Graph</li>
+<li>Saving Terraform Plan to File</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-4---terraform-provisioners" data-heading="Module 4 - Terraform Provisioners" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="module-4---terraform-provisioners">Module 4 - Terraform Provisioners</h3><ul>
+<li>Understanding Provisioners in Terraform</li>
+<li>Types of Provisioners</li>
+<li>Implementing remote-exec provisioners</li>
+<li>Implementing local-exec provisioners</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="variable-definition-precedence" data-heading="Variable Definition Precedence" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="variable-definition-precedence">Variable Definition Precedence</h4><p>Terraform loads variables in the following order, with later sources taking precedence over earlier ones:</p>
+<ul>
+<li>Environment variables</li>
+<li>The terraform.tfvars file, if present.</li>
+<li>The terraform.tfvars.json file, if present.</li>
+<li>Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.</li>
+<li>Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="multiple-provider-configurations" data-heading="Multiple Provider Configurations" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="multiple-provider-configurations">Multiple Provider Configurations</h3><ul>
+<li>Use alias to make this possible</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Provider-1 for EastUS (Default Provider)</span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;azurerm&#34;</span> {
+</span></span><span style="display:flex;"><span>  features {}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Provider-2 for WestUS Region</span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;azurerm&#34;</span> {
+</span></span><span style="display:flex;"><span>  features {
+</span></span><span style="display:flex;"><span>    virtual_machine {
+</span></span><span style="display:flex;"><span>      delete_os_disk_on_deletion <span style="color:#f92672">=</span> false
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  alias <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;provider2-westus&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#client_id = &#34;XXXX&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#client_secret = &#34;YYY&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#environment = &#34;german&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#subscription_id = &#34;JJJJ&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>How to reference the non-default provider configuration in a resource</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_resource_group&#34;</span> <span style="color:#e6db74">&#34;myrg2&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;myrg-2&#34;</span>
+</span></span><span style="display:flex;"><span>  location <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;West US&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#&lt;PROVIDER NAME&gt;.&lt;ALIAS NAME&gt;</span>
+</span></span><span style="display:flex;"><span>  provider <span style="color:#f92672">=</span> azurerm<span style="color:#f92672">.</span>provider2<span style="color:#f92672">-</span>westus
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Create Azure Storage Account</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>Resource<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>: Azure Resource Group
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_resource_group&#34;</span> <span style="color:#e6db74">&#34;myrg1&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;myrg-1&#34;</span>
+</span></span><span style="display:flex;"><span>  location <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;East US&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resource-2: Random String </span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;random_string&#34;</span> <span style="color:#e6db74">&#34;myrandom&#34;</span> {
+</span></span><span style="display:flex;"><span>  length <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>  upper <span style="color:#f92672">=</span> false 
+</span></span><span style="display:flex;"><span>  special <span style="color:#f92672">=</span> false
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resource-3: Azure Storage Account </span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_storage_account&#34;</span> <span style="color:#e6db74">&#34;mysa&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mysa${random_string.myrandom.id}&#34;</span>
+</span></span><span style="display:flex;"><span>  resource_group_name      <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg1<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  location                 <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg1<span style="color:#f92672">.</span>location
+</span></span><span style="display:flex;"><span>  account_tier             <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Standard&#34;</span>
+</span></span><span style="display:flex;"><span>  account_replication_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GRS&#34;</span>
+</span></span><span style="display:flex;"><span>  account_encryption_source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Microsoft.Storage&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    environment <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;staging&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="description-learn-concepts-like-terraform-resource-syntax-behavior-and-state" data-heading="title: Terraform Resource Syntax, Behavior and State\ndescription: Learn concepts like Terraform Resource Syntax, Behavior and State" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="description-learn-concepts-like-terraform-resource-syntax-behavior-and-state">title: Terraform Resource Syntax, Behavior and State
+description: Learn concepts like Terraform Resource Syntax, Behavior and State</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-01-introduction" data-heading="Step-01: Introduction" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-01-introduction">Step-01: Introduction</h2><ul>
+<li>Understand Resource Syntax</li>
+<li>Understand Resource Behavior</li>
+<li>Understanding Terraform State File
+<ul>
+<li>terraform.tfstate</li>
+</ul>
+</li>
+<li>Understanding Desired and Current States (High Level Only)</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-02-understand-resource-syntax" data-heading="Step-02: Understand Resource Syntax" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-02-understand-resource-syntax">Step-02: Understand Resource Syntax</h2><ul>
+<li>We are going to understand about below concepts from Resource Syntax perspective</li>
+<li>Resource Block</li>
+<li>Resource Type</li>
+<li>Resource Local Name</li>
+<li>Resource Arguments</li>
+<li>Resource Meta-Arguments</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-03-c1-versionstf" data-heading="Step-03: c1-versions.tf" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-03-c1-versionstf">Step-03: c1-versions.tf</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Terraform Block</span>
+</span></span><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  required_version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&gt;= 1.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>  required_providers {
+</span></span><span style="display:flex;"><span>    azurerm <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hashicorp/azurerm&#34;</span>
+</span></span><span style="display:flex;"><span>      version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&gt;= 2.0&#34;</span> 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Provider Block</span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;azurerm&#34;</span> {
+</span></span><span style="display:flex;"><span> features {}          
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-04-c2-resource-grouptf" data-heading="Step-04: c2-resource-group.tf" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-04-c2-resource-grouptf">Step-04: c2-resource-group.tf</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Resource-1: Azure Resource Group</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_resource_group&#34;</span> <span style="color:#e6db74">&#34;myrg&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;myrg-1&#34;</span>
+</span></span><span style="display:flex;"><span>  location <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;East US&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-05-c3-virtual-networktf" data-heading="Step-05: c3-virtual-network.tf" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-05-c3-virtual-networktf">Step-05: c3-virtual-network.tf</h2><ol>
+<li>Resource-2: Create Virtual Network</li>
+<li>Resource-3: Create Subnet</li>
+<li>Resource-4: Create Public IP Address</li>
+<li>Resource-5: Create Network Interface</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Resource-2: Create Virtual Network</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_virtual_network&#34;</span> <span style="color:#e6db74">&#34;myvnet&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;myvnet-1&#34;</span>
+</span></span><span style="display:flex;"><span>  address_space       <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>]
+</span></span><span style="display:flex;"><span>  location            <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>location
+</span></span><span style="display:flex;"><span>  resource_group_name <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resource-3: Create Subnet</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_subnet&#34;</span> <span style="color:#e6db74">&#34;mysubnet&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mysubnet-1&#34;</span>
+</span></span><span style="display:flex;"><span>  resource_group_name  <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  virtual_network_name <span style="color:#f92672">=</span> azurerm_virtual_network<span style="color:#f92672">.</span>myvnet<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  address_prefixes     <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;10.0.2.0/24&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resource-4: Create Public IP Address</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_public_ip&#34;</span> <span style="color:#e6db74">&#34;mypublicip&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mypublicip-1&#34;</span>
+</span></span><span style="display:flex;"><span>  resource_group_name <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  location            <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>location
+</span></span><span style="display:flex;"><span>  allocation_method   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Static&#34;</span>
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    environment <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dev&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resource-5: Create Network Interface</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;azurerm_network_interface&#34;</span> <span style="color:#e6db74">&#34;myvm1nic&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vm1-nic&#34;</span>
+</span></span><span style="display:flex;"><span>  location            <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>location
+</span></span><span style="display:flex;"><span>  resource_group_name <span style="color:#f92672">=</span> azurerm_resource_group<span style="color:#f92672">.</span>myrg<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ip_configuration {
+</span></span><span style="display:flex;"><span>    name                          <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;internal&#34;</span>
+</span></span><span style="display:flex;"><span>    subnet_id                     <span style="color:#f92672">=</span> azurerm_subnet<span style="color:#f92672">.</span>mysubnet<span style="color:#f92672">.</span>id
+</span></span><span style="display:flex;"><span>    private_ip_address_allocation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dynamic&#34;</span>
+</span></span><span style="display:flex;"><span>    public_ip_address_id <span style="color:#f92672">=</span> azurerm_public_ip<span style="color:#f92672">.</span>mypublicip<span style="color:#f92672">.</span>id 
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-06-understand-resource-behavior" data-heading="Step-06: Understand Resource Behavior" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-06-understand-resource-behavior">Step-06: Understand Resource Behavior</h2><ul>
+<li>We are going to understand resource behavior in combination with Terraform State</li>
+</ul>
+<ol>
+<li>Create Resource</li>
+<li>Update in-place Resources</li>
+<li>Destroy and Re-create Resources</li>
+<li>Destroy Resource</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-07-resource-create-resources" data-heading="Step-07: Resource: Create Resources" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-07-resource-create-resources">Step-07: Resource: Create Resources</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Initialize Terraform</span>
+</span></span><span style="display:flex;"><span>terraform init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Observation: 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>) Successfully downloaded providers in <span style="color:#f92672">.</span>terraform folder
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>) Created lock file named <span style="color:#e6db74">&#34;.terraform.lock.hcl&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Validate Terraform configuration files</span>
+</span></span><span style="display:flex;"><span>terraform validate
+</span></span><span style="display:flex;"><span>Observation: No files changed <span style="color:#f92672">/</span> added in current working directory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Format Terraform configuration files</span>
+</span></span><span style="display:flex;"><span>terraform fmt
+</span></span><span style="display:flex;"><span>Observations: <span style="color:#f92672">*.</span>tf files will change to format them <span style="color:#66d9ef">if</span> any format changes exists
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Review the terraform plan</span>
+</span></span><span style="display:flex;"><span>terraform plan 
+</span></span><span style="display:flex;"><span>Observation<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>: Nothing happens during the first run from terraform state perspective
+</span></span><span style="display:flex;"><span>Observation<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>: From Resource Behavior perspective you can see <span style="color:#e6db74">&#34;+ create&#34;</span>, we are creating 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create Resources </span>
+</span></span><span style="display:flex;"><span>terraform apply <span style="color:#f92672">-</span>auto<span style="color:#f92672">-</span>approve
+</span></span><span style="display:flex;"><span>Observation: 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>) Creates terraform<span style="color:#f92672">.</span>tfstate file in local working directory
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>) Creates actual resource in Azure Cloud
+</span></span></code></pre></div><ul>
+<li><strong>Important Note:</strong> Here we have seen example for <strong>Create Resource</strong></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-08-understanding-terraform-state-file" data-heading="Step-08: Understanding Terraform State File" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-08-understanding-terraform-state-file">Step-08: Understanding Terraform State File</h2><ul>
+<li>What is Terraform State ?</li>
+</ul>
+<ol>
+<li>It is the primary core thing for terraform to function</li>
+<li>In a short way, its the underlying database containing the resources information which are provisioning using Terraform</li>
+<li><strong>Primary Purpose:</strong> To store bindings between objects in a remote system and resource instances declared in your configuration.</li>
+<li>When Terraform creates a remote object in response to a change of configuration, it will record the identity of that remote object against a particular resource instance, and then potentially update or delete that object in response to future configuration changes.</li>
+<li>Terraform state file created when we first run the <code>terraform apply</code></li>
+<li>Terraform state file is created locally in working directory.</li>
+<li>If required, we can confiure the <code>backend block</code> in <code>terraform block</code> which will allow us to store state file remotely.  Storing remotely is recommended option which we will see in the next section of the course.</li>
+</ol>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-09-review-terraformtfstate-file" data-heading="Step-09: Review terraform.tfstate file" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-09-review-terraformtfstate-file">Step-09: Review terraform.tfstate file</h2><ul>
+<li>Terraform State files are JSON based</li>
+<li>Manual editing of Terraform state files is highly not recommended</li>
+<li>Review <code>terraform.tfstate</code> file step by step</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-10-resource-update-in-place-make-changes-by-adding-new-tag-to-virtual-network-resource" data-heading="Step-10: Resource: Update In-Place: Make changes by adding new tag to Virtual Network Resource" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-10-resource-update-in-place-make-changes-by-adding-new-tag-to-virtual-network-resource">Step-10: Resource: Update In-Place: Make changes by adding new tag to Virtual Network Resource</h2><ul>
+<li>Add a new tag in <code>azurerm_virtual_network</code> resource</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Add this for Virtual Network Resource</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Environment&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dev&#34;</span>
+</span></span></code></pre></div><ul>
+<li><strong>Review Terraform Plan</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Review the terraform plan</span>
+</span></span><span style="display:flex;"><span>terraform plan 
+</span></span><span style="display:flex;"><span>Observation: You should see <span style="color:#e6db74">&#34;~ update in-place&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;Plan: 0 to add, 1 to change, 0 to destroy.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create / Update Resources </span>
+</span></span><span style="display:flex;"><span>terraform apply <span style="color:#f92672">-</span>auto<span style="color:#f92672">-</span>approve
+</span></span><span style="display:flex;"><span>Observation: <span style="color:#e6db74">&#34;Apply complete! Resources: 0 added, 1 changed, 0 destroyed.&#34;</span>
+</span></span></code></pre></div><ul>
+<li><strong>Important Note:</strong> Here we have seen example for <strong>update in-place</strong></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-11-resource-destroy-and-re-create-resources-update-virtual-network-name" data-heading="Step-11: Resource: Destroy and Re-create Resources: Update Virtual Network Name" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-11-resource-destroy-and-re-create-resources-update-virtual-network-name">Step-11: Resource: Destroy and Re-create Resources: Update Virtual Network Name</h2><ul>
+<li>This will destroy the Virtual Network, Subnet and Recreate them.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Before</span>
+</span></span><span style="display:flex;"><span>  name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vm1-nic&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># After</span>
+</span></span><span style="display:flex;"><span>  name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vm1-nic1&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Execute Terraform Commands</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Review the terraform plan</span>
+</span></span><span style="display:flex;"><span>terraform plan 
+</span></span><span style="display:flex;"><span>Observation: 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>)   <span style="color:#f92672">-/+</span> destroy <span style="color:#f92672">and</span> <span style="color:#66d9ef">then</span> create replacement
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">-/+</span> resource <span style="color:#e6db74">&#34;azurerm_network_interface&#34;</span> <span style="color:#e6db74">&#34;myvm1nic&#34;</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">-/+</span> resource <span style="color:#e6db74">&#34;azurerm_network_interface&#34;</span> <span style="color:#e6db74">&#34;myvm1nic&#34;</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>) Plan: <span style="color:#ae81ff">2</span> to add, <span style="color:#ae81ff">0</span> to change, <span style="color:#ae81ff">2</span> to destroy<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create / Update Resources </span>
+</span></span><span style="display:flex;"><span>terraform apply <span style="color:#f92672">-</span>auto<span style="color:#f92672">-</span>approve
+</span></span><span style="display:flex;"><span>Observation: 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#f92672">.</span> Apply complete<span style="color:#f92672">!</span> Resources: <span style="color:#ae81ff">2</span> added, <span style="color:#ae81ff">0</span> changed, <span style="color:#ae81ff">2</span> destroyed<span style="color:#f92672">.</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-12-resource-destroy-resource" data-heading="Step-12: Resource: Destroy Resource" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-12-resource-destroy-resource">Step-12: Resource: Destroy Resource</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Destroy Resource</span>
+</span></span><span style="display:flex;"><span>terraform destroy 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Observation: 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">-</span> destroy
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>) All <span style="color:#ae81ff">7</span> resources will be destroyed
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>) Plan: <span style="color:#ae81ff">0</span> to add, <span style="color:#ae81ff">0</span> to change, <span style="color:#ae81ff">7</span> to destroy<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>) Destroy complete<span style="color:#f92672">!</span> Resources: <span style="color:#ae81ff">7</span> destroyed<span style="color:#f92672">.</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-13-understand-desired-and-current-states-high-level-only" data-heading="Step-13: Understand Desired and Current States (High-Level Only)" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-13-understand-desired-and-current-states-high-level-only">Step-13: Understand Desired and Current States (High-Level Only)</h2><ul>
+<li><strong>Desired State:</strong> Local Terraform Manifest (All *.tf files)</li>
+<li><strong>Current State:</strong>  Real Resources present in your cloud</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-14-clean-up" data-heading="Step-14: Clean-Up" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-14-clean-up">Step-14: Clean-Up</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Destroy Resource</span>
+</span></span><span style="display:flex;"><span>terraform destroy <span style="color:#f92672">-</span>auto<span style="color:#f92672">-</span>approve 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove Terraform Files</span>
+</span></span><span style="display:flex;"><span>rm <span style="color:#f92672">-</span>rf <span style="color:#f92672">.</span>terraform<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>rm <span style="color:#f92672">-</span>rf terraform<span style="color:#f92672">.</span>tfstate<span style="color:#f92672">*</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="step-15-revert-files-to-demo-state-for-students" data-heading="Step-15: Revert files to Demo State for Students" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="step-15-revert-files-to-demo-state-for-students">Step-15: Revert files to Demo State for Students</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Change-1: Comment in azurerm_virtual_network</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#&#34;Environment&#34; = &#34;Dev&#34;  # Uncomment during Step-10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Change-2: Revert name back in azurerm_network_interface Resource </span>
+</span></span><span style="display:flex;"><span>name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vm1-nic&#34;</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="references" data-heading="References" data-level="2" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h2 id="references">References</h2><ul>
+<li><a href="https://www.terraform.io/docs/language/state/index.html" target="_blank" rel="noopener">Terraform State</a></li>
+<li><a href="https://www.terraform.io/docs/cli/state/index.html" target="_blank" rel="noopener">Manipulating Terraform State</a></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-5---terraform-modules--workspaces" data-heading="Module 5 - Terraform Modules &amp; Workspaces" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="module-5---terraform-modules--workspaces">Module 5 - Terraform Modules &amp; Workspaces</h3><ul>
+<li>Understanding DRY principle</li>
+<li>Variables and Terraform Modules</li>
+<li>Terraform Registry</li>
+<li>Terraform Workspace</li>
+<li>Implementing Terraform Workspace</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-6---remote-state-management" data-heading="Module 6 - Remote State Management" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="module-6---remote-state-management">Module 6 - Remote State Management</h3><ul>
+<li>Integrating with GIT for team management</li>
+<li>Git Initialize</li>
+<li>Git Commit</li>
+<li>Git Push</li>
+<li>Git Tagging</li>
+<li>Git Branching</li>
+<li>Security Challenges in Committing TFState to GIT</li>
+<li>Remote State Management with Terraform</li>
+<li>Terraform State Management</li>
+<li>Importing Existing Resources with Terraform Import</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="module-7--terraform-cloud-and-enterprise-overview" data-heading="Module 7 – Terraform Cloud and Enterprise Overview" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="module-7--terraform-cloud-and-enterprise-overview">Module 7 – Terraform Cloud and Enterprise Overview</h3><ul>
+<li>Introduction to Terraform Cloud</li>
+<li>Creating Infrastructure with Terraform Cloud</li>
+<li>Overview of Sentinel Security</li>
+<li>Introduction to Local and Remote Backends</li>
+<li>Implementing Remote Backend in Terraform Cloud</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-best-practices" data-heading="Terraform Best Practices." data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="terraform-best-practices">Terraform Best Practices.</h3><ul>
+<li>Follow right Terraform folder structure</li>
+<li>Storing Terraform state in cloud storage</li>
+<li>Terraform variables for parameterizing configuration files</li>
+<li>Terraform modules for re-useable code</li>
+<li>Least privilege access for the service principal associated with Terraform</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-all-supported-extensions" data-heading="Terraform all supported extensions" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="terraform-all-supported-extensions">Terraform all supported extensions</h4><!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-files-name-can-be" data-heading="Terraform files name can be:" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="terraform-files-name-can-be">Terraform files name can be:</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>   <span style="color:#f92672">.</span>tf
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">.</span>tf<span style="color:#f92672">.</span>json
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-overrider-files-name-can-be-" data-heading="Terraform Overrider files name can be :" data-level="4" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h4 id="terraform-overrider-files-name-can-be-">Terraform Overrider files name can be :</h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>override<span style="color:#f92672">.</span>tf 
+</span></span><span style="display:flex;"><span>override<span style="color:#f92672">.</span>tf<span style="color:#f92672">.</span>json 
+</span></span><span style="display:flex;"><span>temp_override<span style="color:#f92672">.</span>tf
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-variable-file-names-can-be-" data-heading="Terraform variable file names can be :" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="terraform-variable-file-names-can-be-">Terraform variable file names can be :</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#f92672">.</span>tfvars  variables definitions
+</span></span><span style="display:flex;"><span>tfvars<span style="color:#f92672">.</span>json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Files named exactly terraform<span style="color:#f92672">.</span>tfvars <span style="color:#f92672">or</span> terraform<span style="color:#f92672">.</span>tfvars<span style="color:#f92672">.</span>json
+</span></span><span style="display:flex;"><span>Any files with names ending in <span style="color:#f92672">.</span>auto<span style="color:#f92672">.</span>tfvars <span style="color:#f92672">or</span> <span style="color:#f92672">.</span>auto<span style="color:#f92672">.</span>tfvars<span style="color:#f92672">.</span>json
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="variable-definition-precedence-1" data-heading="Variable Definition Precedence" data-level="3" data-permalink="/docs/terraform/terraform-with-azure/" data-title="Terraform with Azure" -->
+<h3 id="variable-definition-precedence-1">Variable Definition Precedence</h3><ul>
+<li>Environment variables</li>
+<li>The terraform.tfvars file, if present.</li>
+<li>The terraform.tfvars.json file, if present.</li>
+<li>Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.</li>
+<li>Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)</li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

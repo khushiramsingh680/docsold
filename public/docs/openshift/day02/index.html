@@ -1,0 +1,863 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Day02 | Documentation</title>
+<meta name="description" content="Day02">
+<meta property="og:title" content="Day02" />
+<meta property="og:description" content="Day02" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/openshift/day02/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-05T00:00:00+00:00" />
+
+<meta itemprop="name" content="Day02">
+<meta itemprop="description" content="Day02"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="829">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Day02"/>
+<meta name="twitter:description" content="Day02"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.3bf9019cc598e755d4124f2b8cdaa9bd8fb8882cb56a470be9983e5fee3bbd7c.css" as="style">
+<link href="/scss/main.min.3bf9019cc598e755d4124f2b8cdaa9bd8fb8882cb56a470be9983e5fee3bbd7c.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span class="active">Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span>Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.98e46b1b70fb665bcdc0d9e2215dc380.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.98e46b1b70fb665bcdc0d9e2215dc380.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check"/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check" checked/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftday01-li">
+  <input type="checkbox" id="m-docsopenshiftday01-check"/>
+  <label for="m-docsopenshiftday01-check"><a href="/docs/openshift/day01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftday01"><span class="">Day01</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftday02-li">
+  <input type="checkbox" id="m-docsopenshiftday02-check"/>
+  <label for="m-docsopenshiftday02-check"><a href="/docs/openshift/day02/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftday02"><span class="td-sidebar-nav-active-item">Day02</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/OpenShift/Day02.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/OpenShift/Day02.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#project">Project####</a></li>
+            <li><a href="#service">Service</a>
+              <ul>
+                <li><a href="#deployments">Deployments</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#secrets">Secrets</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#configmaps">ConfigMaps</a></li>
+            <li><a href="#volumes">Volumes</a></li>
+            <li><a href="#kubernetes-trobleshooting">Kubernetes Trobleshooting</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/openshift/">Openshift</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/openshift/day02/">Day02</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Day02</h1>
+	<div class="lead">Day02</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	
+
+<div class="pageinfo pageinfo-primary">
+<p>Openshift Authentication and Authorization</p>
+
+</div>
+
+<ul>
+<li>Openshift Authentication and Authorization</li>
+</ul>
+<pre tabindex="0"><code>Htpasswd Configuration:
+
+yum install httpd*
+htpasswd -c -B -b /tmp/htpasswd student redhat123
+htpasswd  -B -b /tmp/htpasswd student2  redhat123
+
+oc create secret generic htpasswd-secret --from-file htpasswd=/tmp/htpasswd -n openshift-config
+
+vi oauth.yaml
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+ name: cluster
+spec:
+ identityProviders:
+ - name: ldap
+ mappingMethod: claim
+ type: HTPasswd
+ htpasswd:
+ fileData:
+ name: htpasswd-secret
+</code></pre><ul>
+<li>Conplete this as well</li>
+</ul>
+<pre tabindex="0"><code>https://gitlab.com/gcpnirpendra/openshift-280-training/-/issues/7
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="project" data-heading="Project####" data-level="4" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h4 id="project">Project####</h4><ul>
+<li>How to  create a project</li>
+</ul>
+<pre tabindex="0"><code>oc new-project myapp
+</code></pre><ul>
+<li>Check all the project you have got access to</li>
+</ul>
+<pre tabindex="0"><code>oc get projects
+</code></pre><ul>
+<li>Check your current project</li>
+</ul>
+<pre tabindex="0"><code>oc project
+</code></pre><ul>
+<li>Give access to Project  from UI</li>
+<li>How to create a pod</li>
+</ul>
+<pre tabindex="0"><code>oc run &lt;name&gt; --image=nginx
+</code></pre><ul>
+<li>Another example</li>
+</ul>
+<pre tabindex="0"><code>vi pod.yanl
+apiVersion: v1
+kind: Pod
+metadata:
+  name: firstpod
+spec:
+ containers:
+  - name: firstcontainer
+    image: nginx
+</code></pre><ul>
+<li>How to check all pods</li>
+</ul>
+<pre tabindex="0"><code>oc get pods
+</code></pre><ul>
+<li>How to check all pods in all namespaces</li>
+</ul>
+<pre tabindex="0"><code>oc get pods -A
+</code></pre><ul>
+<li>How to check the name of all pods</li>
+</ul>
+<pre tabindex="0"><code>oc get pods -o name
+</code></pre><ul>
+<li>How to check the labels of all pods running</li>
+</ul>
+<pre tabindex="0"><code>oc get pods --show-lables
+</code></pre><ul>
+<li>How to login to a pods</li>
+</ul>
+<pre tabindex="0"><code>oc exec -it podname sh 
+</code></pre><ul>
+<li>How to check the logs of a pods</li>
+</ul>
+<pre tabindex="0"><code>oc logs podname
+</code></pre><ul>
+<li>How to login to  a pod</li>
+</ul>
+<pre tabindex="0"><code>oc exec -it podname sh
+</code></pre><ul>
+<li>How to delete a pod</li>
+</ul>
+<pre tabindex="0"><code>oc delete pod &lt;podname&gt;
+</code></pre><ul>
+<li>How to delete a pod forcefully</li>
+</ul>
+<pre tabindex="0"><code>oc delete pod --force --grace-period=0
+</code></pre><ul>
+<li>How to delete multiple pod in one go</li>
+</ul>
+<pre tabindex="0"><code>for i in $(oc get pods -o name ); do oc delete pod $i ;done 
+</code></pre><ul>
+<li>How to check the logs for a specific container</li>
+</ul>
+<pre tabindex="0"><code>oc logs podname -c &lt;container-name&gt;
+</code></pre><ul>
+<li>How to login to specific container</li>
+</ul>
+<pre tabindex="0"><code>oc exec -it podname -c &lt;container-name&gt;
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="service" data-heading="Service" data-level="4" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h4 id="service">Service</h4><ul>
+<li>How to check all services</li>
+</ul>
+<pre tabindex="0"><code>oc get svc
+</code></pre><ul>
+<li>How to create a service</li>
+</ul>
+<pre tabindex="0"><code>oc expose pod/deployment  deployment/myapp --port=80
+</code></pre><ul>
+<li>Service with yaml manifest</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+</code></pre><ul>
+<li>How to check the labels where the service is forwarding requests</li>
+</ul>
+<pre tabindex="0"><code>oc describe svc &lt;svcname&gt;
+</code></pre><ul>
+<li>How to check the endpoints of a service</li>
+</ul>
+<pre tabindex="0"><code>oc get ep
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="deployments" data-heading="Deployments" data-level="5" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h5 id="deployments">Deployments</h5><ul>
+<li>How to create a deployment</li>
+</ul>
+<pre tabindex="0"><code>oc create deployment myapp --image=nginx
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rolling-update-www-containers-of-frontend-deployment-updating-the-image" data-heading="Rolling update &ldquo;www&rdquo; containers of &ldquo;frontend&rdquo; deployment, updating the image" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="rolling-update-www-containers-of-frontend-deployment-updating-the-image">Rolling update &ldquo;www&rdquo; containers of &ldquo;frontend&rdquo; deployment, updating the image</h1></li>
+</ul>
+<pre tabindex="0"><code>oc set image deployment/frontend www=image:v2 
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="check-the-history-of-deployments-including-the-revision" data-heading="Check the history of deployments including the revision" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="check-the-history-of-deployments-including-the-revision">Check the history of deployments including the revision</h1></li>
+</ul>
+<pre tabindex="0"><code>oc rollout history deployment/frontend 
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rollback-to-the-previous-deployment" data-heading="Rollback to the previous deployment" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="rollback-to-the-previous-deployment">Rollback to the previous deployment</h1></li>
+</ul>
+<pre tabindex="0"><code>oc rollout undo deployment/frontend  
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rollback-to-a-specific-revision" data-heading="Rollback to a specific revision" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="rollback-to-a-specific-revision">Rollback to a specific revision</h1></li>
+</ul>
+<pre tabindex="0"><code>oc rollout undo deployment/frontend --to-revision=2   
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="watch-rolling-update-status-of-frontend-deployment-until-completion" data-heading="Watch rolling update status of &ldquo;frontend&rdquo; deployment until completion" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="watch-rolling-update-status-of-frontend-deployment-until-completion">Watch rolling update status of &ldquo;frontend&rdquo; deployment until completion</h1></li>
+</ul>
+<pre tabindex="0"><code>oc rollout status -w deployment/frontend 
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="rolling-restart-of-the-frontend-deployment" data-heading="Rolling restart of the &ldquo;frontend&rdquo; deployment" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="rolling-restart-of-the-frontend-deployment">Rolling restart of the &ldquo;frontend&rdquo; deployment</h1></li>
+</ul>
+<pre tabindex="0"><code>oc rollout restart deployment/frontend                     
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="secrets" data-heading="Secrets" data-level="4" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h4 id="secrets">Secrets</h4><ul>
+<li>Check all secrets</li>
+</ul>
+<pre tabindex="0"><code>oc get secrets
+</code></pre><ul>
+<li>How to create secret</li>
+</ul>
+<pre tabindex="0"><code>oc create secret tls my-tls-secret \
+  --cert=path/to/cert/file \
+  --key=path/to/key/file
+</code></pre><ul>
+<li>Create Secret for username and password</li>
+</ul>
+<pre tabindex="0"><code>oc create secret generic creds --from-literal=name=nippy --from=literal=pass=123
+</code></pre><ul>
+<li>List the environment variables defined on all pods</li>
+</ul>
+<pre tabindex="0"><code>oc set env pods --all --list
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="import-environment-from-a-secret" data-heading="Import environment from a secret" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="import-environment-from-a-secret">Import environment from a secret</h1></li>
+</ul>
+<pre tabindex="0"><code>  oc set env --from=secret/mysecret dc/myapp
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="import-environment-from-a-config-map-with-a-prefix" data-heading="Import environment from a config map with a prefix" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="import-environment-from-a-config-map-with-a-prefix">Import environment from a config map with a prefix</h1></li>
+</ul>
+<pre tabindex="0"><code>  oc set env --from=configmap/myconfigmap --prefix=MYSQL_ dc/myapp
+</code></pre><ul>
+<li>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="remove-the-environment-variable-env-from-container-c1-in-all-deployment-configs" data-heading="Remove the environment variable ENV from container &lsquo;c1&rsquo; in all deployment configs" data-level="1" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h1 id="remove-the-environment-variable-env-from-container-c1-in-all-deployment-configs">Remove the environment variable ENV from container &lsquo;c1&rsquo; in all deployment configs</h1></li>
+</ul>
+<pre tabindex="0"><code>  oc set env deployments --all --containers=&#34;c1&#34; ENV-
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="configmaps" data-heading="ConfigMaps" data-level="4" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h4 id="configmaps">ConfigMaps</h4><ul>
+<li>List all configmaps</li>
+</ul>
+<pre tabindex="0"><code>oc get cm
+</code></pre><ul>
+<li>Create a new configmap</li>
+</ul>
+<pre tabindex="0"><code>oc create configmap game-config --from-file=configure-pod-container
+</code></pre><ul>
+<li>Get the yaml file for the configmap</li>
+</ul>
+<pre tabindex="0"><code>oc get configmaps game-config -o yaml
+</code></pre><ul>
+<li>Use configmap as a volume in pod</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ &#34;/bin/sh&#34;, &#34;-c&#34;, &#34;ls /etc/config/&#34; ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        # Provide the name of the ConfigMap containing the files you want
+        # to add to the container
+        name: special-config
+  restartPolicy: Never
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="volumes" data-heading="Volumes" data-level="4" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h4 id="volumes">Volumes</h4><ul>
+<li>emptyDir Example</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: registry.k8s.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+  volumes:
+  - name: cache-volume
+    emptyDir:
+      sizeLimit: 500Mi
+</code></pre><ul>
+<li>Check all pvcs</li>
+</ul>
+<pre tabindex="0"><code>oc get pvc
+</code></pre><ul>
+<li>Create a pvc</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0001 
+spec:
+  capacity:
+    storage: 5Gi 
+  accessModes:
+    - ReadWriteOnce 
+</code></pre><ul>
+<li>use pvc inside a pod</li>
+</ul>
+<pre tabindex="0"><code>kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: dockerfile/nginx
+      volumeMounts:
+      - mountPath: &#34;/var/www/html&#34; 
+        name: mypd 
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: myclaim 
+</code></pre><!-- end-chunk -->
+<!-- begin-chunk data-anchor="kubernetes-trobleshooting" data-heading="Kubernetes Trobleshooting" data-level="4" data-permalink="/docs/openshift/day02/" data-title="Day02" -->
+<h4 id="kubernetes-trobleshooting">Kubernetes Trobleshooting</h4><ul>
+<li>Check the nodes status</li>
+</ul>
+<pre tabindex="0"><code>oc get nodes
+</code></pre><ul>
+<li>Check the status of pods</li>
+</ul>
+<pre tabindex="0"><code>oc get pods 
+</code></pre><ul>
+<li>Check the pods where are they scheduled</li>
+</ul>
+<pre tabindex="0"><code>oc get pod -o wide
+</code></pre><ul>
+<li>check the events for a particular namepsace</li>
+</ul>
+<pre tabindex="0"><code>oc get events
+</code></pre><ul>
+<li>Look for any error in pod</li>
+</ul>
+<pre tabindex="0"><code>oc logs podname
+</code></pre><ul>
+<li>Describe pod if the pod status is pending</li>
+</ul>
+<pre tabindex="0"><code>oc describe pod podname
+</code></pre><ul>
+<li>How to login to private image registry</li>
+</ul>
+<pre tabindex="0"><code>docker login
+</code></pre><ul>
+<li>Create a secret for imagePull secret</li>
+</ul>
+<pre tabindex="0"><code>oc create secret generic regcred \
+    --from-file=.dockerconfigjson=&lt;path/to/.docker/config.json&gt; \
+    --type=kubernetes.io/dockerconfigjson
+</code></pre><ul>
+<li>Use Imagepull secret in pod</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+spec:
+  containers:
+  - name: private-reg-container
+    image: &lt;your-private-image&gt;
+  imagePullSecrets:
+  - name: regcred
+</code></pre><ul>
+<li>Check the ip address of pod with specifice label</li>
+</ul>
+<pre tabindex="0"><code>oc get pods -l app=hostnames \
+    -o go-template=&#39;{{range .items}}{{.status.podIP}}{{&#34;\n&#34;}}{{end}}&#39;
+</code></pre><ul>
+<li>Try to check the connectivity from a pod</li>
+</ul>
+<pre tabindex="0"><code>for ep in 10.244.0.5:9376 10.244.0.6:9376 10.244.0.7:9376; do
+    wget -qO- $ep
+done
+</code></pre>
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

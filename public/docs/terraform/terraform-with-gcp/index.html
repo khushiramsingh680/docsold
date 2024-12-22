@@ -1,0 +1,1895 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/terraform/terraform-with-gcp/index.xml">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Terraform with Google Cloud | Documentation</title>
+<meta name="description" content="Terraform with Google Cloud">
+<meta property="og:title" content="Terraform with Google Cloud" />
+<meta property="og:description" content="Terraform with Google Cloud" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/terraform/terraform-with-gcp/" />
+
+<meta itemprop="name" content="Terraform with Google Cloud">
+<meta itemprop="description" content="Terraform with Google Cloud"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Terraform with Google Cloud"/>
+<meta name="twitter:description" content="Terraform with Google Cloud"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" as="style">
+<link href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-section highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/devops/" ><i class='fas fa-user-check'></i><span>Devops </span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span>Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span class="active">Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberneteshardway/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberneteshardway"><span class="">Kubernets Installation From Scatch on rocky 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousminio-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousminio-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousminio-check"><a href="/docs/kubernetes/docs/miscellaneous/minio/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousminio"><span class="">The Object Store for AI Data Infrastructure</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsdevops-li">
+  <input type="checkbox" id="m-docsdevops-check"/>
+  <label for="m-docsdevops-check"><a href="/docs/devops/" title="Devops" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsdevops"><i class="fas fa-user-check"></i><span class="">Devops </span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevops-advance-li">
+  <input type="checkbox" id="m-docsdevopsdevops-advance-check"/>
+  <label for="m-docsdevopsdevops-advance-check"><a href="/docs/devops/devops-advance/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevops-advance"><span class="">Devops for Advance Level</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevopsl1-li">
+  <input type="checkbox" id="m-docsdevopsdevopsl1-check"/>
+  <label for="m-docsdevopsdevopsl1-check"><a href="/docs/devops/devopsl1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevopsl1"><span class="">Devops for Begineers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopselk-stack-li">
+  <input type="checkbox" id="m-docsdevopselk-stack-check"/>
+  <label for="m-docsdevopselk-stack-check"><a href="/docs/devops/elk-stack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopselk-stack"><span class="">ELK statck </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopspostgresql-li">
+  <input type="checkbox" id="m-docsdevopspostgresql-check"/>
+  <label for="m-docsdevopspostgresql-check"><a href="/docs/devops/postgresql/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopspostgresql"><span class="">Postgres Installation </span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check" checked/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformdiscussions-li">
+  <input type="checkbox" id="m-docsterraformdiscussions-check"/>
+  <label for="m-docsterraformdiscussions-check"><a href="/docs/terraform/discussions/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformdiscussions"><span class="">Discussions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="td-sidebar-nav-active-item">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-baremetalmd-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-baremetalmd-check"/>
+  <label for="m-docsopenshiftopenshift-baremetalmd-check"><a href="/docs/openshift/openshift-baremetal.md/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-baremetalmd"><span class="">Openshift Baremetal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocpsetup-li">
+  <input type="checkbox" id="m-docsopenshiftocpsetup-check"/>
+  <label for="m-docsopenshiftocpsetup-check"><a href="/docs/openshift/ocpsetup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocpsetup"><span class="">Openshift Installation and Upgradation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshifttoc-li">
+  <input type="checkbox" id="m-docsopenshifttoc-check"/>
+  <label for="m-docsopenshifttoc-check"><a href="/docs/openshift/toc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshifttoc"><span class="">Openshift TOC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-1-li">
+  <input type="checkbox" id="m-docsopenshiftpart-1-check"/>
+  <label for="m-docsopenshiftpart-1-check"><a href="/docs/openshift/part-1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-1"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-2-li">
+  <input type="checkbox" id="m-docsopenshiftpart-2-check"/>
+  <label for="m-docsopenshiftpart-2-check"><a href="/docs/openshift/part-2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-2"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Terraform/Terraform%20with%20GCP/_index.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Terraform/Terraform%20with%20GCP/_index.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#google-cloud-overview-2-hrs">Google Cloud Overview: 2 Hrs</a>
+      <ul>
+        <li><a href="#introduction-to-infrastructure-as-a-code-1hr">Introduction to Infrastructure as a code 1hr</a></li>
+        <li><a href="#getting-started--setting-up-labs-1hr">Getting started &amp; Setting Up Labs 1hr</a></li>
+        <li><a href="#read-generate--modify-configuration-2-hrs">READ, GENERATE &amp; MODIFY CONFIGURATION 2 hrs</a></li>
+        <li><a href="#know-terraform-providers-2-hrs">Know Terraform Providers 2 hrs</a></li>
+        <li><a href="#terraform-providers-and-datasources-2hrs">Terraform Providers and Datasources 2hrs</a></li>
+        <li><a href="#google-cloud-overview">Google Cloud Overview</a>
+          <ul>
+            <li><a href="#documents-from-gooogle-cloud">Documents from Gooogle Cloud</a>
+              <ul>
+                <li><a href="#datasources">Datasources</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#day2">Day2:</a>
+      <ul>
+        <li><a href="#terraform-variables-2-hrs">Terraform Variables 2 hrs</a></li>
+        <li><a href="#terraform-provisioner-2-hrs">TERRAFORM PROVISIONER 2 hrs</a></li>
+        <li><a href="#terraform-modules--workspaces-2-hrs">Terraform Modules &amp; Workspaces 2 hrs</a></li>
+        <li><a href="#remote-state-management-2-hrs">REMOTE STATE MANAGEMENT 2 hrs</a></li>
+        <li><a href="#create-a-firewall-rule-for-ssh-allow">Create a firewall rule for ssh allow</a>
+          <ul>
+            <li><a href="#create-a-subnet">Create a subnet</a>
+              <ul>
+                <li><a href="#vpc-peering-for-vnet01-and-vnet02">VPC Peering for vnet01 and vnet02</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#day3">Day3:</a>
+      <ul>
+        <li><a href="#terraform-cloud--enterprise-capabilities-2hrs">TERRAFORM CLOUD &amp; ENTERPRISE CAPABILITIES 2hrs</a></li>
+        <li><a href="#infrastructure-as-code-with-terraform-and-gitlab-2-hrs">Infrastructure as Code with Terraform and GitLab 2 hrs</a></li>
+        <li><a href="#infrastructure-as-code-with-terraform-and-jenkins-2-hrs">Infrastructure as Code with Terraform and Jenkins 2 hrs</a></li>
+        <li><a href="#install-terraform-plugin">Install Terraform plugin</a></li>
+        <li><a href="#configure-terraform">Configure Terraform</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-4">Day 4:</a>
+      <ul>
+        <li><a href="#terraform-authentication-with-google-cloud-2-hrs">Terraform Authentication with Google Cloud 2 hrs</a></li>
+        <li><a href="#terraform-for-google-storage-2-hrs">Terraform for Google Storage 2 hrs</a></li>
+        <li><a href="#terraform-for-google-network-2hrs">Terraform for Google Network 2hrs</a></li>
+        <li><a href="#terraform-for-compute-engine-2-hrs">Terraform for Compute Engine 2 hrs</a></li>
+        <li><a href="#terraform-for-google-container-and-kubernetes-2hrs">Terraform for Google Container and Kubernetes 2hrs</a></li>
+        <li><a href="#gitlab-ciyaml--file">.Gitlab-ci.yaml  file</a>
+          <ul>
+            <li><a href="#terraform-sentinel">Terraform Sentinel</a></li>
+          </ul>
+        </li>
+        <li><a href="#more-references">More References</a></li>
+        <li><a href="#terraform-refresh">Terraform refresh</a></li>
+        <li><a href="#terrafrom-trace-log-settings">Terrafrom Trace Log Settings</a></li>
+      </ul>
+    </li>
+    <li><a href="#linux-bash">Linux Bash</a>
+      <ul>
+        <li><a href="#terraform-log-settings">Terraform log settings</a></li>
+        <li><a href="#verify-after-saving-the-file-in-new-terminal">Verify after saving the file in new terminal</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/terraform/">Terraform</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/terraform/terraform-with-gcp/">Terraform with Google Cloud</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Terraform with Google Cloud</h1>
+  <div class="lead">Terraform with Google Cloud</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>
+	
+
+<div class="pageinfo pageinfo-primary">
+<p>Terraform with Google Cloud</p>
+
+</div>
+
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="google-cloud-overview-2-hrs" data-heading="Google Cloud Overview: 2 Hrs" data-level="2" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h2 id="google-cloud-overview-2-hrs">Google Cloud Overview: 2 Hrs</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="introduction-to-infrastructure-as-a-code-1hr" data-heading="Introduction to Infrastructure as a code 1hr" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="introduction-to-infrastructure-as-a-code-1hr">Introduction to Infrastructure as a code 1hr</h3><ul>
+<li>Overview of infrastructure as code (Iac)</li>
+<li>Infrastructure provisioning tools - Terraform and its benefits</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="getting-started--setting-up-labs-1hr" data-heading="Getting started &amp; Setting Up Labs 1hr" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="getting-started--setting-up-labs-1hr">Getting started &amp; Setting Up Labs 1hr</h3><ul>
+<li>Terraform installation</li>
+<li>Gitbash installation (ide)</li>
+<li>Vscode installation and setup</li>
+<li>Install Terraform plugins in Vscode</li>
+<li>Setting up google cloud account</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="read-generate--modify-configuration-2-hrs" data-heading="READ, GENERATE &amp; MODIFY CONFIGURATION 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="read-generate--modify-configuration-2-hrs">READ, GENERATE &amp; MODIFY CONFIGURATION 2 hrs</h3><ul>
+<li>Hashicorp configuration language (Hcl)</li>
+<li>Terraform configure files</li>
+<li>Terraform state file</li>
+<li>Start to build code</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="know-terraform-providers-2-hrs" data-heading="Know Terraform Providers 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="know-terraform-providers-2-hrs">Know Terraform Providers 2 hrs</h3><ul>
+<li>Local</li>
+<li>Google Cloud</li>
+<li>Random</li>
+<li>AWS</li>
+<li>Azurerm</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-providers-and-datasources-2hrs" data-heading="Terraform Providers and Datasources 2hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-providers-and-datasources-2hrs">Terraform Providers and Datasources 2hrs</h3><ul>
+<li>Arguments and Attributes</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="google-cloud-overview" data-heading="Google Cloud Overview" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="google-cloud-overview">Google Cloud Overview</h3><ul>
+<li>Create Google Cloud Free Account</li>
+<li>Create Project</li>
+<li>Assign access to the newly created project.</li>
+<li>Download and Install Vscode <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Click Here </a></li>
+<li>Download and Install terraform  <a href="https://www.terraform.io/downloads" target="_blank" rel="noopener">Click Here </a></li>
+<li>Download and Install Gitbash</li>
+<li>Create Account on Gitlab</li>
+<li>Walk through Google Cloud IAM</li>
+<li>Create VM on GCP</li>
+<li>Create a Firewall rule</li>
+<li>Create a service Account and assign permission.</li>
+<li>Configure Google Cloud cli</li>
+</ul>
+<p><a href="https://gitlab.com/t938/gcp/-/issues" target="_blank" rel="noopener">Steps to Create a virtual Machine</a></p>
+<ul>
+<li>provider Code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  required_providers {
+</span></span><span style="display:flex;"><span>    google <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hashicorp/google&#34;</span>
+</span></span><span style="display:flex;"><span>      version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.20.0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;google&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Configuration options</span>
+</span></span><span style="display:flex;"><span>  project <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;quiet-fusion-348804&#34;</span>
+</span></span><span style="display:flex;"><span>  region      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1&#34;</span>
+</span></span><span style="display:flex;"><span>  zone        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1-c&#34;</span>
+</span></span><span style="display:flex;"><span>  credentials <span style="color:#f92672">=</span> file(<span style="color:#e6db74">&#34;admin.json&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Vm code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e2-medium&#34;</span>
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1-a&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-11-bullseye-v20220406&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">//</span> Ephemeral public IP
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">```t
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-  Code for Metadata (ssh keys)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">```</span>t
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_project_metadata&#34;</span> <span style="color:#e6db74">&#34;my_ssh_key&#34;</span> {
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    ssh<span style="color:#f92672">-</span>keys <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;</span>EOF
+</span></span><span style="display:flex;"><span>sssh<span style="color:#f92672">-</span>rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqU07gbxzO3oeNIX2gq6hmOXPk79HV<span style="color:#f92672">+</span>YCshoHHlloOGwy1EgRlVtPHVLQDaPpvx1xNn4UFeaKvqpcOZctWQsugq1Zo51V4yhMCEbVGfcyKhgsIuRMBkzimAeeZV77mzaLzNQxeNHOzFBprSuaw63ODtqW<span style="color:#f92672">+</span>FYOq<span style="color:#f92672">+</span>RzqfPvohr2UdTT07Ki7IQYhbLJ9zuVTfQIn<span style="color:#e6db74">/ELE59z41vrCBeyZH9Om2Orgz4CKilamY5WDBuYFJqw8QhMKVwRiF+vsJS7iLeo1pPufbRBZqvtA5eU0rG2hjTcJBYsXuKswtelwzgTXmUI/c</span><span style="color:#ae81ff">0</span>cRcjp<span style="color:#f92672">+</span><span style="color:#ae81ff">4</span><span style="color:#e6db74">/UYVCh4StUrlRHphDct+qyloSzT+E1zXTIKWfml+0nAnOQIP+V98fzdHHzuYPebVS9mcDbuNz/</span>TZaxtV0RWFt1cTEWBwNZGTpB2tUqUAqJgW5yc9kHKFMm5BDpAiMPQDJUIjLUc1DbHLPOy<span style="color:#f92672">+</span>Gd7annuFdcGnAVJvSud8yJYNg<span style="color:#f92672">/</span>ABc3PmB<span style="color:#f92672">+</span>WyWjnGLk6eUjk6PS708sjYtM<span style="color:#f92672">=</span> nippy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    EOF
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>How to create ssh keys</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>ssh<span style="color:#f92672">-</span>keygen <span style="color:#f92672">-</span>f <span style="color:#e6db74">&lt;keyname&gt;</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Update network tag for a vm</p>
+</li>
+<li>
+<p>update a vm size for a vm</p>
+</li>
+<li>
+<p>Update deletion protection</p>
+</li>
+<li>
+<p>Update label</p>
+</li>
+<li>
+<p>Update metadata script</p>
+</li>
+<li>
+<p>update service account</p>
+</li>
+<li>
+<p>Create Disk</p>
+</li>
+<li>
+<p>Attach Disk</p>
+</li>
+<li>
+<p>Increase the size of Disk</p>
+</li>
+<li>
+<p>VM code with metadata script</p>
+</li>
+<li>
+<p>Know about multiple provider</p>
+</li>
+<li>
+<p>Visit to terrform registry to check all providers</p>
+</li>
+<li>
+<p>Terraform Lock file</p>
+</li>
+<li>
+<p>check the terraform next version available</p>
+</li>
+<li>
+<p>know the ways to delete resources</p>
+</li>
+<li>
+<p>Create a branch on project and push the code for session wise</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># Create a single Compute Engine instance</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;flask-vm&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;f1-micro&#34;</span>
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-west1-a&#34;</span>
+</span></span><span style="display:flex;"><span>  tags         <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;ssh&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    enable<span style="color:#f92672">-</span>oslogin <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TRUE&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-cloud/debian-9&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Install Flask</span>
+</span></span><span style="display:flex;"><span>  metadata_startup_script <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install flask&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Include this section to give the VM an external IP address</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Create a Firewall rule</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_firewall&#34;</span> <span style="color:#e6db74">&#34;ssh&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;allow-ssh&#34;</span>
+</span></span><span style="display:flex;"><span>  allow {
+</span></span><span style="display:flex;"><span>    ports    <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;22&#34;</span>]
+</span></span><span style="display:flex;"><span>    protocol <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  direction     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INGRESS&#34;</span>
+</span></span><span style="display:flex;"><span>  network       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>  priority      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>  source_ranges <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style="display:flex;"><span>  target_tags   <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;ssh&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="documents-from-gooogle-cloud" data-heading="Documents from Gooogle Cloud" data-level="4" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h4 id="documents-from-gooogle-cloud">Documents from Gooogle Cloud</h4><ul>
+<li>Terraform Best practices
+<a href="https://cloud.google.com/docs/terraform/best-practices-for-terraform" target="_blank" rel="noopener">Terraform Best Practices</a></li>
+</ul>
+<p><a href="https://cloud.google.com/docs/terraform/resource-management/export" target="_blank" rel="noopener">Export your Google Cloud resources into Terraform format</a></p>
+<ul>
+<li>List Project id</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud config list project
+</span></span></code></pre></div><p>registry.terraform.io/hashicorp/google.</p>
+<ul>
+<li>Create a network</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network&#34;</span> <span style="color:#e6db74">&#34;vpc_network&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-network&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Use the newly create network with vm</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;vm_instance&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-instance&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;f1-micro&#34;</span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-cloud/debian-9&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Create a static ip</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_address&#34;</span> <span style="color:#e6db74">&#34;vm_static_ip&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-static-ip&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Update vm with static ip</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      nat_ip <span style="color:#f92672">=</span> google_compute_address<span style="color:#f92672">.</span>vm_static_ip<span style="color:#f92672">.</span>address
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><ul>
+<li>Dependency with bucket</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># New resource for the storage bucket our application will use.</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_storage_bucket&#34;</span> <span style="color:#e6db74">&#34;example_bucket&#34;</span> {
+</span></span><span style="display:flex;"><span>  name     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;UNIQUE-BUCKET-NAME&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>  location <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;US&#34;</span>
+</span></span><span style="display:flex;"><span>  website {
+</span></span><span style="display:flex;"><span>    main_page_suffix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;index.html&#34;</span>
+</span></span><span style="display:flex;"><span>    not_found_page   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;404.html&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a new instance that uses the bucket</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;another_instance&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Tells Terraform that this VM instance must be created only after the</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># storage bucket has been created.</span>
+</span></span><span style="display:flex;"><span>  depends_on <span style="color:#f92672">=</span> [google_storage_bucket<span style="color:#f92672">.</span>example_bucket]
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-instance-2&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;f1-micro&#34;</span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cos-cloud/cos-stable&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="datasources" data-heading="Datasources" data-level="5" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h5 id="datasources">Datasources</h5><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>data <span style="color:#e6db74">&#34;google_project&#34;</span> <span style="color:#e6db74">&#34;project&#34;</span> {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;project&#34;</span> {
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>google_project<span style="color:#f92672">.</span>project<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;hhh&#34;</span> {
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#e6db74">&#34;google_compute_network&#34;</span> <span style="color:#e6db74">&#34;my-network&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default-us-east1&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;network&#34;</span> {
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>google_compute_network<span style="color:#f92672">.</span><span style="color:#66d9ef">my</span><span style="color:#f92672">-</span>network<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#e6db74">&#34;google_compute_regions&#34;</span> <span style="color:#e6db74">&#34;available&#34;</span> {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;region&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>google_compute_regions<span style="color:#f92672">.</span>available<span style="color:#f92672">.</span>names
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Google Cloud Compute Zone</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>data <span style="color:#e6db74">&#34;google_compute_zones&#34;</span> <span style="color:#e6db74">&#34;available&#34;</span> {
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance_group_manager&#34;</span> <span style="color:#e6db74">&#34;foo&#34;</span> {
+</span></span><span style="display:flex;"><span>  count <span style="color:#f92672">=</span> length(data<span style="color:#f92672">.</span>google_compute_zones<span style="color:#f92672">.</span>available<span style="color:#f92672">.</span>names)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  name               <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-test-${count.index}&#34;</span>
+</span></span><span style="display:flex;"><span>  instance_template  <span style="color:#f92672">=</span> google_compute_instance_template<span style="color:#f92672">.</span>foobar<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  base_instance_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foobar-${count.index}&#34;</span>
+</span></span><span style="display:flex;"><span>  zone               <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>google_compute_zones<span style="color:#f92672">.</span>available<span style="color:#f92672">.</span>names[count<span style="color:#f92672">.</span>index]
+</span></span><span style="display:flex;"><span>  target_size        <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Create vm as per the availablity zone</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foobar${count.index}&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e2-medium&#34;</span>
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>google_compute_zones<span style="color:#f92672">.</span>available<span style="color:#f92672">.</span>names[count<span style="color:#f92672">.</span>index]
+</span></span><span style="display:flex;"><span>  tags  <span style="color:#f92672">=</span>        [<span style="color:#e6db74">&#34;jenkins&#34;</span>]
+</span></span><span style="display:flex;"><span>  count <span style="color:#f92672">=</span> length(data<span style="color:#f92672">.</span>google_compute_zones<span style="color:#f92672">.</span>available<span style="color:#f92672">.</span>names)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-11-bullseye-v20220406&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">//</span> Ephemeral public IP
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>For each</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  for_each <span style="color:#f92672">=</span> toset(var<span style="color:#f92672">.</span>each)
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foobar${each.key}&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e2-medium&#34;</span>
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.value}&#34;</span>
+</span></span><span style="display:flex;"><span>  tags  <span style="color:#f92672">=</span>        [<span style="color:#e6db74">&#34;jenkins&#34;</span>]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-11-bullseye-v20220406&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>   subnetwork <span style="color:#f92672">=</span> google_compute_subnetwork<span style="color:#f92672">.</span>default<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">//</span> Ephemeral public IP
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Learn for for each</span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;each&#34;</span> {
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;us-central1-a&#34;</span>,<span style="color:#e6db74">&#34;us-central1-b&#34;</span>,<span style="color:#e6db74">&#34;us-central1-c&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span></code></pre></div><ul>
+<li>List the active account name</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud auth list
+</span></span></code></pre></div><ul>
+<li>List the project ID</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud config list project
+</span></span></code></pre></div><ul>
+<li>Create a new instance using Gcloud shell</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud compute instances create [INSTANCE_NAME] <span style="color:#f92672">--</span>machine<span style="color:#f92672">-</span>type n1<span style="color:#f92672">-</span>standard<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">--</span>zone [ZONE_NAME]
+</span></span></code></pre></div><ul>
+<li>SSH in to the machine</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud compute ssh [INSTANCE_NAME] <span style="color:#f92672">--</span>zone [YOUR_ZONE]
+</span></span></code></pre></div><ul>
+<li>RDP a windows server</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud compute instances get<span style="color:#f92672">-</span>serial<span style="color:#f92672">-</span>port<span style="color:#f92672">-</span>output [INSTANCE_NAME] <span style="color:#f92672">--</span>zone [ZONE_NAME]
+</span></span></code></pre></div><ul>
+<li>Command to check whether the server is ready for an RDP connection</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud compute instances get<span style="color:#f92672">-</span>serial<span style="color:#f92672">-</span>port<span style="color:#f92672">-</span>output
+</span></span></code></pre></div><ul>
+<li>Create a Storage bucket</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gsutil mb gs:<span style="color:#e6db74">//</span>[BUCKET_NAME]
+</span></span></code></pre></div><ul>
+<li>Copy a file in to the bucket</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gsutil cp [FILE_NAME] gs:<span style="color:#e6db74">//</span>[BUCKET_NAME]
+</span></span></code></pre></div><ul>
+<li>Setting up default compute zone</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud config set compute<span style="color:#f92672">/</span>zone [ZONE_NAME]
+</span></span></code></pre></div><ul>
+<li>Set the default region:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud config set compute<span style="color:#f92672">/</span>region [REGION_NAME]
+</span></span></code></pre></div><ul>
+<li>List the compute engine instances created:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud compute instances list
+</span></span></code></pre></div><ul>
+<li>Create Kubernetes Cluster</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud container clusters create [CLUSTER<span style="color:#f92672">-</span>NAME]
+</span></span></code></pre></div><ul>
+<li>Get authentication credentials for the cluster</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud container clusters get<span style="color:#f92672">-</span>credentials [CLUSTER<span style="color:#f92672">-</span>NAME]
+</span></span></code></pre></div><ul>
+<li>Stop a vm</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>gcloud compute instances stop [INSTANCE<span style="color:#f92672">-</span>NAME]
+</span></span></code></pre></div><p><a href="https://www.terraform.io/language/expressions/version-constraints" target="_blank" rel="noopener">Terraform Version Constraints</a></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="day2" data-heading="Day2:" data-level="2" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h2 id="day2">Day2:</h2><ul>
+<li>Variables</li>
+<li>Meta Arguments</li>
+<li>Google Cloud Networking</li>
+<li>Conditions</li>
+<li>Local Values</li>
+<li>Terraform taint and untaint</li>
+<li>Terraform refresh commands</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-variables-2-hrs" data-heading="Terraform Variables 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-variables-2-hrs">Terraform Variables 2 hrs</h3><ul>
+<li>Variable Block</li>
+<li>Approaches for Variable Assignment</li>
+<li>Datatypes for variables</li>
+<li>Fetching data from Map and List</li>
+<li>Count and Count Index</li>
+<li>Conditional Expressions</li>
+<li>Local Values</li>
+<li>Terraform Functions</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-provisioner-2-hrs" data-heading="TERRAFORM PROVISIONER 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-provisioner-2-hrs">TERRAFORM PROVISIONER 2 hrs</h3><ul>
+<li>
+<p>Understanding Provisioners in Terraform</p>
+</li>
+<li>
+<p>Types of Provisioners</p>
+</li>
+<li>
+<p>Implementing remote-exec provisioners</p>
+</li>
+<li>
+<p>Implementing local-exec provisioners</p>
+</li>
+<li>
+<p>Creation-Time &amp; Destroy-Time Provisioners</p>
+</li>
+<li>
+<p>Failure Behavior for Provisioners</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-modules--workspaces-2-hrs" data-heading="Terraform Modules &amp; Workspaces 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-modules--workspaces-2-hrs">Terraform Modules &amp; Workspaces 2 hrs</h3><ul>
+<li>Understand DRY principle</li>
+<li>Creating modules for Google Cloud vm</li>
+<li>Creating modules for Google Cloud VPC</li>
+<li>Creating modules for google storage</li>
+<li>Terraform Registry</li>
+<li>Terraform Workspace</li>
+<li>Implementing Terraform workspace</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="remote-state-management-2-hrs" data-heading="REMOTE STATE MANAGEMENT 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="remote-state-management-2-hrs">REMOTE STATE MANAGEMENT 2 hrs</h3><ul>
+<li>Integrating with GIT for team management</li>
+<li>Security Challenges in Commiting TFState to GIT</li>
+<li>Module Sources in Terraform</li>
+<li>Terraform .gitignore and .terraform</li>
+<li>Remote State Management with Terraform</li>
+<li>Implementing google storage Backend</li>
+<li>Challenges with State File locking</li>
+<li>Terraform State Management</li>
+<li>Importing Existing Resources with Terraform Import</li>
+<li>Document - Remote State Management</li>
+<li>Terraform state pull</li>
+<li>Terraform refresh on state</li>
+</ul>
+<p><a href="https://blog.boltops.com/2020/10/03/terraform-hcl-conditional-logic/" target="_blank" rel="noopener">https://blog.boltops.com/2020/10/03/terraform-hcl-conditional-logic/</a></p>
+<ul>
+<li><input disabled="" type="checkbox"> Understand conditions</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;a1&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> true ? <span style="color:#e6db74">&#34;is true&#34;</span> : <span style="color:#e6db74">&#34;is false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;a2&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> false ? <span style="color:#e6db74">&#34;is true&#34;</span> : <span style="color:#e6db74">&#34;is false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;a3&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> ? <span style="color:#e6db74">&#34;is true&#34;</span> : <span style="color:#e6db74">&#34;is false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> More Examples</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;b1&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> contains([<span style="color:#e6db74">&#34;a&#34;</span>,<span style="color:#e6db74">&#34;b&#34;</span>,<span style="color:#e6db74">&#34;c&#34;</span>], <span style="color:#e6db74">&#34;d&#34;</span>) ? <span style="color:#e6db74">&#34;is true&#34;</span> : <span style="color:#e6db74">&#34;is false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;b2&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> keys({a: <span style="color:#ae81ff">1</span>, b: <span style="color:#ae81ff">2</span>, c: <span style="color:#ae81ff">3</span>}) <span style="color:#f92672">==</span> [<span style="color:#e6db74">&#34;a&#34;</span>,<span style="color:#e6db74">&#34;b&#34;</span>,<span style="color:#e6db74">&#34;c&#34;</span>] ? <span style="color:#e6db74">&#34;is true&#34;</span> : <span style="color:#e6db74">&#34;is false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>output <span style="color:#e6db74">&#34;b3&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> contains(keys({a: <span style="color:#ae81ff">1</span>, b: <span style="color:#ae81ff">2</span>, c: <span style="color:#ae81ff">3</span>}), <span style="color:#e6db74">&#34;b&#34;</span>) ? <span style="color:#e6db74">&#34;is true&#34;</span> : <span style="color:#e6db74">&#34;is false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Dynamic Blocks examples</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;aws_security_group&#34;</span> <span style="color:#e6db74">&#34;simple&#34;</span> {
+</span></span><span style="display:flex;"><span>  name        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;demo-simple&#34;</span>
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;demo-simple&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ingress {
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;description 0&#34;</span>
+</span></span><span style="display:flex;"><span>    from_port   <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>    to_port     <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>    protocol    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>    cidr_blocks <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  ingress {
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;description 1&#34;</span>
+</span></span><span style="display:flex;"><span>    from_port   <span style="color:#f92672">=</span> <span style="color:#ae81ff">81</span>
+</span></span><span style="display:flex;"><span>    to_port     <span style="color:#f92672">=</span> <span style="color:#ae81ff">81</span>
+</span></span><span style="display:flex;"><span>    protocol    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>    cidr_blocks <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>locals {
+</span></span><span style="display:flex;"><span>  ports <span style="color:#f92672">=</span> [<span style="color:#ae81ff">80</span>, <span style="color:#ae81ff">81</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;aws_security_group&#34;</span> <span style="color:#e6db74">&#34;dynamic&#34;</span> {
+</span></span><span style="display:flex;"><span>  name        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;demo-dynamic&#34;</span>
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;demo-dynamic&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  dynamic <span style="color:#e6db74">&#34;ingress&#34;</span> {
+</span></span><span style="display:flex;"><span>    for_each <span style="color:#f92672">=</span> local<span style="color:#f92672">.</span>ports
+</span></span><span style="display:flex;"><span>    content {
+</span></span><span style="display:flex;"><span>      description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;description ${ingress.key}&#34;</span>
+</span></span><span style="display:flex;"><span>      from_port   <span style="color:#f92672">=</span> ingress<span style="color:#f92672">.</span>value
+</span></span><span style="display:flex;"><span>      to_port     <span style="color:#f92672">=</span> ingress<span style="color:#f92672">.</span>value
+</span></span><span style="display:flex;"><span>      protocol    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>      cidr_blocks <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Terraform: Variable validation with samples</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;my_var&#34;</span> {
+</span></span><span style="display:flex;"><span>  type <span style="color:#f92672">=</span> number
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>my_var <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Please set my_var to a positive number or 0.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Validating the length of a string</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># file: variables.tf</span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;hetzner_api_token&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        <span style="color:#f92672">=</span> string
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hetzner API token&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition     <span style="color:#f92672">=</span> length(var<span style="color:#f92672">.</span>hetzner_api_token) <span style="color:#f92672">==</span> <span style="color:#ae81ff">64</span>
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Must be a 64 character long Hetzner API token.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> more example</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;resource_name&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        <span style="color:#f92672">=</span> string
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Input name of the resource.&#34;</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition     <span style="color:#f92672">=</span> length(var<span style="color:#f92672">.</span>resource_name) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The resource_name must be greater than 5 characters in length.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;string_may_not_contain&#34;</span> {
+</span></span><span style="display:flex;"><span>  type <span style="color:#f92672">=</span> string
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Value cannot contain a \&#34;/\&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>    condition <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>can(regex(<span style="color:#e6db74">&#34;/&#34;</span>, var<span style="color:#f92672">.</span>string_may_not_contain))
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;string_only_valid_options&#34;</span> {
+</span></span><span style="display:flex;"><span>  type <span style="color:#f92672">=</span> string
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;approved&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># using regex</span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition     <span style="color:#f92672">=</span> can(regex(<span style="color:#e6db74">&#34;^(approved|disapproved)$&#34;</span>, var<span style="color:#f92672">.</span>string_only_valid_options))
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Invalid input, options: \&#34;approved\&#34;, \&#34;disapproved\&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># using contains()</span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition     <span style="color:#f92672">=</span> contains([<span style="color:#e6db74">&#34;approved&#34;</span>, <span style="color:#e6db74">&#34;disapproved&#34;</span>], var<span style="color:#f92672">.</span>string_only_valid_options)
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Invalid input, options: \&#34;approved\&#34;, \&#34;disapproved\&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;string_like_aws_region&#34;</span> {
+</span></span><span style="display:flex;"><span>  type <span style="color:#f92672">=</span> string
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-east-1&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition     <span style="color:#f92672">=</span> can(regex(<span style="color:#e6db74">&#34;[a-z][a-z]-[a-z]+-[1-9]&#34;</span>, var<span style="color:#f92672">.</span>string_like_aws_region))
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Must be valid AWS Region names.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;num_in_range&#34;</span> {
+</span></span><span style="display:flex;"><span>  type        <span style="color:#f92672">=</span> number
+</span></span><span style="display:flex;"><span>  default     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  validation {
+</span></span><span style="display:flex;"><span>    condition     <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>num_in_range <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> var<span style="color:#f92672">.</span>num_in_range <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">&amp;&amp;</span> floor(var<span style="color:#f92672">.</span>num_in_range) <span style="color:#f92672">==</span> var<span style="color:#f92672">.</span>num_in_range
+</span></span><span style="display:flex;"><span>    error_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Accepted values: 1-16.&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Code for VPC peering</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network_peering&#34;</span> <span style="color:#e6db74">&#34;peering1&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;peering1&#34;</span>
+</span></span><span style="display:flex;"><span>  network      <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>default<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  peer_network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>other<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network_peering&#34;</span> <span style="color:#e6db74">&#34;peering2&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;peering2&#34;</span>
+</span></span><span style="display:flex;"><span>  network      <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>other<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  peer_network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>default<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foobar&#34;</span>
+</span></span><span style="display:flex;"><span>  auto_create_subnetworks <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network&#34;</span> <span style="color:#e6db74">&#34;other&#34;</span> {
+</span></span><span style="display:flex;"><span>  name                    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;other&#34;</span>
+</span></span><span style="display:flex;"><span>  auto_create_subnetworks <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Used code for session</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e">### Create a vpc</span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network&#34;</span> <span style="color:#e6db74">&#34;vpc_network&#34;</span> {
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  name                    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vnet01&#34;</span>
+</span></span><span style="display:flex;"><span>  auto_create_subnetworks <span style="color:#f92672">=</span> false
+</span></span><span style="display:flex;"><span>  mtu                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1460</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#### Create a subnet</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">``</span>t
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_subnetwork&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  name          <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test-subnetwork&#34;</span>
+</span></span><span style="display:flex;"><span>  ip_cidr_range <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;192.168.1.0/24&#34;</span>
+</span></span><span style="display:flex;"><span>  region        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1&#34;</span>
+</span></span><span style="display:flex;"><span>  network       <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-firewall-rule-for-ssh-allow" data-heading="Create a firewall rule for ssh allow" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="create-a-firewall-rule-for-ssh-allow">Create a firewall rule for ssh allow</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_firewall&#34;</span> <span style="color:#e6db74">&#34;ssh&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;allow-ssh-vnet01&#34;</span>
+</span></span><span style="display:flex;"><span>  allow {
+</span></span><span style="display:flex;"><span>    ports    <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;22&#34;</span>,<span style="color:#e6db74">&#34;80&#34;</span>]
+</span></span><span style="display:flex;"><span>    protocol <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  direction     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INGRESS&#34;</span>
+</span></span><span style="display:flex;"><span>  network       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vnet01&#34;</span>
+</span></span><span style="display:flex;"><span>  priority      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1001</span>
+</span></span><span style="display:flex;"><span>  source_ranges <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network&#34;</span> <span style="color:#e6db74">&#34;vpc_network1&#34;</span> {
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  name                    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vnet02&#34;</span>
+</span></span><span style="display:flex;"><span>  auto_create_subnetworks <span style="color:#f92672">=</span> false
+</span></span><span style="display:flex;"><span>  mtu                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">1460</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-subnet" data-heading="Create a subnet" data-level="4" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h4 id="create-a-subnet">Create a subnet</h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_subnetwork&#34;</span> <span style="color:#e6db74">&#34;default1&#34;</span> {
+</span></span><span style="display:flex;"><span>  name          <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test-subnetwork&#34;</span>
+</span></span><span style="display:flex;"><span>  ip_cidr_range <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;192.168.2.0/24&#34;</span>
+</span></span><span style="display:flex;"><span>  region        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-west1&#34;</span>
+</span></span><span style="display:flex;"><span>  network       <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network1<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_firewall&#34;</span> <span style="color:#e6db74">&#34;ssh-vnet02&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;allow-ssh-vnet02&#34;</span>
+</span></span><span style="display:flex;"><span>  allow {
+</span></span><span style="display:flex;"><span>    ports    <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;22&#34;</span>,<span style="color:#e6db74">&#34;80&#34;</span>]
+</span></span><span style="display:flex;"><span>    protocol <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  direction     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;INGRESS&#34;</span>
+</span></span><span style="display:flex;"><span>  network       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vnet02&#34;</span>
+</span></span><span style="display:flex;"><span>  priority      <span style="color:#f92672">=</span> <span style="color:#ae81ff">1002</span>
+</span></span><span style="display:flex;"><span>  source_ranges <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="vpc-peering-for-vnet01-and-vnet02" data-heading="VPC Peering for vnet01 and vnet02" data-level="5" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h5 id="vpc-peering-for-vnet01-and-vnet02">VPC Peering for vnet01 and vnet02</h5><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network_peering&#34;</span> <span style="color:#e6db74">&#34;peering1&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;peering1&#34;</span>
+</span></span><span style="display:flex;"><span>  network      <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  peer_network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network1<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_network_peering&#34;</span> <span style="color:#e6db74">&#34;peering2&#34;</span> {
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;peering2&#34;</span>
+</span></span><span style="display:flex;"><span>  network      <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network1<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>  peer_network <span style="color:#f92672">=</span> google_compute_network<span style="color:#f92672">.</span>vpc_network<span style="color:#f92672">.</span>self_link
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="day3" data-heading="Day3:" data-level="2" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h2 id="day3">Day3:</h2><ul>
+<li>Terraform State Management</li>
+<li>Terraform Workspace</li>
+<li>Terraform Provisioner</li>
+<li>Terraform Troubleshooting</li>
+<li>Terraform Logging</li>
+<li>Terrform Meta Argument for_each</li>
+<li>Terrform conditinal expressions</li>
+<li>Terraform functions</li>
+<li>Terraform Module</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-cloud--enterprise-capabilities-2hrs" data-heading="TERRAFORM CLOUD &amp; ENTERPRISE CAPABILITIES 2hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-cloud--enterprise-capabilities-2hrs">TERRAFORM CLOUD &amp; ENTERPRISE CAPABILITIES 2hrs</h3><ul>
+<li>Terraform cloud enterprise</li>
+<li>Terraform cloud</li>
+<li>Terraform cloud workflow</li>
+<li>Terraform enterprise</li>
+<li>Terraform registry</li>
+<li>Terraform best practices</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="infrastructure-as-code-with-terraform-and-gitlab-2-hrs" data-heading="Infrastructure as Code with Terraform and GitLab 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="infrastructure-as-code-with-terraform-and-gitlab-2-hrs">Infrastructure as Code with Terraform and GitLab 2 hrs</h3><ul>
+<li>GitLab CI - Introduction</li>
+<li>GitLab - CI/CD</li>
+<li>GitLab - CI/CD Variables</li>
+<li>GitLab CI - Permissions</li>
+<li>Configuring GitLab Runners</li>
+<li>Terraform and Gitlab Integration</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="infrastructure-as-code-with-terraform-and-jenkins-2-hrs" data-heading="Infrastructure as Code with Terraform and Jenkins 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="infrastructure-as-code-with-terraform-and-jenkins-2-hrs">Infrastructure as Code with Terraform and Jenkins 2 hrs</h3><ul>
+<li>
+<p>Introduction to Jenkins</p>
+</li>
+<li>
+<p>Jenkins - CI/CD Variables</p>
+</li>
+<li>
+<p>Jenkins Plugins</p>
+</li>
+<li>
+<p>Jenkins Pipelines</p>
+</li>
+<li>
+<p>Jenkins Triggers</p>
+</li>
+<li>
+<p>Jenkins Upstream and Downstream jobs</p>
+</li>
+<li>
+<p>Configuring Jenkins Agents</p>
+</li>
+<li>
+<p>Execute Terraform with Jenkins Pipeline</p>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="install-terraform-plugin" data-heading="Install Terraform plugin" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="install-terraform-plugin">Install Terraform plugin</h3><p><strong>Go to Manage Jenkins &gt; Manage Plugins &gt;Available &gt; search Terraform.</strong>
+<img src="/uploads/2d1c17e1995c3926387a34d65fe9c138/image.png" alt="image"></p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="configure-terraform" data-heading="Configure Terraform" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="configure-terraform">Configure Terraform</h3><p><strong>Go to Manage Jenkins &gt; Global Tool Configuration &gt; It will display Terraform on the list.</strong>
+<img src="/uploads/a06896d336965e51c88752919380a385/image.png" alt="image"></p>
+<ul>
+<li><input disabled="" type="checkbox"> For_Each Example</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  for_each <span style="color:#f92672">=</span> toset(var<span style="color:#f92672">.</span>each)
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foobar${each.key}&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e2-medium&#34;</span>
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.value}&#34;</span>
+</span></span><span style="display:flex;"><span>  tags  <span style="color:#f92672">=</span>        [<span style="color:#e6db74">&#34;jenkins&#34;</span>]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-11-bullseye-v20220406&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">//</span> Ephemeral public IP
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Learn for for each</span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;each&#34;</span> {
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;us-central1-a&#34;</span>,<span style="color:#e6db74">&#34;us-central1-b&#34;</span>,<span style="color:#e6db74">&#34;us-central1-c&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  for_each <span style="color:#f92672">=</span> toset(var<span style="color:#f92672">.</span>each)
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foobar${each.key}&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e2-medium&#34;</span>
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.value}&#34;</span>
+</span></span><span style="display:flex;"><span>  tags  <span style="color:#f92672">=</span>        [<span style="color:#e6db74">&#34;jenkins&#34;</span>]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-11-bullseye-v20220406&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>    network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">//</span> Ephemeral public IP
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Learn for for each</span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;each&#34;</span> {
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;us-central1-a&#34;</span>,<span style="color:#e6db74">&#34;us-central1-b&#34;</span>,<span style="color:#e6db74">&#34;us-central1-c&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Add ssh key to login</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_project_metadata&#34;</span> <span style="color:#e6db74">&#34;my_ssh_key&#34;</span> {
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    ssh<span style="color:#f92672">-</span>keys <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;</span>EOF
+</span></span><span style="display:flex;"><span>nippy:ssh<span style="color:#f92672">-</span>rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqU07gbxzO3oeNIX2gq6hmOXPk79HV<span style="color:#f92672">+</span>YCshoHHlloOGwy1EgRlVtPHVLQDaPpvx1xNn4UFeaKvqpcOZctWQsugq1Zo51V4yhMCEbVGfcyKhgsIuRMBkzimAeeZV77mzaLzNQxeNHOzFBprSuaw63ODtqW<span style="color:#f92672">+</span>FYOq<span style="color:#f92672">+</span>RzqfPvohr2UdTT07Ki7IQYhbLJ9zuVTfQIn<span style="color:#e6db74">/ELE59z41vrCBeyZH9Om2Orgz4CKilamY5WDBuYFJqw8QhMKVwRiF+vsJS7iLeo1pPufbRBZqvtA5eU0rG2hjTcJBYsXuKswtelwzgTXmUI/c</span><span style="color:#ae81ff">0</span>cRcjp<span style="color:#f92672">+</span><span style="color:#ae81ff">4</span><span style="color:#e6db74">/UYVCh4StUrlRHphDct+qyloSzT+E1zXTIKWfml+0nAnOQIP+V98fzdHHzuYPebVS9mcDbuNz/</span>TZaxtV0RWFt1cTEWBwNZGTpB2tUqUAqJgW5yc9kHKFMm5BDpAiMPQDJUIjLUc1DbHLPOy<span style="color:#f92672">+</span>Gd7annuFdcGnAVJvSud8yJYNg<span style="color:#f92672">/</span>ABc3PmB<span style="color:#f92672">+</span>WyWjnGLk6eUjk6PS708sjYtM<span style="color:#f92672">=</span> nippy@ITEM<span style="color:#f92672">-</span>S84221
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    EOF
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Terraform Backend</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>https:<span style="color:#e6db74">//</span>www<span style="color:#f92672">.</span>terraform<span style="color:#f92672">.</span>io<span style="color:#e6db74">/language/s</span>ettings<span style="color:#f92672">/</span>backends
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Terraform Backend](https:<span style="color:#e6db74">//</span>www<span style="color:#f92672">.</span>terraform<span style="color:#f92672">.</span>io<span style="color:#e6db74">/language/s</span>ettings<span style="color:#f92672">/</span>backends)
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Example for for_each</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span>  for_each <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>images
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.key}&#34;</span>
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>machine_type
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.value}&#34;</span>
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  allow_stopping_for_update <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-cloud/debian-9&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>   network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.key}&#34;</span>
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${each.value}&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata_startup_script <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;echo hi &gt; /test.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> variables used for above code.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;name&#34;</span> {
+</span></span><span style="display:flex;"><span>    default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tree1&#34;</span>
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;This variable will be used for vm name&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;machine_type&#34;</span> {
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;e2-medium&#34;</span>
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;This is for machine type&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;zone&#34;</span> {
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1-a&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;myvms&#34;</span> {
+</span></span><span style="display:flex;"><span>    default <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;prd&#34;</span>,<span style="color:#e6db74">&#34;qa&#34;</span>,<span style="color:#e6db74">&#34;dev&#34;</span>]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>variable <span style="color:#e6db74">&#34;images&#34;</span> {
+</span></span><span style="display:flex;"><span>  type <span style="color:#f92672">=</span> map
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  default <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    dev  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1-a&#34;</span>
+</span></span><span style="display:flex;"><span>    prd <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1-b&#34;</span>
+</span></span><span style="display:flex;"><span>    qa <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#34;us-central1-c&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><input disabled="" type="checkbox"> Terraform condition</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>machine_type
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>name<span style="color:#f92672">!=</span><span style="color:#e6db74">&#34;prd&#34;</span> ? <span style="color:#e6db74">&#34;us-central1-a&#34;</span> : <span style="color:#e6db74">&#34;us-central1-b&#34;</span>
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  allow_stopping_for_update <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-cloud/debian-9&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>   network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;news&#34;</span>
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;paper&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata_startup_script <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;echo hi &gt; /test.txt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Provisioner Example with connection</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;google_compute_instance&#34;</span> <span style="color:#e6db74">&#34;default&#34;</span> {
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  name         <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>name
+</span></span><span style="display:flex;"><span>  machine_type <span style="color:#f92672">=</span> var<span style="color:#f92672">.</span>machine_type
+</span></span><span style="display:flex;"><span>  zone         <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-central1-a&#34;</span>
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  allow_stopping_for_update <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  boot_disk {
+</span></span><span style="display:flex;"><span>    initialize_params {
+</span></span><span style="display:flex;"><span>      image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;debian-cloud/debian-9&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  network_interface {
+</span></span><span style="display:flex;"><span>   network <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_config {
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    foo <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;news&#34;</span>
+</span></span><span style="display:flex;"><span>    value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;paper&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  metadata_startup_script <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;echo hi &gt; /test.txt&#34;</span>
+</span></span><span style="display:flex;"><span> provisioner <span style="color:#e6db74">&#34;local-exec&#34;</span> {
+</span></span><span style="display:flex;"><span>    command <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;echo ${self.network_interface.0.network_ip} &gt;&gt; private_ips.txt&#34;</span>
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> provisioner <span style="color:#e6db74">&#34;file&#34;</span> {
+</span></span><span style="display:flex;"><span>    source      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;provider.tf&#34;</span>
+</span></span><span style="display:flex;"><span>    destination <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/tmp/admin.tf&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>   connection {
+</span></span><span style="display:flex;"><span>    type     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ssh&#34;</span>
+</span></span><span style="display:flex;"><span>    user     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;admin&#34;</span>
+</span></span><span style="display:flex;"><span>    private_key <span style="color:#f92672">=</span>  file(<span style="color:#e6db74">&#34;admin&#34;</span>)
+</span></span><span style="display:flex;"><span>    host     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${self.network_interface.0.access_config.0.nat_ip}&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="day-4" data-heading="Day 4:" data-level="2" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h2 id="day-4">Day 4:</h2><ul>
+<li>Terraform Cloud</li>
+<li>Terraform Sentinel Policies</li>
+<li>Terraform with Jenkins</li>
+<li>Terraform with Gitlab</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-authentication-with-google-cloud-2-hrs" data-heading="Terraform Authentication with Google Cloud 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-authentication-with-google-cloud-2-hrs">Terraform Authentication with Google Cloud 2 hrs</h3><ul>
+<li>Google Cloud Free Trial Account</li>
+<li>Google Cloud Project - Service Account</li>
+<li>Google Provider &amp; version</li>
+<li>Connect Terraform with GCP - I (username/password)</li>
+<li>Connect Terraform with GCP - II (Cloud Shell VM)</li>
+<li>Connect Terraform with GCP - III (Service Account)</li>
+<li>Approach to Resource Provision</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-for-google-storage-2-hrs" data-heading="Terraform for Google Storage 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-for-google-storage-2-hrs">Terraform for Google Storage 2 hrs</h3><ul>
+<li>[Hands-on] Getting started with Cloud Storage</li>
+<li>[Hands-on] Google Cloud Storage with Terraform - I</li>
+<li>[Hands-on] Google Cloud Storage with Terraform - II</li>
+<li>[Hands-on] Google Cloud Storage with Terraform - III</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-for-google-network-2hrs" data-heading="Terraform for Google Network 2hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-for-google-network-2hrs">Terraform for Google Network 2hrs</h3><ul>
+<li>[Hands-on] Create VPC from Console</li>
+<li>[Hands-on] Create VPC with Terraform Script</li>
+<li>[Hands-on] Create VPC peering</li>
+<li>[Hands-on] Configure DNS with Terraform</li>
+<li>[Hands-on] Create Subnet - Terraform</li>
+<li>[Hands-on] Create Firewall Rule – Terraform</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-for-compute-engine-2-hrs" data-heading="Terraform for Compute Engine 2 hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-for-compute-engine-2-hrs">Terraform for Compute Engine 2 hrs</h3><ul>
+<li>[Hands-on] Create Compute Engine - Console</li>
+<li>[Hands-on] Compute Engine - Terraform - I</li>
+<li>[Hands-on] Compute Engine - Terraform - II</li>
+<li>Update Compute Engine parameter - Tearraform</li>
+<li>[Hands-on] Service Account - Terraform</li>
+<li>[Hands-on] Attach Disk - Terraform</li>
+<li>Destroy GCE resources</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-for-google-container-and-kubernetes-2hrs" data-heading="Terraform for Google Container and Kubernetes 2hrs" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-for-google-container-and-kubernetes-2hrs">Terraform for Google Container and Kubernetes 2hrs</h3><ul>
+<li>
+<p>Setting up Kubernetes standard cluster</p>
+</li>
+<li>
+<p>Setting up Kubernetes cluster(Autopilot)</p>
+</li>
+<li>
+<p>Jenkins pipeline example</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>pipeline {
+</span></span><span style="display:flex;"><span>     agent { label <span style="color:#e6db74">&#39;agnt&#39;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    stages {
+</span></span><span style="display:flex;"><span>        stage(<span style="color:#e6db74">&#39;Hello&#39;</span>) {
+</span></span><span style="display:flex;"><span>            steps {
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#39;Hello World&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="gitlab-ciyaml--file" data-heading=".Gitlab-ci.yaml  file" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="gitlab-ciyaml--file">.Gitlab-ci.yaml  file</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>stages:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> test
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> dev
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> prd
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span> destroy
+</span></span><span style="display:flex;"><span>Terraform<span style="color:#f92672">-</span>version:
+</span></span><span style="display:flex;"><span>    stage: test
+</span></span><span style="display:flex;"><span>    script:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> terraform version
+</span></span><span style="display:flex;"><span>Terraform<span style="color:#f92672">-</span>Initialize:
+</span></span><span style="display:flex;"><span>   stage: test
+</span></span><span style="display:flex;"><span>   script:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> terraform init
+</span></span><span style="display:flex;"><span>Define<span style="color:#f92672">-</span>variables:
+</span></span><span style="display:flex;"><span>  stage: prd
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>   export AWS_ACCESS_KEY_ID<span style="color:#f92672">=</span>$AWS_ACCESS_KEY_ID
+</span></span><span style="display:flex;"><span>   export AWS_SECRET_ACCESS_KEY<span style="color:#f92672">=</span>$AWS_SECRET_ACCESS_KEY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Testing<span style="color:#f92672">-</span>varibale:
+</span></span><span style="display:flex;"><span>  stage: test
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> echo $AWS_ACCESS_KEY_ID
+</span></span><span style="display:flex;"><span>Create<span style="color:#f92672">-</span>a<span style="color:#f92672">-</span>vm:
+</span></span><span style="display:flex;"><span>  stage: dev
+</span></span><span style="display:flex;"><span>  before_script:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> terraform init <span style="color:#f92672">--</span>reconfigure
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> terraform apply <span style="color:#f92672">--</span>auto<span style="color:#f92672">-</span>approve
+</span></span><span style="display:flex;"><span>destroy:
+</span></span><span style="display:flex;"><span>  stage: destroy
+</span></span><span style="display:flex;"><span>  script:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> terraform destroy <span style="color:#f92672">--</span>auto<span style="color:#f92672">-</span>approve
+</span></span><span style="display:flex;"><span>  when: manual
+</span></span><span style="display:flex;"><span>  only:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">-</span> main
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-sentinel" data-heading="Terraform Sentinel" data-level="4" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h4 id="terraform-sentinel">Terraform Sentinel</h4><p><a href="https://github.com/hashicorp/terraform-guides/tree/master/governance" target="_blank" rel="noopener">GitHub Link for Terraform Sentinel Policy</a></p>
+<p><a href="https://www.terraform.io/cloud-docs/sentinel/import" target="_blank" rel="noopener">Terraform Sentinel Docs</a></p>
+<ul>
+<li><input disabled="" type="checkbox"> Enable Terraform Trial</li>
+<li><input disabled="" type="checkbox"> Create GitHub repo all policies</li>
+<li><input disabled="" type="checkbox"> Enable Sentinel policy on Terraform cloud</li>
+<li><input disabled="" type="checkbox"> Login to Terraform using Terraform login command</li>
+<li><input disabled="" type="checkbox"> Run terraform command from your local system.</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="more-references" data-heading="More References" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="more-references">More References</h3><p>Team and Governance for Terraform</p>
+<p><a href="https://github.com/hashicorp/terraform-guides/tree/master/governance" target="_blank" rel="noopener">https://github.com/hashicorp/terraform-guides/tree/master/governance</a></p>
+<p><a href="https://www.terraform.io/cloud-docs/sentinel" target="_blank" rel="noopener">https://www.terraform.io/cloud-docs/sentinel</a>
+<a href="https://www.terraform.io/cloud-docs/sentinel/import" target="_blank" rel="noopener">https://www.terraform.io/cloud-docs/sentinel/import</a></p>
+<ul>
+<li>sentinel.hcl</li>
+</ul>
+<p>advisory
+soft-mandatory
+hard-mandatory</p>
+<p>Sentinel Policies and sentinel.hcl</p>
+<p>allowed-providers.sentinel
+enforce-mandatory-tags.sentinel
+limit-proposed-monthly-cost.sentinel
+restrict-vm-publisher.sentinel
+restrict-vm-size.sentinel
+sentinel.hcl</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-refresh" data-heading="Terraform refresh" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-refresh">Terraform refresh</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="terrafrom-trace-log-settings" data-heading="Terrafrom Trace Log Settings" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terrafrom-trace-log-settings">Terrafrom Trace Log Settings</h3><p>export TF_LOG=TRACE
+export TF_LOG_PATH=&ldquo;terraform-trace.log&rdquo;
+echo $TF_LOG
+echo $TF_LOG_PATH</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="linux-bash" data-heading="Linux Bash" data-level="2" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h2 id="linux-bash">Linux Bash</h2><p>cd $HOME
+vi .bashrc</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="terraform-log-settings" data-heading="Terraform log settings" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="terraform-log-settings">Terraform log settings</h3><p>export TF_LOG=TRACE
+export TF_LOG_PATH=&ldquo;terraform-trace.log&rdquo;</p>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="verify-after-saving-the-file-in-new-terminal" data-heading="Verify after saving the file in new terminal" data-level="3" data-permalink="/docs/terraform/terraform-with-gcp/" data-title="Terraform with Google Cloud" -->
+<h3 id="verify-after-saving-the-file-in-new-terminal">Verify after saving the file in new terminal</h3><p>$ echo $TF_LOG
+TRACE
+$ echo $TF_LOG_PATH
+terraform-trace.log</p>
+<ul>
+<li>Jenkinsfile example</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>pipeline {
+</span></span><span style="display:flex;"><span>     agent { label <span style="color:#e6db74">&#39;agent&#39;</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    stages {
+</span></span><span style="display:flex;"><span>        stage(<span style="color:#e6db74">&#39;checkout the code&#39;</span>) {
+</span></span><span style="display:flex;"><span>            steps {
+</span></span><span style="display:flex;"><span>                sh <span style="color:#e6db74">&#39;git clone https://github.com/monbostest/terraform-google-myvm.git&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stage(<span style="color:#e6db74">&#39;change the workspace&#39;</span>) {
+</span></span><span style="display:flex;"><span>            steps {
+</span></span><span style="display:flex;"><span>                sh <span style="color:#e6db74">&#39;cd $WORKSPACE&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stage(<span style="color:#e6db74">&#39;Init&#39;</span>) {
+</span></span><span style="display:flex;"><span>            steps {
+</span></span><span style="display:flex;"><span>                sh <span style="color:#e6db74">&#39;terraform init&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>         stage(<span style="color:#e6db74">&#39;Apply&#39;</span>) {
+</span></span><span style="display:flex;"><span>            steps {
+</span></span><span style="display:flex;"><span>                sh <span style="color:#e6db74">&#39;terraform apply --auto-approve&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div>
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>

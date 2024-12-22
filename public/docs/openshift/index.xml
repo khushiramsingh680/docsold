@@ -1,0 +1,1312 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentation – Redhat Container Platform</title>
+    <link>/docs/openshift/</link>
+    <description>Recent content in Redhat Container Platform on Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="/docs/openshift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Openshift Baremetal</title>
+      <link>/docs/openshift/openshift-baremetal.md/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/openshift-baremetal.md/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;red-hat-openshift-4-bare-metal&#34; data-heading=&#34;Red Hat Openshift 4 Bare Metal.&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/openshift-baremetal.md/&#34; data-title=&#34;Openshift Baremetal&#34; --&gt;
+&lt;h2 id=&#34;red-hat-openshift-4-bare-metal&#34;&gt;Red Hat Openshift 4 Bare Metal.&lt;/h2&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;openshift-4-bare-metal-install&#34; data-heading=&#34;OpenShift 4 Bare Metal Install&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/openshift/openshift-baremetal.md/&#34; data-title=&#34;Openshift Baremetal&#34; --&gt;
+&lt;h3 id=&#34;openshift-4-bare-metal-install&#34;&gt;OpenShift 4 Bare Metal Install&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;User Provisioned Infrastructure (UPI)-
+Step: 0 : Architecture Diagram
+Step 1: Setup KVM Infrastructure (On Hypervisor Node)
+Step 2: Create utility Virtual Machine
+Step 4: Install and Configure DHCP server
+Step 5: Configure OCP Zone on Bind DNS Server
+Step 6: Setup TFTP Service&lt;br&gt;
+Step 7: Configure HAProxy as Load balancer
+Step 8: Install OpenShift installer and CLI binary
+Step 9: Generate ignition files
+Step 10: Create Bootstrap, Masters and Worker VMs (On Hypervisor Node)
+Step 11: Login to OpenShift CLI / Web Console
+Step 14: Troubleshooting Installation&lt;br&gt;
+Step 12: Create other OpenShift Users
+Step 13:Configure storage for the Image Registry
+Step 15: OpenShift Virtualization - Run VMs on OpenShift with KubeVirt - Windows Server
+Step 16: NFS Storage Class with OpenShift &amp;amp; Kubernetes&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Openshift Installation and Upgradation</title>
+      <link>/docs/openshift/ocpsetup/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/ocpsetup/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;openshift-cluster-installation-upgradation-and-management&#34; data-heading=&#34;Openshift Cluster Installation ,Upgradation and Management.&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h3 id=&#34;openshift-cluster-installation-upgradation-and-management&#34;&gt;Openshift Cluster Installation ,Upgradation and Management.&lt;/h3&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;prequisites&#34; data-heading=&#34;Prequisites:&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h3 id=&#34;prequisites&#34;&gt;Prequisites:&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Login to &lt;a href=&#34;https://aws.amazon.com/console/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS Cloud &lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a Virtual Machine&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a admin role and assign to the ec2 instance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create your account on &lt;a href=&#34;https://console.redhat.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud.redhat.com&lt;/a&gt;
+&lt;img src=&#34;/ocp01.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Installer and Pull secret
+&lt;img src=&#34;/ocp02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;https://docs.openshift.com/container-platform/4.10/installing/installing_aws/installing-aws-default.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Redhat document&lt;/a&gt; for Installation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure AWS Account using &lt;a href=&#34;https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-account.html#installing-aws-account&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Get Domain from &lt;a href=&#34;https://www.freenom.com/en/index.html?lang=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Freenom.com&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Know AWS account &lt;a href=&#34;https://docs.openshift.com/container-platform/4.8/installing/installing_aws/installing-aws-account.html#installing-aws-account&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Limit &lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create one Ec2 instance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS Cli&lt;/a&gt; with Admin access on newly created ec2 instance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make a test using below command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;aws s3 ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;List the OpenShift Container Platform web console route:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc get routes &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;n openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;console &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; grep &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;console-openshift&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Login to Opeshift Cluster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc login &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;u &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;username&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;p &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;Password&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Login to Openshift using kubeconfig&lt;/li&gt;
+&lt;li&gt;Login to OpenShift using Token&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc login &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;token&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;server&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;lt;&lt;/span&gt;CLuster URL&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Verifying the Health of OpenShift Nodes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc get nodes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check the cpu and memory usage of each node&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc adm top nodes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check more information about a node&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc describe node &lt;span style=&#34;color:#66d9ef&#34;&gt;my&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;name
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check Openshift cluster Version&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc get clusterversion
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc describe clusterversion
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check Cluster Operator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc get co
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Displaying the Logs of OpenShift Nodes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc adm node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;logs &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;u crio &lt;span style=&#34;color:#66d9ef&#34;&gt;my&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;name
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check the logs for kubelet Service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc adm node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;logs &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;u kubelet &lt;span style=&#34;color:#66d9ef&#34;&gt;my&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;name
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;check all type of logs for a node&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc adm node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;logs &lt;span style=&#34;color:#66d9ef&#34;&gt;my&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;name
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Login to Cluster node using below command and check kubelet service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc debug node&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;my&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;systemctl is&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;active kubelet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Display the currently authenticated user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc whoami
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check the openshift URL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc whoami  &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;show&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;console
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check openshift Api using below command&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc whoami  &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;show&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;server 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Check the token used by user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc whoami  &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;show&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;token
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;debugging-openshift--nodes-with-crictl&#34; data-heading=&#34;Debugging Openshift  nodes with crictl&#34; data-level=&#34;3&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h3 id=&#34;debugging-openshift--nodes-with-crictl&#34;&gt;Debugging Openshift  nodes with crictl&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/&lt;/a&gt;&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;openshift-4-installation-on-aws&#34; data-heading=&#34;Openshift 4 installation on AWS&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h1 id=&#34;openshift-4-installation-on-aws&#34;&gt;Openshift 4 installation on AWS&lt;/h1&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;description&#34; data-heading=&#34;Description&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;&lt;p&gt;This document describes the installation of OCP4 on the AWS&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;rbac-required-to-manage-the-installation&#34; data-heading=&#34;RBAC required to manage the installation&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;rbac-required-to-manage-the-installation&#34;&gt;RBAC required to manage the installation&lt;/h2&gt;&lt;p&gt;Be sure to be able to access to :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the dedicated AWS environment as Admin for that cluster.&lt;/li&gt;
+&lt;li&gt;the Redhat Account.&lt;/li&gt;
+&lt;li&gt;to Azure account as Admin to create service Principles.&lt;/li&gt;
+&lt;li&gt;Bastion environment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;informations-about-dns&#34; data-heading=&#34;Informations about DNS&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;informations-about-dns&#34;&gt;Informations about DNS&lt;/h2&gt;&lt;p&gt;There should be existing Public Hosted Zone in Route53. In case of stratus, we were having &amp;ldquo;stratus.soprasteria.com&amp;rdquo; as Hosted Zone.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;steps-to-be-performed-prior-to-installation&#34; data-heading=&#34;Steps To be Performed Prior to Installation&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;steps-to-be-performed-prior-to-installation&#34;&gt;Steps To be Performed Prior to Installation&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Create a SSH key&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For production OpenShift Container Platform clusters on which you want to perform installation debugging or disaster recovery, you must provide an SSH key that your ssh-agent process uses to the installer. You can use this key to access the bootstrap machine in a public cluster to troubleshoot installation issues.&lt;/p&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;steps-to-generate-ssh-key&#34; data-heading=&#34;Steps to Generate SSH Key&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;steps-to-generate-ssh-key&#34;&gt;Steps to Generate SSH Key&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Generate the ssh-key through below command.
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;Start the ssh-agent process as a background task&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;eval &amp;#34;$(ssh-agent -s)&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Add SSH private key to the ssh-agent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh-add /root/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;example-of-install-configyaml&#34; data-heading=&#34;Example of install-config.yaml&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;example-of-install-configyaml&#34;&gt;Example of install-config.yaml&lt;/h2&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@ip-172-31-32-217 ec2-user]# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:vr+aWqjvwNJCkqS7ZSdZWzJjt0N1uSAqukjilRd4I/I root@ip-172-31-32-217.eu-west-3.compute.internal
+The key&amp;#39;s randomart image is:
++---[RSA 3072]----+
+|                 |
+|           .     |
+| .    . o o      |
+|o.  .. o o .     |
+|+.ooB++ S .      |
+| =oB+Oo+         |
+|+.BE*.+ o        |
+|==.=.o o o       |
+|+.  .o+.+oo.     |
++----[SHA256]-----+
+[root@ip-172-31-32-217 ec2-user]# eval &amp;#34;$(ssh-agent -s)&amp;#34;
+Agent pid 13802
+[root@ip-172-31-32-217 ec2-user]# ssh-add /root/.ssh/id_rsa
+Identity added: /root/.ssh/id_rsa (root@ip-172-31-32-217.eu-west-3.compute.internal)
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;obtaining-the-installation-program&#34; data-heading=&#34;Obtaining the installation program&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;obtaining-the-installation-program&#34;&gt;Obtaining the installation program&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Access the Infrastructure Provider page on the OpenShift Cluster Manager site and Login to the Redhat Account.&lt;/li&gt;
+&lt;li&gt;Select your infrastructure provider.&lt;/li&gt;
+&lt;li&gt;Navigate to the page for your installation type, download the installation program for your operating system, and place the    file in the directory where you will store the installation configuration files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https:&lt;span style=&#34;color:#e6db74&#34;&gt;//mi&lt;/span&gt;rror&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;com&lt;span style=&#34;color:#e6db74&#34;&gt;/pub/o&lt;/span&gt;penshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;v4&lt;span style=&#34;color:#e6db74&#34;&gt;/x86_64/c&lt;/span&gt;lients&lt;span style=&#34;color:#e6db74&#34;&gt;/ocp/s&lt;/span&gt;table&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;install&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;linux&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;tar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Extract the installation program&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tar xvf openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;install&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;linux&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;tar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Also download the pull secret from the Red Hat OpenShift Cluster Manager.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;deploying-the-cluster&#34; data-heading=&#34;Deploying the cluster&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;deploying-the-cluster&#34;&gt;Deploying the cluster&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Login to the Bastion server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the below command to generate the Installation Config file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;./&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;install create install&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;config &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;dir install&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;log&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;level&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;debug
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;NOTE :- As soon as you run the above command, it will ask for basic information like you need to select the Hosted zone, name of the cluster, Zone where you want your VM&amp;rsquo;s to run, ssh key and Pull secret.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This will create the Install config file. Example for the Installation Config file shown below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;data&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;install-config&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    apiVersion: v1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    baseDomain: &amp;lt;domian&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    compute:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    - architecture: amd64
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      hyperthreading: Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      name: worker
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      platform: {}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      replicas: 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    controlPlane:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      architecture: amd64
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      hyperthreading: Enabled
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      name: master
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      platform: {}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      replicas: 3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      creationTimestamp: null
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      name: newname
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    networking:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      clusterNetwork:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      - cidr: 10.128.0.0/14
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        hostPrefix: 23
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      machineNetwork:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      - cidr: 10.0.0.0/16
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      networkType: OpenShiftSDN
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      serviceNetwork:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      - 172.30.0.0/16
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    platform:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      aws:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        region: eu-west-3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    publish: External
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    pullSecret: &amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    sshKey: |
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeRsMvsXUxzVsnn70zziGkmoCMGwS7A7gswhlvcCoswq1/q3j9yrh91Q8gF0aiKFJmsm45uD1r1DrXc10v+61fmdWcf862YldDBEKF34VN+SJT0wYEy8y3zso8hJ0csi2IB49ywXdw9OZaNk3UrCPbgVhhVZgP4g/thPGNjpJsI10ksuMIE+0Z4cQUbNPR8D1UbOrzPe45ziE1eKYsrRLj0tnQ2Zf8dBRF1NbnmpsfThoQhsQ8e/MGPIaD61BgRr6a/iFHDLYtn1TqyRaUqBrGM1r5hX4Kh6+zI8J1cPmgtNcJhoKvY38npkuKoJYqfhcuvxgKC7k3F43haTwR+5Sz ec2-user@ip-172-31-45-81.eu-west-3.compute.internal&lt;/span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;NOTE :- Verify the Install config file to check if you have the desired cluster configuration.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Now run the below command to start the Cluster creation Process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;./&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;install create cluster &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;dir &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;directory where install&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;config is present&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;log&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;level&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;debug
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, wait for the around 40-50 mins for the setup of the cluster where you will get the output similar to below one which will have kube-admin details as well as API cluster link.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;...
+INFO Install complete!
+INFO To access the cluster as the system:admin user when using &amp;#39;oc&amp;#39;, run &amp;#39;export KUBECONFIG=/home/myuser/install_dir/auth/kubeconfig&amp;#39;
+INFO Access the OpenShift web-console here: https://console-openshift-console.apps.mycluster.example.com
+INFO Login to the console with user: &amp;#34;kubeadmin&amp;#34;, and password: &amp;#34;4vYBz-Ee6gm-ymBZj-Wt5AL&amp;#34;
+INFO Time elapsed: 36m22s
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;important-links&#34; data-heading=&#34;Important Links&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;important-links&#34;&gt;Important Links&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Openshift on AWS Installation Link.
+&lt;a href=&#34;https://docs.openshift.com/container-platform/4.7/installing/installing_aws/installing-aws-default.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.openshift.com/container-platform/4.7/installing/installing_aws/installing-aws-default.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installation Program Link.
+&lt;a href=&#34;https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ovnkube resource containers from the nodes (Optional)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in $&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;(&lt;/span&gt;oc get node &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; grep master &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; awk {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;print $1&amp;#39;&lt;/span&gt;}); &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; echo $i; oc debug node&lt;span style=&#34;color:#e6db74&#34;&gt;/${i} -- chroot /&lt;/span&gt;host sh &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mkdir /tmp/ovnlogs &amp;amp;&amp;amp; cp /var/log/containers/ovnkube*.log /tmp/ovnlogs&amp;#34;&lt;/span&gt;; done
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Test Api server if any issue occurs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc exec &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;it apiserver&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;xxx &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;c openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;apiserver &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;n openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;apiserver sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;v &lt;span style=&#34;color:#ae81ff&#34;&gt;10.131.34.32&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;8443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Simultaneously we collected tcpdump on all master nodes:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tcpdump -nn -i any -w /tmp/$(hostname)-$(date +&amp;#34;%Y-%m-%d-%H-%M-%S&amp;#34;).pcap
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;if Api server is not reachanble from outside ,login to one of the master node and try below command&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -k https://{IP}:8443/readyz` to all openshift-apiserver pods
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to collect the inspect information for all co&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/6995290
+oc adm inspect co --request-timeout=30m
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Collect the inspect report for a single project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc adm ns inspect ns&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;apiserver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;you get the below message once the installation is completed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;INFO     export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/home/&lt;/span&gt;ec2&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;user&lt;span style=&#34;color:#e6db74&#34;&gt;/auth/&lt;/span&gt;kubeconfig
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;INFO Access the OpenShift web&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;console here: https:&lt;span style=&#34;color:#e6db74&#34;&gt;//co&lt;/span&gt;nsole&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;console&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;apps&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;myapp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gq
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;INFO Login to the console with user: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;kubeadmin&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; password: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;479aZ-Z2QZy-UdCQy-9d9VN&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;If you have lost all the password like kubeadmin password and kubeconfig file as well you can still run the command.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; cd &lt;span style=&#34;color:#e6db74&#34;&gt;/etc/&lt;/span&gt;kubernetes&lt;span style=&#34;color:#e6db74&#34;&gt;/static-pod-resources/&lt;/span&gt;kube&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;apiserver&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;certs&lt;span style=&#34;color:#e6db74&#34;&gt;/secrets/&lt;/span&gt;node&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;kubeconfigs&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; export KUBECONFIG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;(&lt;/span&gt;pwd)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;localhost&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;kubeconfig
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; oc whoami
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;crictl-command-line-tool-for-managing-cri-o-based-containers-and-images&#34; data-heading=&#34;Crictl (Command line tool for managing cri-o based containers and images)&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/ocpsetup/&#34; data-title=&#34;Openshift Installation and Upgradation&#34; --&gt;
+&lt;h2 id=&#34;crictl-command-line-tool-for-managing-cri-o-based-containers-and-images&#34;&gt;Crictl (Command line tool for managing cri-o based containers and images)&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;pull ubuntu image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo crictl pull ubuntu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;List Images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo crictl images
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Delete an image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo crictl rmi &lt;span style=&#34;color:#ae81ff&#34;&gt;08&lt;/span&gt;d22c0ceb150
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Print information about specific containers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;crictl inspect [container_id1 container_id2 &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Open a specific shell inside a running container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; crictl exec &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;it [container_id] [sh]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Pull a specific image from a registry&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; crictl pull [image:tag]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Print and [f]ollow logs of a specific container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; crictl logs &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;f [container_id]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Remove one or more images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; crictl rmi [image_id1 image_id2 &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: OpenShift Prerequisites</title>
+      <link>/docs/openshift/prerequisites./</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/prerequisites./</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;OpenShift Prerequisites&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create Redhat Account&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://console.redhat.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click Here to create Redhat Account &lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Download the installer from below url&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://console.redhat.com/openshift/install/azure/installer-provisioned&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click Here to download the installer&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Download pull secret to pull the image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://console.redhat.com/openshift/install/azure/installer-provisioned&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click Here to download pull secret &lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a VM&lt;/li&gt;
+&lt;li&gt;Configure AWS cli if Installing on AWS cloud&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/cli/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click here to download awscli&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Configure AWS cli if Installing on Azure cloud&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/cli/azure/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Click here to download azure cli&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: OpenShift Tasks</title>
+      <link>/docs/openshift/openshifttasks/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/openshifttasks/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;OpenShift Tasks&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Extending default monitoring stack in openshift 4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/5298651
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to list internal registry repositories and images in OpenShift 4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/5177301
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to generate a sosreport within nodes without SSH in OCP 4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/4387261
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Monitoring operator is degraded with message &amp;ldquo;updates to statefulset spec for fields are forbidden&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/6529271
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Preparing to upgrade to OpenShift Container Platform 4.9&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/articles/6329921
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Failing to create pod sandbox on OpenShift 3 and 4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+https://access.redhat.com/solutions/4321791
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Consolidated Troubleshooting Article OpenShift Container Platform 4.x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/articles/4217411
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to rename identity provider in openshift&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/3300361
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to re-create kubeconfig for system:admin user in Openshift 4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/5286371
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Backend Performance Requirements for OpenShift etcd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/4770281
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to graph etcd metrics using Prometheus to gauge Etcd performance in OpenShift&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/5489721
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to delete all kubernetes.io/events in etcd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://access.redhat.com/solutions/6171352
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to fix error on PVC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://devopstales.github.io/kubernetes/openshift-rbd-fsck/
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to update ssh keys for Openshift master nodes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://access.redhat.com/solutions/3868301
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;configure Alertmanager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://access.redhat.com/solutions/4882271
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Openshift TOC</title>
+      <link>/docs/openshift/toc/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/toc/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;openshift-customized-training&#34; data-heading=&#34;OpenShift-customized-Training&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/toc/&#34; data-title=&#34;Openshift TOC&#34; --&gt;
+&lt;h1 id=&#34;openshift-customized-training&#34;&gt;OpenShift-customized-Training&lt;/h1&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;prerequisites&#34; data-heading=&#34;Prerequisites&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/toc/&#34; data-title=&#34;Openshift TOC&#34; --&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Aws/Azure  Account&lt;/li&gt;
+&lt;li&gt;Resources used
+&lt;ul&gt;
+&lt;li&gt;3 LoadBalancers&lt;/li&gt;
+&lt;li&gt;Route 53&lt;/li&gt;
+&lt;li&gt;AWS s3 bucket&lt;/li&gt;
+&lt;li&gt;1 VPC&lt;/li&gt;
+&lt;li&gt;5 Ip addresses&lt;/li&gt;
+&lt;li&gt;NAT gateways&lt;/li&gt;
+&lt;li&gt;8 VMS with 4 cpu and 8 GB of RAM each&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Duration:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OpenShift Container Platform architecture&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Overview of Red Hat Enterprise Linux CoreOS (RHCOS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Crio OverView&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Podman Overview&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Overview of journactl&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hands on Lab&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Crio&lt;/li&gt;
+&lt;li&gt;Podman&lt;/li&gt;
+&lt;li&gt;Journalctl&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Installation and update&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Understand the underline infrstracture/resources requirements.&lt;/li&gt;
+&lt;li&gt;Know Quay.io&lt;/li&gt;
+&lt;li&gt;Know Redhat Registry&lt;/li&gt;
+&lt;li&gt;know ignition files&lt;/li&gt;
+&lt;li&gt;Installation with IPI&lt;/li&gt;
+&lt;li&gt;Installation with user-provisioned infrastructure&lt;/li&gt;
+&lt;li&gt;Installation on vmware(optional)&lt;/li&gt;
+&lt;li&gt;Multi tenant Openshift Installation&lt;/li&gt;
+&lt;li&gt;Configure Network Policy&lt;/li&gt;
+&lt;li&gt;Installation with customized network plugins&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Troubleshooting installation issues&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Gathering logs from a failed installation&lt;/li&gt;
+&lt;li&gt;Manually gathering logs with SSH access to your host(s)&lt;/li&gt;
+&lt;li&gt;Manually gathering logs without SSH access to your host(s)&lt;/li&gt;
+&lt;li&gt;Getting debug information from the installation program&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Post_installation_configuration&lt;/strong&gt;
+This task will take most of the time&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Configuration of Authentication with Htpasswd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuration of Authentication with Azure AD&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove the default virtual admin user (kubeadmin)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Secure Api with ssl certificate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Secure Route with Route&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Setting the Ingress Controller&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restricting the API server to private&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configuration Default Quota project template&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure default limits&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restrict user for LoadBalancer service.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure Alert Manager&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Updating the global cluster pull secret&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure Autoscaling for nodes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create infrastracture nodes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move all infr related services to infra nodes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OpenShift Internal Registry&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Router pods&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Monitoring pods&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Logging pods&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;OpenShift Backup and DR&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Installation and Configuration of Kasten/Velero&lt;/li&gt;
+&lt;li&gt;Setup the backup of etcd&lt;/li&gt;
+&lt;li&gt;Recovering from the etcd backup&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Post-installation node tasks&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adding RHEL compute nodes to a cluster if needed&lt;/li&gt;
+&lt;li&gt;Configuring Machine health checks&lt;/li&gt;
+&lt;li&gt;Limitations when deploying machine health checks&lt;/li&gt;
+&lt;li&gt;Node host best practices&lt;/li&gt;
+&lt;li&gt;Configure different type of profile&lt;/li&gt;
+&lt;li&gt;Updating ssh keys for master and worker nodes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Post-installation network configuration&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enabling the cluster-wide proxy&lt;/li&gt;
+&lt;li&gt;Configuring ingress cluster traffic&lt;/li&gt;
+&lt;li&gt;Configuring network policy&lt;/li&gt;
+&lt;li&gt;Configuring multitenant isolation by using network policy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Post-installation storage configuration&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dynamic provisioning&lt;/li&gt;
+&lt;li&gt;Defining a storage class&lt;/li&gt;
+&lt;li&gt;Using Azure file for RWX&lt;/li&gt;
+&lt;li&gt;Installation and configuration cephcluster with rook operator to achieve below:&lt;/li&gt;
+&lt;li&gt;Block storage&lt;/li&gt;
+&lt;li&gt;File storage&lt;/li&gt;
+&lt;li&gt;Object Storage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Know OpenShift Internal Registry&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Configuring additional trust stores for image registry access&lt;/li&gt;
+&lt;li&gt;Configuring storage credentials for the Image Registry Operator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;OpenShift Scc&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding default scc&lt;/li&gt;
+&lt;li&gt;Creating and user custom scc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pod Scheduling&lt;/strong&gt;*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Default scheduling&lt;/li&gt;
+&lt;li&gt;Infrastructure Topological Levels&lt;/li&gt;
+&lt;li&gt;Affinity&lt;/li&gt;
+&lt;li&gt;Anti Affinity&lt;/li&gt;
+&lt;li&gt;Advanced scheduling
+&lt;ul&gt;
+&lt;li&gt;Pod Affinity and Anti-affinity&lt;/li&gt;
+&lt;li&gt;Node Affinity&lt;/li&gt;
+&lt;li&gt;Node Selectors&lt;/li&gt;
+&lt;li&gt;Taints and Tolerations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Custom scheduling&lt;/li&gt;
+&lt;li&gt;Deploying the Scheduler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Troubleshoot&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Pod related issues&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Router/Registry Not deploying to correct node&lt;/li&gt;
+&lt;li&gt;Registry not showing contents of NFS mount (persistent volume)&lt;/li&gt;
+&lt;li&gt;Hosts Can No Longer Resolve Each Other During Anisble Install&lt;/li&gt;
+&lt;li&gt;Failure to deploy registry (permissions issues)&lt;/li&gt;
+&lt;li&gt;Application Pod fails to deploy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Issues with Nodes&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nodes being reported as ready, but builds failing&lt;/li&gt;
+&lt;li&gt;Node reporting NotReady&lt;/li&gt;
+&lt;li&gt;Nodes report ready but ETCD health check fails&lt;/li&gt;
+&lt;li&gt;Atomic-openshift-node service fails to start&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Registry issues&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenShift builds fail trying to push image using a wrong IP address for the registry&lt;/li&gt;
+&lt;li&gt;OpenShift build error: failed to push image while using NFS persistent storage&lt;/li&gt;
+&lt;li&gt;Failure to push image to OpenShift’s Registry when backed by shared storage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Quotas and Limitranges&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Must make a non-zero request for cpu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installation Fails…​&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web Console Public URL on a different Port&lt;/li&gt;
+&lt;li&gt;UI Redirecting to the URL of the masters instead of the LB&lt;/li&gt;
+&lt;li&gt;Intermittent Login issues (htpasswd)&lt;/li&gt;
+&lt;li&gt;Build Issues&lt;/li&gt;
+&lt;li&gt;oc new-app runs s2i instead of Docker build&lt;/li&gt;
+&lt;li&gt;Binary Build Fails, citing &amp;ldquo;BadRequest&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Issues related to Identity&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;user is unable to login&lt;/li&gt;
+&lt;li&gt;user has two identities&lt;/li&gt;
+&lt;li&gt;How to impersonate user&lt;/li&gt;
+&lt;li&gt;login with service account&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Migration from Ocp3 to ocp 4&lt;/strong&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Part 1</title>
+      <link>/docs/openshift/part-1/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/part-1/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;topics&#34; data-heading=&#34;Topics&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/part-1/&#34; data-title=&#34;Part 1&#34; --&gt;
+&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Describing Red Hat OpenShift Container Platform&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Part 2</title>
+      <link>/docs/openshift/part-2/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/part-2/</guid>
+      <description>
+        
+        
+        &lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;openshift-authentication-and-authorization&#34; data-heading=&#34;Openshift Authentication and Authorization&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h2 id=&#34;openshift-authentication-and-authorization&#34;&gt;Openshift Authentication and Authorization&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Htpasswd Configuration:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yum install httpd&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;htpasswd &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;c &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;B &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;b &lt;span style=&#34;color:#e6db74&#34;&gt;/tmp/&lt;/span&gt;htpasswd student redhat123
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;htpasswd  &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;B &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;b &lt;span style=&#34;color:#e6db74&#34;&gt;/tmp/&lt;/span&gt;htpasswd student2  redhat123
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc create secret generic htpasswd&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;secret &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;from&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;file htpasswd&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/tmp/&lt;/span&gt;htpasswd &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;n openshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vi oauth&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apiVersion: config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;openshift&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;io&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kind: OAuth
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; name: cluster
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spec:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; identityProviders:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; name: ldap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; mappingMethod: claim
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; type: HTPasswd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; htpasswd:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; fileData:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; name: htpasswd&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;secret
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Conplete this as well&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-t&#34; data-lang=&#34;t&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https:&lt;span style=&#34;color:#e6db74&#34;&gt;//gi&lt;/span&gt;tlab&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;com&lt;span style=&#34;color:#e6db74&#34;&gt;/gcpnirpendra/o&lt;/span&gt;penshift&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;280&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;training&lt;span style=&#34;color:#e6db74&#34;&gt;/-/iss&lt;/span&gt;ues&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;project&#34; data-heading=&#34;Project&#34; data-level=&#34;4&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h4 id=&#34;project&#34;&gt;Project&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;How to  create a project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc new-project myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Check all the project you have got access to&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get projects
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Check your current project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc project
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Give access to Project  from UI&lt;/li&gt;
+&lt;li&gt;How to create a pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc run &amp;lt;name&amp;gt; --image=nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Another example&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vi pod.yanl
+apiVersion: v1
+kind: Pod
+metadata:
+  name: firstpod
+spec:
+ containers:
+  - name: firstcontainer
+    image: nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check all pods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pods
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check all pods in all namespaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pods -A
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check the name of all pods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pods -o name
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check the labels of all pods running&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pods --show-lables
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to login to a pods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc exec -it podname sh 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check the logs of a pods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc logs podname
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to login to  a pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc exec -it podname sh
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to delete a pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc delete pod &amp;lt;podname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to delete a pod forcefully&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc delete pod --force --grace-period=0
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to delete multiple pod in one go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;for i in $(oc get pods -o name ); do oc delete pod $i ;done 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check the logs for a specific container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc logs podname -c &amp;lt;container-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to login to specific container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc exec -it podname -c &amp;lt;container-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;service&#34; data-heading=&#34;Service&#34; data-level=&#34;4&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h4 id=&#34;service&#34;&gt;Service&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;How to check all services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get svc
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to create a service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc expose pod/deployment  deployment/myapp --port=80
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Service with yaml manifest&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check the labels where the service is forwarding requests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc describe svc &amp;lt;svcname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to check the endpoints of a service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get ep
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;deployments&#34; data-heading=&#34;Deployments&#34; data-level=&#34;5&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h5 id=&#34;deployments&#34;&gt;Deployments&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;How to create a deployment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc create deployment myapp --image=nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;rolling-update-www-containers-of-frontend-deployment-updating-the-image&#34; data-heading=&#34;Rolling update &amp;ldquo;www&amp;rdquo; containers of &amp;ldquo;frontend&amp;rdquo; deployment, updating the image&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;rolling-update-www-containers-of-frontend-deployment-updating-the-image&#34;&gt;Rolling update &amp;ldquo;www&amp;rdquo; containers of &amp;ldquo;frontend&amp;rdquo; deployment, updating the image&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc set image deployment/frontend www=image:v2 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;check-the-history-of-deployments-including-the-revision&#34; data-heading=&#34;Check the history of deployments including the revision&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;check-the-history-of-deployments-including-the-revision&#34;&gt;Check the history of deployments including the revision&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc rollout history deployment/frontend 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;rollback-to-the-previous-deployment&#34; data-heading=&#34;Rollback to the previous deployment&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;rollback-to-the-previous-deployment&#34;&gt;Rollback to the previous deployment&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc rollout undo deployment/frontend  
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;rollback-to-a-specific-revision&#34; data-heading=&#34;Rollback to a specific revision&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;rollback-to-a-specific-revision&#34;&gt;Rollback to a specific revision&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc rollout undo deployment/frontend --to-revision=2   
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;watch-rolling-update-status-of-frontend-deployment-until-completion&#34; data-heading=&#34;Watch rolling update status of &amp;ldquo;frontend&amp;rdquo; deployment until completion&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;watch-rolling-update-status-of-frontend-deployment-until-completion&#34;&gt;Watch rolling update status of &amp;ldquo;frontend&amp;rdquo; deployment until completion&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc rollout status -w deployment/frontend 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;rolling-restart-of-the-frontend-deployment&#34; data-heading=&#34;Rolling restart of the &amp;ldquo;frontend&amp;rdquo; deployment&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;rolling-restart-of-the-frontend-deployment&#34;&gt;Rolling restart of the &amp;ldquo;frontend&amp;rdquo; deployment&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc rollout restart deployment/frontend                     
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;secrets&#34; data-heading=&#34;Secrets&#34; data-level=&#34;4&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h4 id=&#34;secrets&#34;&gt;Secrets&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Check all secrets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get secrets
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to create secret&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc create secret tls my-tls-secret \
+  --cert=path/to/cert/file \
+  --key=path/to/key/file
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Create Secret for username and password&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc create secret generic creds --from-literal=name=nippy --from=literal=pass=123
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;List the environment variables defined on all pods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc set env pods --all --list
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;import-environment-from-a-secret&#34; data-heading=&#34;Import environment from a secret&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;import-environment-from-a-secret&#34;&gt;Import environment from a secret&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  oc set env --from=secret/mysecret dc/myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;import-environment-from-a-config-map-with-a-prefix&#34; data-heading=&#34;Import environment from a config map with a prefix&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;import-environment-from-a-config-map-with-a-prefix&#34;&gt;Import environment from a config map with a prefix&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  oc set env --from=configmap/myconfigmap --prefix=MYSQL_ dc/myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;remove-the-environment-variable-env-from-container-c1-in-all-deployment-configs&#34; data-heading=&#34;Remove the environment variable ENV from container &amp;lsquo;c1&amp;rsquo; in all deployment configs&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h1 id=&#34;remove-the-environment-variable-env-from-container-c1-in-all-deployment-configs&#34;&gt;Remove the environment variable ENV from container &amp;lsquo;c1&amp;rsquo; in all deployment configs&lt;/h1&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  oc set env deployments --all --containers=&amp;#34;c1&amp;#34; ENV-
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;configmaps&#34; data-heading=&#34;ConfigMaps&#34; data-level=&#34;4&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h4 id=&#34;configmaps&#34;&gt;ConfigMaps&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;List all configmaps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get cm
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Create a new configmap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc create configmap game-config --from-file=configure-pod-container
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Get the yaml file for the configmap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get configmaps game-config -o yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Use configmap as a volume in pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-test-pod
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ &amp;#34;/bin/sh&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;ls /etc/config/&amp;#34; ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        # Provide the name of the ConfigMap containing the files you want
+        # to add to the container
+        name: special-config
+  restartPolicy: Never
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;volumes&#34; data-heading=&#34;Volumes&#34; data-level=&#34;4&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h4 id=&#34;volumes&#34;&gt;Volumes&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;emptyDir Example&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: registry.k8s.io/test-webserver
+    name: test-container
+    volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+  volumes:
+  - name: cache-volume
+    emptyDir:
+      sizeLimit: 500Mi
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Check all pvcs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pvc
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Create a pvc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0001 
+spec:
+  capacity:
+    storage: 5Gi 
+  accessModes:
+    - ReadWriteOnce 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;use pvc inside a pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: dockerfile/nginx
+      volumeMounts:
+      - mountPath: &amp;#34;/var/www/html&amp;#34; 
+        name: mypd 
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: myclaim 
+&lt;/code&gt;&lt;/pre&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;kubernetes-trobleshooting&#34; data-heading=&#34;Kubernetes Trobleshooting&#34; data-level=&#34;4&#34; data-permalink=&#34;/docs/openshift/part-2/&#34; data-title=&#34;Part 2&#34; --&gt;
+&lt;h4 id=&#34;kubernetes-trobleshooting&#34;&gt;Kubernetes Trobleshooting&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Check the nodes status&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get nodes
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Check the status of pods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pods 
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Check the pods where are they scheduled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pod -o wide
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;check the events for a particular namepsace&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get events
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Look for any error in pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc logs podname
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Describe pod if the pod status is pending&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc describe pod podname
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;How to login to private image registry&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker login
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Create a secret for imagePull secret&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc create secret generic regcred \
+    --from-file=.dockerconfigjson=&amp;lt;path/to/.docker/config.json&amp;gt; \
+    --type=kubernetes.io/dockerconfigjson
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Use Imagepull secret in pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+spec:
+  containers:
+  - name: private-reg-container
+    image: &amp;lt;your-private-image&amp;gt;
+  imagePullSecrets:
+  - name: regcred
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Check the ip address of pod with specifice label&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;oc get pods -l app=hostnames \
+    -o go-template=&amp;#39;{{range .items}}{{.status.podIP}}{{&amp;#34;\n&amp;#34;}}{{end}}&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Try to check the connectivity from a pod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;for ep in 10.244.0.5:9376 10.244.0.6:9376 10.244.0.7:9376; do
+    wget -qO- $ep
+done
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Use and configure OpenID connect with Azure AD</title>
+      <link>/docs/openshift/openid-azuread/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/openshift/openid-azuread/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Use and configure OpenID connect with Azure AD&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;use-and-configure-openid-connect-with-azure-ad&#34; data-heading=&#34;Use and configure OpenID connect with Azure AD&#34; data-level=&#34;1&#34; data-permalink=&#34;/docs/openshift/openid-azuread/&#34; data-title=&#34;Use and configure OpenID connect with Azure AD&#34; --&gt;
+&lt;h1 id=&#34;use-and-configure-openid-connect-with-azure-ad&#34;&gt;Use and configure OpenID connect with Azure AD&lt;/h1&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;required-informations&#34; data-heading=&#34;Required informations&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/openid-azuread/&#34; data-title=&#34;Use and configure OpenID connect with Azure AD&#34; --&gt;
+&lt;h2 id=&#34;required-informations&#34;&gt;Required informations&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;key&lt;/th&gt;
+&lt;th&gt;env&lt;/th&gt;
+&lt;th&gt;value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;service principal&lt;/td&gt;
+&lt;td&gt;staging&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;RedHat - Openshift /   (auth)&amp;rdquo; ()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;azure-ad-service-principal-requirements&#34; data-heading=&#34;Azure AD service principal requirements&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/openid-azuread/&#34; data-title=&#34;Use and configure OpenID connect with Azure AD&#34; --&gt;
+&lt;h2 id=&#34;azure-ad-service-principal-requirements&#34;&gt;Azure AD service principal requirements&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure the service principal has the following API permissions
+&lt;code&gt;Microsoft Graph / &amp;quot;User.Read&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure it has been &amp;ldquo;Granted for, .&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure it has been promoted as Enterprise Application, otherwise raise an internal IT request to get this requirement. It could allow to restrict the access to a group of users that is very useful.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensure the redirect URI is properly set, it must match the following pattern: &lt;code&gt;https://oauth-openshift.apps.&amp;lt;fullclustername&amp;gt;/oauth2callback/azuread&lt;/code&gt;. Of course substitute &lt;code&gt;&amp;lt;fullclustername&amp;gt;&lt;/code&gt; by the one you set in the IPI configuration file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;openshift-settings&#34; data-heading=&#34;Openshift settings&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/openid-azuread/&#34; data-title=&#34;Use and configure OpenID connect with Azure AD&#34; --&gt;
+&lt;h2 id=&#34;openshift-settings&#34;&gt;Openshift settings&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Create an openshift secret&lt;br&gt;
+&lt;em&gt;be sure to substitute the &lt;code&gt;&amp;lt;application registration secret&amp;gt;&lt;/code&gt; by the right value !&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc create secret generic azuread --from-literal&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;clientSecret&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;lt;app registration secret&amp;gt;  -n openshift-config
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Create an &lt;code&gt;oauth-config.yaml&lt;/code&gt; file to configure oauth.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;be sure to substitute the &lt;code&gt;&amp;lt;application id&amp;gt;&lt;/code&gt; by the right value !&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;config.openshift.io/v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;OAuth&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;annotations&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;release.openshift.io/create-only&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;generation&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;cluster&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;selfLink&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/apis/config.openshift.io/v1/oauths/cluster&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;identityProviders&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#f92672&#34;&gt;mappingMethod&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;claim&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;azuread&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;openID&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;claims&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;email&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#ae81ff&#34;&gt;email&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;id&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#ae81ff&#34;&gt;sub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#ae81ff&#34;&gt;name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;preferredUsername&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#ae81ff&#34;&gt;email&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;clientID&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;&amp;lt;application id&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;clientSecret&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;azuread&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;issuer&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;https://login.microsoftonline.com/8b87af7d-8647-4dc7-8df4-5f69a2011bb5/v2.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;OpenID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;apply the config&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc apply -f oauth-config.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;post-configuration-tests&#34; data-heading=&#34;Post configuration tests&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/openid-azuread/&#34; data-title=&#34;Use and configure OpenID connect with Azure AD&#34; --&gt;
+&lt;h2 id=&#34;post-configuration-tests&#34;&gt;Post configuration tests&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;wait a moment and try to login in a new private window of your internet browser.&lt;br&gt;
+&lt;code&gt;azuread&lt;/code&gt; should be an option available and it must work properly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- end-chunk --&gt;
+&lt;!-- begin-chunk data-anchor=&#34;post-configuration-steps&#34; data-heading=&#34;Post configuration steps&#34; data-level=&#34;2&#34; data-permalink=&#34;/docs/openshift/openid-azuread/&#34; data-title=&#34;Use and configure OpenID connect with Azure AD&#34; --&gt;
+&lt;h2 id=&#34;post-configuration-steps&#34;&gt;Post configuration steps&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;signin as kubeadmin and promote your cloud admin account as &lt;code&gt;cluster-admin&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc adm policy add-cluster-role-to-user cluster-admin user-id
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;logout and login with your own admin account. Ensure you have the cluster-admin role and remove the kubeadmin secret&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;oc delete secrets kubeadmin -n kube-system
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;logout and ensure the kube:admin option is not available anymore.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;if you need to restrict access to the cluster, go on the Azure AD, select your entreprise application, go in the &amp;ldquo;Users and Groups&amp;rdquo; blade, and select the ones who could access to the instance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/openshift/configure-azure-ad-ui&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Please click to configure Azure Authentication from UI&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,14 @@
+baseURL = 'https://khushiramsingh680.github.io/k8s/'
+languageCode = 'en-us'
+title = 'Kubernetes Documentation'
+theme = 'relearn'
+relativeURLs = true
+canonifyURLs = true
+
+[params]
+  # Relearn theme-specific parameters
+  colorTheme = "light"
+  layout = "wide"
+
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Azure Kubernetes Service (AKS) :: Azure Managed Kubernetes</title>
+    <link>http://localhost:1313/Aks/aks/index.html</link>
+    <description>AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/Aks/aks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Installation</title>
+      <link>http://localhost:1313/Aks/aks/k8s/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Aks/aks/k8s/index.html</guid>
+      <description>TOC</description>
+    </item>
+  </channel>
+</rss>

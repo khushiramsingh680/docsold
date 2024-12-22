@@ -1,0 +1,892 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<meta name="robots" content="index, follow">
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+
+<title>Devops for Begineers | Documentation</title>
+<meta name="description" content="
+
+Topics
+
+Prerequisites:
+Follow these steps to create your free AWS account
+Familiarize yourself with the basics of cloud computing by visiting the …&lt;/!--&gt;&lt;/!--&gt;&lt;/!--&gt;&lt;/!--&gt;">
+<meta property="og:title" content="Devops for Begineers" />
+<meta property="og:description" content="Topics Prerequisites: Follow these steps to create your free AWS account Familiarize yourself with the basics of cloud computing by visiting the Cloud Essentials page on the AWS website. Download and Install Vscode Download and Install Putty for ssh connectivity Learn how to open Vscode terminal with gitbash Overview of DevOps: Understanding the fundamentals of DevOps History and evolution of DevOps Key principles and goals of DevOps DevOps culture and its importance AWS cloud Overview Create a Linux VM Login to Aws cloud using your user and Password Select the Region of your choice Create a Ec2 instance with ubuntu OS Open a port using in Security Group Install Webserver and test connectivity apt update -y apt install apache2 -y Check the service of apache2 systemctl status apache2 Start if not started systemctl start apache2 Open Webserver in Browser publicip If Webserver does not open make sure to open port: 80 as 80 is the default port used by Webserver Linux Basics Overview: Linux Basics Commands Linux File Structure Linux file management Basic Linux Commands whoami: Print currenlty logged in user pwd: Print working directory, shows the current directory you&rsquo;re in." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/devops/devopsl1/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2024-06-01T18:32:23+05:30" />
+
+<meta itemprop="name" content="Devops for Begineers">
+<meta itemprop="description" content="Topics Prerequisites: Follow these steps to create your free AWS account Familiarize yourself with the basics of cloud computing by visiting the Cloud Essentials page on the AWS website. Download and Install Vscode Download and Install Putty for ssh connectivity Learn how to open Vscode terminal with gitbash Overview of DevOps: Understanding the fundamentals of DevOps History and evolution of DevOps Key principles and goals of DevOps DevOps culture and its importance AWS cloud Overview Create a Linux VM Login to Aws cloud using your user and Password Select the Region of your choice Create a Ec2 instance with ubuntu OS Open a port using in Security Group Install Webserver and test connectivity apt update -y apt install apache2 -y Check the service of apache2 systemctl status apache2 Start if not started systemctl start apache2 Open Webserver in Browser publicip If Webserver does not open make sure to open port: 80 as 80 is the default port used by Webserver Linux Basics Overview: Linux Basics Commands Linux File Structure Linux file management Basic Linux Commands whoami: Print currenlty logged in user pwd: Print working directory, shows the current directory you&rsquo;re in.">
+<meta itemprop="dateModified" content="2024-06-01T18:32:23+05:30" />
+<meta itemprop="wordCount" content="1028">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Devops for Begineers"/>
+<meta name="twitter:description" content="Topics Prerequisites: Follow these steps to create your free AWS account Familiarize yourself with the basics of cloud computing by visiting the Cloud Essentials page on the AWS website. Download and Install Vscode Download and Install Putty for ssh connectivity Learn how to open Vscode terminal with gitbash Overview of DevOps: Understanding the fundamentals of DevOps History and evolution of DevOps Key principles and goals of DevOps DevOps culture and its importance AWS cloud Overview Create a Linux VM Login to Aws cloud using your user and Password Select the Region of your choice Create a Ec2 instance with ubuntu OS Open a port using in Security Group Install Webserver and test connectivity apt update -y apt install apache2 -y Check the service of apache2 systemctl status apache2 Start if not started systemctl start apache2 Open Webserver in Browser publicip If Webserver does not open make sure to open port: 80 as 80 is the default port used by Webserver Linux Basics Overview: Linux Basics Commands Linux File Structure Linux file management Basic Linux Commands whoami: Print currenlty logged in user pwd: Print working directory, shows the current directory you&rsquo;re in."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" as="style">
+<link href="/scss/main.min.723d31f72c8542b0efd4dc916a8b429bb3241885d5c0984bf341c1aad66aed50.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/prism.css"/>
+<script type="text/javascript"  src="/js/highlight-search.js"></script>
+<script type="text/javascript"  src="/js/manage-side-panels.js"></script>
+  </head>
+  <body class="td-page highlightable">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="217pt" height="232pt" viewBox="0 0 217 232"><g transform="translate(0.000000,232.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1017 2250c-397-48-698-367-731-775-9-106-3-113 66-87l55 20 11-71c6-39 10-72 9-73s-58-22-127-47c-104-37-124-48-122-64 7-37 56-150 88-205l34-56 66 25 66 26 65-72c206-226 513-322 808-252 367 88 634 417 635 784 0 43-4 77-10 77-5 0-32-9-60-20s-55-20-59-20c-5 0-12 26-16 59-4 32-20 96-36 142s-30 88-31 92c-2 5 54 29 124 55l128 46-31 55c-17 31-33 58-34 59-2 2-31-6-64-19l-61-22-23 29c-81 104-172 178-292 235-140 68-309 97-458 79zm226-299c90-24 136-46 206-101l52-41 61 20 60 20 26-31c15-17 35-44 44-59l17-28-52-19c-29-11-86-32-128-47l-76-27 24-58c26-66 43-144 43-201 0-22 2-39 5-39 2 0 27 9 55 20s55 20 60 20c17 0 10-63-14-131-127-359-580-484-862-237l-35 31-70-24-71-24-30 35c-37 43-97 164-104 212l-6 34 123 46 124 45-3 64c-2 35-5 66-7 68-2 1-27-5-55-14s-53-15-55-14c-2 2 1 29 7 59 32 179 185 352 361 409 112 36 192 39 3e2 12z"/><path d="M134 321c-77-33-95-169-29-231 19-18 36-23 71-23 40 0 51 4 75 30 50 56 47 153-5 202-26 25-80 35-112 22zm82-62c26-29 26-99 0-128-24-26-47-27-77-2-19 15-24 29-24 64 0 76 58 114 101 66z"/><path d="M1172 320c-27-12-44-52-33-82 4-12 31-32 61-47 30-14 58-34 64-43 26-43-50-76-99-44-15 10-26 12-30 6-10-16 4-29 44-40 62-17 114 13 114 65 0 35-19 53-80 81-54 23-67 46-41 72 15 15 62 16 88 2 23-12 35 3 16 19-20 17-77 23-104 11z"/><path d="M350 195V70h25c23 0 25 4 25 45v45h40c76 0 115 40 103 104-8 42-38 56-120 56h-73V195zm134 69c18-18 18-17 10-38-4-11-19-16-50-16-44 0-44 0-44 35 0 33 2 35 34 35 19 0 42-7 50-16z"/><path d="M6e2 195V70h90c83 0 90 2 90 20 0 16-8 19-62 22-63 3-63 3-66 36-3 31-2 32 36 32 36 0 39 2 34 25-4 21-10 25-38 25-30 0-34 3-34 25 0 24 2 25 65 25 58 0 65 2 65 20 0 19-7 20-90 20h-90V195z"/><path d="M850 195c0-117 1-125 20-125 17 0 19 8 22 83l3 82 55-82c41-62 61-83 78-83 22 0 22 2 22 125 0 117-1 125-20 125-17 0-19-8-22-82l-3-82-54 82c-42 65-59 82-77 82-24 0-24 0-24-125z"/><path d="M1360 195c0-104 2-125 15-125 12 0 15 13 15 60v60h65 65v-60c0-47 3-60 15-60 13 0 15 21 15 125s-2 125-15 125c-12 0-15-13-15-55v-55h-65-65v55c0 42-3 55-15 55-13 0-15-21-15-125z"/><path d="M1620 195c0-104 2-125 15-125s15 21 15 125-2 125-15 125-15-21-15-125z"/><path d="M1730 195c0-77 4-125 10-125s10 27 10 60v60h35c19 0 35 5 35 10 0 6-16 10-35 10-35 0-35 0-35 45v45h60c33 0 60 4 60 10s-30 10-70 10h-70V195z"/><path d="M1930 310c0-5 18-10 40-10h40V185c0-70 4-115 10-115s10 45 10 115v115h40c22 0 40 5 40 10 0 6-37 10-90 10s-90-4-90-10z"/></g></svg></span><span class="font-weight-bold">Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/kubernetes/" ><i class='fas fa-binoculars'></i><span>KUBERNETES DOCUMENTS</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/ansible/" ><i class='fas fa-user-check'></i><span>Ansible</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/azure-devops/" ><i class='fas fa-user-check'></i><span>Azure Devops</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/devops/" ><i class='fas fa-user-check'></i><span class="active">Devops </span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/gitlab/" ><i class='fas fa-user-check'></i><span>Gitlab</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/openshift/" ><i class='fas fa-user-check'></i><span>Openshift</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/terraform/" ><i class='fas fa-user-check'></i><span>Terraform</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+</div>
+</nav>
+
+      <div class="manage-panels">
+    <button type="button" class="button-left" id="left-panel-manager" title="Hide sidebar">""</button>
+    <button type="button" class="button-right" id="right-panel-manager" title="Hide sidebar">""</button>
+</div>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main autonumbering">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<form class="d-flex align-items-center">
+  <input type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.d81df5ea3c42d7ddf1c407fed2af5e96.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="20">
+</form>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="DEVOPS Documents hub" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docskubernetes-li">
+  <input type="checkbox" id="m-docskubernetes-check"/>
+  <label for="m-docskubernetes-check"><a href="/docs/kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docskubernetes"><i class="fas fa-compass"></i><span class="">KUBERNETES DOCUMENTS</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart01-li">
+  <input type="checkbox" id="m-docskubernetespart01-check"/>
+  <label for="m-docskubernetespart01-check"><a href="/docs/kubernetes/part01/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart01"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart02-li">
+  <input type="checkbox" id="m-docskubernetespart02-check"/>
+  <label for="m-docskubernetespart02-check"><a href="/docs/kubernetes/part02/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart02"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart03-li">
+  <input type="checkbox" id="m-docskubernetespart03-check"/>
+  <label for="m-docskubernetespart03-check"><a href="/docs/kubernetes/part03/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart03"><span class="">Part 3</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart04-li">
+  <input type="checkbox" id="m-docskubernetespart04-check"/>
+  <label for="m-docskubernetespart04-check"><a href="/docs/kubernetes/part04/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart04"><span class="">Part 4</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetespart05-li">
+  <input type="checkbox" id="m-docskubernetespart05-check"/>
+  <label for="m-docskubernetespart05-check"><a href="/docs/kubernetes/part05/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetespart05"><span class="">Part 5</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouscontainerbasics-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouscontainerbasics-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouscontainerbasics-check"><a href="/docs/kubernetes/docs/miscellaneous/containerbasics/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouscontainerbasics"><span class="">Container Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneoushelm-overview-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneoushelm-overview-check"/>
+  <label for="m-docskubernetesdocsmiscellaneoushelm-overview-check"><a href="/docs/kubernetes/docs/miscellaneous/helm-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneoushelm-overview"><span class="">Helm Overview</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-rbac-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-rbac/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-rbac"><span class="">Kubernetes RBAC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskubernetes-on-centos-check"><a href="/docs/kubernetes/docs/miscellaneous/kubernetes-on-centos/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskubernetes-on-centos"><span class="">Kubernetes-on-Centos</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"/>
+  <label for="m-docskubernetesdocsmiscellaneouskuberneteshardway-check"><a href="/docs/kubernetes/docs/miscellaneous/kuberneteshardway/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneouskuberneteshardway"><span class="">Kubernets Installation From Scatch on rocky 9</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docskubernetesdocsmiscellaneousminio-li">
+  <input type="checkbox" id="m-docskubernetesdocsmiscellaneousminio-check"/>
+  <label for="m-docskubernetesdocsmiscellaneousminio-check"><a href="/docs/kubernetes/docs/miscellaneous/minio/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docskubernetesdocsmiscellaneousminio"><span class="">The Object Store for AI Data Infrastructure</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsansible-li">
+  <input type="checkbox" id="m-docsansible-check"/>
+  <label for="m-docsansible-check"><a href="/docs/ansible/" title="Configuration Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsansible"><i class="fas fa-user-check"></i><span class="">Ansible</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsazure-devops-li">
+  <input type="checkbox" id="m-docsazure-devops-check"/>
+  <label for="m-docsazure-devops-check"><a href="/docs/azure-devops/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsazure-devops"><i class="fas fa-user-check"></i><span class="">Azure Devops</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsaks-deployment-li">
+  <input type="checkbox" id="m-docsazure-devopsaks-deployment-check"/>
+  <label for="m-docsazure-devopsaks-deployment-check"><a href="/docs/azure-devops/aks-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsaks-deployment"><span class="">AKS Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-container-registry-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-container-registry-check"/>
+  <label for="m-docsazure-devopsazure-container-registry-check"><a href="/docs/azure-devops/azure-container-registry/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-container-registry"><span class="">Azure Container Registry</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devopsagent-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devopsagent-check"/>
+  <label for="m-docsazure-devopsazure-devopsagent-check"><a href="/docs/azure-devops/azure-devopsagent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devopsagent"><span class="">Azure Devops Pipeline Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-devops-pipeline-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-devops-pipeline-check"/>
+  <label for="m-docsazure-devopsazure-devops-pipeline-check"><a href="/docs/azure-devops/azure-devops-pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-devops-pipeline"><span class="">Azure Devops Pipeline Basics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsazure-dns-li">
+  <input type="checkbox" id="m-docsazure-devopsazure-dns-check"/>
+  <label for="m-docsazure-devopsazure-dns-check"><a href="/docs/azure-devops/azure-dns/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsazure-dns"><span class="">Azure DNS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopscertmanager-li">
+  <input type="checkbox" id="m-docsazure-devopscertmanager-check"/>
+  <label for="m-docsazure-devopscertmanager-check"><a href="/docs/azure-devops/certmanager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopscertmanager"><span class="">Cert Manager</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsazure-devopsingresscontroller-li">
+  <input type="checkbox" id="m-docsazure-devopsingresscontroller-check"/>
+  <label for="m-docsazure-devopsingresscontroller-check"><a href="/docs/azure-devops/ingresscontroller/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsazure-devopsingresscontroller"><span class="">IngressController</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsdevops-li">
+  <input type="checkbox" id="m-docsdevops-check" checked/>
+  <label for="m-docsdevops-check"><a href="/docs/devops/" title="Devops" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsdevops"><i class="fas fa-user-check"></i><span class="">Devops </span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevops-advance-li">
+  <input type="checkbox" id="m-docsdevopsdevops-advance-check"/>
+  <label for="m-docsdevopsdevops-advance-check"><a href="/docs/devops/devops-advance/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevops-advance"><span class="">Devops for Advance Level</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopsdevopsl1-li">
+  <input type="checkbox" id="m-docsdevopsdevopsl1-check"/>
+  <label for="m-docsdevopsdevopsl1-check"><a href="/docs/devops/devopsl1/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-docsdevopsdevopsl1"><span class="td-sidebar-nav-active-item">Devops for Begineers</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopselk-stack-li">
+  <input type="checkbox" id="m-docsdevopselk-stack-check"/>
+  <label for="m-docsdevopselk-stack-check"><a href="/docs/devops/elk-stack/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopselk-stack"><span class="">ELK statck </span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsdevopspostgresql-li">
+  <input type="checkbox" id="m-docsdevopspostgresql-check"/>
+  <label for="m-docsdevopspostgresql-check"><a href="/docs/devops/postgresql/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsdevopspostgresql"><span class="">Postgres Installation </span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgitlab-li">
+  <input type="checkbox" id="m-docsgitlab-check"/>
+  <label for="m-docsgitlab-check"><a href="/docs/gitlab/" title="Project Management Tool" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsgitlab"><i class="fas fa-user-check"></i><span class="">Gitlab</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsterraform-li">
+  <input type="checkbox" id="m-docsterraform-check"/>
+  <label for="m-docsterraform-check"><a href="/docs/terraform/" title="Infrastracture as a Code" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraform"><i class="fas fa-user-check"></i><span class="">Terraform</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformdiscussions-li">
+  <input type="checkbox" id="m-docsterraformdiscussions-check"/>
+  <label for="m-docsterraformdiscussions-check"><a href="/docs/terraform/discussions/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformdiscussions"><span class="">Discussions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-aws-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-aws-check"/>
+  <label for="m-docsterraformterraform-with-aws-check"><a href="/docs/terraform/terraform-with-aws/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-aws"><span class="">Terraform with AWS</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-azure-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-azure-check"/>
+  <label for="m-docsterraformterraform-with-azure-check"><a href="/docs/terraform/terraform-with-azure/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-azure"><span class="">Terraform with Azure</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsterraformterraform-with-gcp-li">
+  <input type="checkbox" id="m-docsterraformterraform-with-gcp-check"/>
+  <label for="m-docsterraformterraform-with-gcp-check"><a href="/docs/terraform/terraform-with-gcp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsterraformterraform-with-gcp"><span class="">Terraform with Google Cloud</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsopenshift-li">
+  <input type="checkbox" id="m-docsopenshift-check"/>
+  <label for="m-docsopenshift-check"><a href="/docs/openshift/" title="Redhat Container Platform" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-docsopenshift"><i class="fas fa-user-check"></i><span class="">Openshift</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshift-baremetalmd-li">
+  <input type="checkbox" id="m-docsopenshiftopenshift-baremetalmd-check"/>
+  <label for="m-docsopenshiftopenshift-baremetalmd-check"><a href="/docs/openshift/openshift-baremetal.md/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshift-baremetalmd"><span class="">Openshift Baremetal</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftocpsetup-li">
+  <input type="checkbox" id="m-docsopenshiftocpsetup-check"/>
+  <label for="m-docsopenshiftocpsetup-check"><a href="/docs/openshift/ocpsetup/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftocpsetup"><span class="">Openshift Installation and Upgradation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftprerequisites-li">
+  <input type="checkbox" id="m-docsopenshiftprerequisites-check"/>
+  <label for="m-docsopenshiftprerequisites-check"><a href="/docs/openshift/prerequisites./" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftprerequisites"><span class="">OpenShift Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenshifttasks-li">
+  <input type="checkbox" id="m-docsopenshiftopenshifttasks-check"/>
+  <label for="m-docsopenshiftopenshifttasks-check"><a href="/docs/openshift/openshifttasks/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenshifttasks"><span class="">OpenShift Tasks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshifttoc-li">
+  <input type="checkbox" id="m-docsopenshifttoc-check"/>
+  <label for="m-docsopenshifttoc-check"><a href="/docs/openshift/toc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshifttoc"><span class="">Openshift TOC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-1-li">
+  <input type="checkbox" id="m-docsopenshiftpart-1-check"/>
+  <label for="m-docsopenshiftpart-1-check"><a href="/docs/openshift/part-1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-1"><span class="">Part 1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftpart-2-li">
+  <input type="checkbox" id="m-docsopenshiftpart-2-check"/>
+  <label for="m-docsopenshiftpart-2-check"><a href="/docs/openshift/part-2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftpart-2"><span class="">Part 2</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsopenshiftopenid-azuread-li">
+  <input type="checkbox" id="m-docsopenshiftopenid-azuread-check"/>
+  <label for="m-docsopenshiftopenid-azuread-check"><a href="/docs/openshift/openid-azuread/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-docsopenshiftopenid-azuread"><span class="">Use and configure OpenID connect with Azure AD</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+
+    <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+        <div class="toc-title">Actions</div>
+        <a href="/edit/master/content/docs/Devops/DevopsL1.md" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Contribute to this page</a>
+        <a href="/issues/new?issue%5Btitle=%f0%9f%93%83%20docs:%20update%20page%20docs/Devops/DevopsL1.md" target="_blank" rel="noopener"><i class="fab fa-gitlab fa-fw"></i> Create a documentation issue</a>
+       
+    </div>
+
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0 right-menu-toc">
+
+    
+        
+            <div class="toc-title">Table of content</div>
+            <div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#topics">Topics</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites:</a></li>
+        <li><a href="#overview-of-devops">Overview of DevOps:</a></li>
+        <li><a href="#aws-cloud-overview">AWS cloud Overview</a></li>
+        <li><a href="#create-a-linux-vm">Create a Linux VM</a></li>
+        <li><a href="#linux-basics-overview">Linux Basics Overview:</a></li>
+        <li><a href="#basic-linux-commands">Basic Linux Commands</a></li>
+        <li><a href="#infrastructure-as-code-iac">Infrastructure as Code (IaC):</a></li>
+        <li><a href="#use-terraform-to-create-resources-on-aws-cloud">Use Terraform to create resources on AWS Cloud</a></li>
+        <li><a href="#maven-a-build-tool">Maven a Build tool</a></li>
+        <li><a href="#containerization-with-dockerhttpsserverdevopscomdocskubernetesdocsmiscellaneouscontainerbasics"><a href="https://serverdevops.com/docs/kubernetes/docs/miscellaneous/containerbasics/">Containerization with Docker</a></a></li>
+        <li><a href="#lab-01-compile-package-and-deploy-java-app">LAB 01: Compile ,package and deploy java app.</a></li>
+        <li><a href="#version-control-systemshttpsgitlabcomimarcteus-traininggit-devops-vcs"><a href="https://gitlab.com/imarcteus-training/git-devops">Version Control Systems</a> (VCS)</a></li>
+        <li><a href="#continuous-integration-ci">Continuous Integration (CI):</a></li>
+      </ul>
+    </li>
+    <li><a href="#projects">Projects</a>
+      <ul>
+        <li><a href="#project-1">Project 1</a></li>
+        <li><a href="#project-2">Project 2</a></li>
+        <li><a href="#project-3">Project 3</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        
+    
+
+</div>
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/docs/devops/">Devops </a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/docs/devops/devopsl1/">Devops for Begineers</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Devops for Begineers</h1>
+	
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<!-- end-chunk -->
+<!-- begin-chunk data-anchor="topics" data-heading="Topics" data-level="2" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h2 id="topics">Topics</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="prerequisites" data-heading="Prerequisites:" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="prerequisites">Prerequisites:</h3><ul>
+<li><a href="https://repost.aws/knowledge-center/create-and-activate-aws-account" target="_blank" rel="noopener">Follow these steps</a> to create your free AWS account</li>
+<li>Familiarize yourself with the basics of cloud computing by visiting the <a href="https://aws.amazon.com/getting-started/cloud-essentials/" target="_blank" rel="noopener">Cloud Essentials</a> page on the AWS website.</li>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Download and Install Vscode</a></li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Download and Install Putty for ssh connectivity</a></li>
+<li>Learn how to open Vscode terminal with gitbash</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="overview-of-devops" data-heading="Overview of DevOps:" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="overview-of-devops">Overview of DevOps:</h3><ul>
+<li>Understanding the fundamentals of DevOps</li>
+<li>History and evolution of DevOps</li>
+<li>Key principles and goals of DevOps</li>
+<li>DevOps culture and its importance</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="aws-cloud-overview" data-heading="AWS cloud Overview" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="aws-cloud-overview">AWS cloud Overview</h3><!-- end-chunk -->
+<!-- begin-chunk data-anchor="create-a-linux-vm" data-heading="Create a Linux VM" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="create-a-linux-vm">Create a Linux VM</h3><ul>
+<li>Login to <a href="https://signin.aws.amazon.com/" target="_blank" rel="noopener">Aws cloud</a> using your user and Password</li>
+<li>Select the Region of your choice <img src="/images/aws-vm01.png" alt="Region"></li>
+<li>Create a Ec2 instance with ubuntu OS</li>
+<li>Open a port using in Security Group</li>
+<li>Install Webserver and test connectivity</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>apt update <span style="color:#f92672">-</span>y
+</span></span><span style="display:flex;"><span>apt install apache2 <span style="color:#f92672">-</span>y
+</span></span></code></pre></div><ul>
+<li>Check the service of apache2</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>systemctl status apache2
+</span></span></code></pre></div><ul>
+<li>Start if not started</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>systemctl start apache2
+</span></span></code></pre></div><ul>
+<li>Open Webserver in Browser</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>publicip
+</span></span></code></pre></div><ul>
+<li>If Webserver does not open make sure to open port: 80 as 80 is the default port used by Webserver</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="linux-basics-overview" data-heading="Linux Basics Overview:" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="linux-basics-overview">Linux Basics Overview:</h3><ul>
+<li>Linux Basics Commands</li>
+<li>Linux File Structure</li>
+<li>Linux file management</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="basic-linux-commands" data-heading="Basic Linux Commands" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="basic-linux-commands">Basic Linux Commands</h3><ul>
+<li><strong>whoami</strong>: Print currenlty logged in user</li>
+<li><strong>pwd</strong>: Print working directory, shows the current directory you&rsquo;re in.</li>
+<li><strong>ls</strong>: List directory contents, shows files and directories in the current directory.</li>
+<li><strong>cd</strong>: Change directory, move to a different directory.
+<ul>
+<li><code>cd directory_name</code>: Move to a specific directory.</li>
+<li><code>cd ..</code>: Move up one directory level.</li>
+</ul>
+</li>
+<li><strong>mkdir</strong>: Make directory, create a new directory.
+<ul>
+<li><code>mkdir directory_name</code>: Create a directory with the specified name.</li>
+</ul>
+</li>
+<li><strong>touch</strong>: Create a new empty file.
+<ul>
+<li><code>touch file_name</code>: Create a file with the specified name.</li>
+</ul>
+</li>
+<li><strong>rm</strong>: Remove files or directories.
+<ul>
+<li><code>rm file_name</code>: Remove a file.</li>
+<li><code>rm -r directory_name</code>: Remove a directory and its contents recursively.</li>
+</ul>
+</li>
+<li><strong>cp</strong>: Copy files or directories.
+<ul>
+<li><code>cp source_file destination_file</code>: Copy a file to a new location.</li>
+<li><code>cp -r source_directory destination_directory</code>: Copy a directory and its contents to a new location.</li>
+</ul>
+</li>
+<li><strong>mv</strong>: Move or rename files or directories.
+<ul>
+<li><code>mv source destination</code>: Move a file or directory to a new location.</li>
+<li><code>mv old_name new_name</code>: Rename a file or directory.</li>
+</ul>
+</li>
+<li><strong>cat</strong>: Concatenate and display file content.
+<ul>
+<li><code>cat file_name</code>: Display the contents of a file.</li>
+</ul>
+</li>
+<li><strong>echo</strong>: Display a line of text.
+<ul>
+<li><code>echo &quot;Hello, World!&quot;</code>: Display &ldquo;Hello, World!&rdquo; in the terminal.</li>
+</ul>
+</li>
+<li><strong>grep</strong>: Search for a pattern in files.
+<ul>
+<li><code>grep pattern file_name</code>: Search for the specified pattern in a file.</li>
+</ul>
+</li>
+<li><strong>chmod</strong>: Change file permissions.
+<ul>
+<li><code>chmod permissions file_name</code>: Change the permissions of a file.</li>
+</ul>
+</li>
+<li><strong>chown</strong>: Change file owner and group.
+<ul>
+<li><code>chown new_owner:new_group file_name</code>: Change the owner and group of a file.</li>
+</ul>
+</li>
+<li><strong>sudo</strong>: Execute a command as the superuser (root).
+<ul>
+<li><code>sudo command</code>: Run a command with superuser privileges.</li>
+</ul>
+</li>
+<li><strong>man</strong>: Display the manual for a command.
+<ul>
+<li><code>man command_name</code>: Display the manual page for the specified command.</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="infrastructure-as-code-iac" data-heading="Infrastructure as Code (IaC):" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="infrastructure-as-code-iac">Infrastructure as Code (IaC):</h3><ul>
+<li>Introduction to Infrastructure as Code (IaC) principles</li>
+<li>Tools for IaC (e.g., Terraform)</li>
+<li>Writing infrastructure code</li>
+<li>Provisioning and managing infrastructure using IaC tools
+<ul>
+<li>Installation of Terraform
+<ul>
+<li>Create a Linux VM(ubuntu os) on AWS cloud</li>
+<li><a href="https://developer.hashicorp.com/terraform/install" target="_blank" rel="noopener">Download and Install Terraform on your Laptop</a></li>
+<li>Verify if the Terraform is installed, You can open Terminal in Vscode</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform <span style="color:#f92672">-</span>v
+</span></span></code></pre></div></li>
+<li>Create a file on your Laptop using Terraform</li>
+<li>Create a provider.tf file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>required_providers {
+</span></span><span style="display:flex;"><span>  local <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hashicorp/local&#34;</span>
+</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.5.1&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  provider <span style="color:#e6db74">&#34;local&#34;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Configuration options</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div></li>
+</ul>
+<pre tabindex="0"><code></code></pre><ul>
+<li>Download Terraform Provider plugins</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform init
+</span></span></code></pre></div><ul>
+<li>Verify provider</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform providers
+</span></span></code></pre></div><ul>
+<li>Craete a file for local file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;local_file&#34;</span> <span style="color:#e6db74">&#34;file01&#34;</span> {
+</span></span><span style="display:flex;"><span>  content  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Welcome to Terraform Training&#34;</span>
+</span></span><span style="display:flex;"><span>  filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;file.txt&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Check the plan</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform plan
+</span></span></code></pre></div><ul>
+<li>now execute the code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform apply
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="use-terraform-to-create-resources-on-aws-cloud" data-heading="Use Terraform to create resources on AWS Cloud" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="use-terraform-to-create-resources-on-aws-cloud">Use Terraform to create resources on AWS Cloud</h3><ul>
+<li>Configure AWS credentials for Terraform</li>
+<li>Create Provide file awsprovider.tf</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform {
+</span></span><span style="display:flex;"><span>  required_providers {
+</span></span><span style="display:flex;"><span>    aws <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hashicorp/aws&#34;</span>
+</span></span><span style="display:flex;"><span>      version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;5.41.0&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>provider <span style="color:#e6db74">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Configuration options</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Set AWS credentials with environment variables</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span> export AWS_ACCESS_KEY_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anaccesskey&#34;</span>
+</span></span><span style="display:flex;"><span> export AWS_SECRET_ACCESS_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;asecretkey&#34;</span>
+</span></span><span style="display:flex;"><span> export AWS_DEFAULT_REGION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;us-west-2&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Execute terraform init to download aws provider plugins</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform init 
+</span></span></code></pre></div><ul>
+<li>Create a tf file for vm creation</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>resource <span style="color:#e6db74">&#34;aws_instance&#34;</span> <span style="color:#e6db74">&#34;web&#34;</span> {
+</span></span><span style="display:flex;"><span> ami           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ami-007020fd9c84e18c7&#34;</span> This image is in ap<span style="color:#f92672">-</span>south<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> instance_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t2.micro&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> tags <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>   Name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HelloWorld&#34;</span>
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Check plan and apply</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform plan
+</span></span><span style="display:flex;"><span>terraform apply
+</span></span></code></pre></div><ul>
+<li>Check the vm in AWS console</li>
+<li>Now you can try to change image and other settings as well</li>
+<li>Delete the vm now</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>terraform destroy
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="maven-a-build-tool" data-heading="Maven a Build tool" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="maven-a-build-tool">Maven a Build tool</h3><ul>
+<li>Install maven on Ubuntu Os</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>apt install maven <span style="color:#f92672">-</span>y
+</span></span></code></pre></div><ul>
+<li>Check the version of maven</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>mvn <span style="color:#f92672">-</span>v
+</span></span></code></pre></div><ul>
+<li>Download Java code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>git clone https:<span style="color:#e6db74">//gi</span>thub<span style="color:#f92672">.</span>com<span style="color:#e6db74">/Ramkhushi/</span>java<span style="color:#f92672">-</span>code1<span style="color:#f92672">.</span>git
+</span></span><span style="display:flex;"><span>cd java<span style="color:#f92672">-</span>code1<span style="color:#f92672">/</span>
+</span></span></code></pre></div><ul>
+<li>Compile Code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>mvn compile
+</span></span></code></pre></div><ul>
+<li>Perfomr unit test</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>mvn test
+</span></span></code></pre></div><ul>
+<li>Create Build Artifacts</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>mvn <span style="color:#66d9ef">package</span>
+</span></span></code></pre></div><ul>
+<li>Run the below command if you get any error</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>apt install openjdk<span style="color:#f92672">-</span><span style="color:#ae81ff">11</span><span style="color:#f92672">*</span>
+</span></span></code></pre></div><ul>
+<li>Check the war file if exists now</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>ls <span style="color:#f92672">-</span>l target
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="containerization-with-dockerhttpsserverdevopscomdocskubernetesdocsmiscellaneouscontainerbasics" data-heading="<a href=\"https://serverdevops.com/docs/kubernetes/docs/miscellaneous/containerbasics/\" target=\"_blank\" rel=\"noopener\">Containerization with Docker</a>" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="containerization-with-dockerhttpsserverdevopscomdocskubernetesdocsmiscellaneouscontainerbasics"><a href="https://serverdevops.com/docs/kubernetes/docs/miscellaneous/containerbasics/" target="_blank" rel="noopener">Containerization with Docker</a></h3><ul>
+<li>Introduction to containerization and Docker</li>
+<li>Docker architecture and components</li>
+<li>Building and managing Docker images</li>
+<li>Docker containers
+<ul>
+<li>Install Docker on Linux Vm</li>
+<li>Create a container and run basics commands of Docker</li>
+<li>Host a website on Docker and access that</li>
+</ul>
+</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="lab-01-compile-package-and-deploy-java-app" data-heading="LAB 01: Compile ,package and deploy java app." data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="lab-01-compile-package-and-deploy-java-app">LAB 01: Compile ,package and deploy java app.</h3><ul>
+<li>Download Java code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>git clone https:<span style="color:#e6db74">//gi</span>thub<span style="color:#f92672">.</span>com<span style="color:#e6db74">/Ramkhushi/</span>java<span style="color:#f92672">-</span>code1<span style="color:#f92672">.</span>git
+</span></span><span style="display:flex;"><span>cd java<span style="color:#f92672">-</span>code1<span style="color:#f92672">/</span>
+</span></span></code></pre></div><ul>
+<li>Create a build</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>docker run <span style="color:#f92672">-</span>it <span style="color:#f92672">--</span>rm <span style="color:#f92672">--</span>name <span style="color:#66d9ef">my</span><span style="color:#f92672">-</span>maven<span style="color:#f92672">-</span>project <span style="color:#f92672">-</span>v <span style="color:#e6db74">&#34;$(pwd)&#34;</span>:<span style="color:#e6db74">/usr/s</span>rc<span style="color:#e6db74">/mymaven -w /</span>usr<span style="color:#e6db74">/src/m</span>ymaven maven:3<span style="color:#ae81ff">.3</span><span style="color:#f92672">-</span>jdk<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span> mvn clean install
+</span></span></code></pre></div><ul>
+<li>Check newly created war file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>ls <span style="color:#f92672">-</span>l target<span style="color:#f92672">/*.</span>war
+</span></span></code></pre></div><ul>
+<li>Run the Application</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>docker run <span style="color:#f92672">-</span>dit <span style="color:#f92672">--</span>rm <span style="color:#f92672">-</span>p <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">8080</span> <span style="color:#f92672">-</span>v <span style="color:#e6db74">&#34;$(pwd)/target&#34;</span>:<span style="color:#e6db74">/usr/</span>local<span style="color:#e6db74">/tomcat/</span>webapps tomcat:9<span style="color:#ae81ff">.0</span>
+</span></span></code></pre></div><ul>
+<li>Check if the Application Opening</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>IP:8080<span style="color:#e6db74">/studentapp-2.5-SNAPSHOT/</span>
+</span></span></code></pre></div><!-- end-chunk -->
+<!-- begin-chunk data-anchor="version-control-systemshttpsgitlabcomimarcteus-traininggit-devops-vcs" data-heading="<a href=\"https://gitlab.com/imarcteus-training/git-devops\" target=\"_blank\" rel=\"noopener\">Version Control Systems</a> (VCS)" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="version-control-systemshttpsgitlabcomimarcteus-traininggit-devops-vcs"><a href="https://gitlab.com/imarcteus-training/git-devops" target="_blank" rel="noopener">Version Control Systems</a> (VCS)</h3><ul>
+<li>Introduction to Version Control Systems ( Git)</li>
+<li>Basic Git commands and workflows</li>
+<li>Branching and merging strategies</li>
+<li>Collaborative development with Git</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="continuous-integration-ci" data-heading="Continuous Integration (CI):" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="continuous-integration-ci">Continuous Integration (CI):</h3><ul>
+<li>Introduction to Continuous Integration (CI) concepts</li>
+<li>Setting up CI pipelines with popular tools using Jenkins</li>
+<li>Integrating version control with CI
+<ul>
+<li>Create a Vm(ubuntu) and Install Jenkins</li>
+<li>Update os</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">-</span>y
+</span></span></code></pre></div><ul>
+<li><a href="https://www.jenkins.io/doc/book/installing/linux/#debianubuntu" target="_blank" rel="noopener">Install jenkins</a></li>
+<li>Make sure to open port: 8080 to access Jenkins</li>
+<li>Login to Jenkins Server</li>
+<li>Get initial Password for Admin</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>cat <span style="color:#e6db74">/var/</span>lib<span style="color:#e6db74">/jenkins/s</span>ecrets<span style="color:#f92672">/</span>initialAdminPassword
+</span></span></code></pre></div><ul>
+<li>Create a first test job</li>
+<li>Integrate Github and Jenkins</li>
+<li>Deploy to Docker using Jenkins</li>
+<li>Add jenkins user if you want to run command from Jenkins</li>
+<li>Add below permission if you want to run docker command by any user</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">777</span> <span style="color:#e6db74">/var/</span>run<span style="color:#f92672">/</span>docker<span style="color:#f92672">.</span>sock
+</span></span><span style="display:flex;"><span>systemctl restart docker
+</span></span></code></pre></div></li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="projects" data-heading="Projects" data-level="2" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h2 id="projects">Projects</h2><!-- end-chunk -->
+<!-- begin-chunk data-anchor="project-1" data-heading="Project 1" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="project-1">Project 1</h3><ul>
+<li>Create a vm using Terraform on AWS cloud</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="project-2" data-heading="Project 2" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="project-2">Project 2</h3><ul>
+<li>Craete a war file</li>
+<li>Install Tomcat server</li>
+<li>Deploy Application to tomcat server</li>
+</ul>
+<!-- end-chunk -->
+<!-- begin-chunk data-anchor="project-3" data-heading="Project 3" data-level="3" data-permalink="/docs/devops/devopsl1/" data-title="Devops for Begineers" -->
+<h3 id="project-3">Project 3</h3><ul>
+<li>Run the same project on Docker</li>
+<li>Deploy the same project using Jenkins</li>
+</ul>
+
+	
+	
+	
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.223ab2fcc7d742c1b94772c0276851c497da4343cd2d21534199ced90681e207.js" integrity="sha256-Ijqy/MfXQsG5R3LAJ2hRxJfaQ0PNLSFTQZnO2QaB4gc=" crossorigin="anonymous"></script>
+
+
+
+<script src='/js/prism.js'></script>
+
+
+
+  </body>
+</html>
