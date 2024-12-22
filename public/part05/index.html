@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
-  <head><script src="/k8s/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=k8s/livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.3">
@@ -16,7 +16,7 @@ Rancher adds significant value on top of Kubernetes, first by centralizing authe
 Rancher is a Kubernetes management tool to deploy and run clusters anywhere and on any provider.
 Rancher can provision Kubernetes from a hosted provider, provision compute nodes and then install Kubernetes onto them, or import existing Kubernetes clusters running anywhere.
 Rancher adds significant value on top of Kubernetes, first by centralizing authentication and role-based access control (RBAC) for all of the clusters, giving global admins the ability to control cluster access from one location.">
-    <meta property="og:url" content="http://localhost:1313/k8s/part05/index.html">
+    <meta property="og:url" content="https://khushiramsingh680.github.io/docsold/part05/index.html">
     <meta property="og:site_name" content="Kubernetes Documentation">
     <meta property="og:title" content="Part 5 :: Kubernetes Documentation">
     <meta property="og:description" content="Topics Rancher Network Policies Metric Server Configure HPA Logging with Grafana Loki Monitoring with Prometheus Enable Audit logs Rancher (Kubernetes Management Tool) Rancher Installation Steps
@@ -33,17 +33,17 @@ Rancher can provision Kubernetes from a hosted provider, provision compute nodes
 Rancher adds significant value on top of Kubernetes, first by centralizing authentication and role-based access control (RBAC) for all of the clusters, giving global admins the ability to control cluster access from one location.">
     <meta itemprop="wordCount" content="2108">
     <title>Part 5 :: Kubernetes Documentation</title>
-    <link href="../css/fontawesome-all.min.css?1734364735" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1734364735" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1734364735" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1734364735" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1734364735" rel="stylesheet">
-    <link href="../css/theme.css?1734364735" rel="stylesheet">
-    <link href="../css/format-html.css?1734364735" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1734870145" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1734870145" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1734870145" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1734870145" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1734870145" rel="stylesheet">
+    <link href="../css/theme.min.css?1734870145" rel="stylesheet">
+    <link href="../css/format-html.min.css?1734870145" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
       window.relearn.relBaseUri='..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313\/k8s';
-      window.relearn.min = ``;
+      window.relearn.absBaseUri='https:\/\/khushiramsingh680.github.io\/docsold';
+      window.relearn.min = `.min`;
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       // variant stuff
@@ -618,15 +618,15 @@ We can save the dashboard and can even share with our team members which is one 
 <ul>
 <li>
 <p>Login to Grafana and add datasource
-<a href="#R-image-c20a74ba58ccb027933bd8211c3de87b" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana01.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c20a74ba58ccb027933bd8211c3de87b"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana01.png"></a></p>
+<a href="#R-image-b2b2c7b0284d5d836d2a243292931ba8" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana01.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b2b2c7b0284d5d836d2a243292931ba8"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana01.png"></a></p>
 </li>
 <li>
 <p>Select Prometheus as the data source:
-<a href="#R-image-63f6f5c35538653e3db4180bab908d4d" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana02.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-63f6f5c35538653e3db4180bab908d4d"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana02.png"></a>
-<a href="#R-image-fe5772641c66b041df13e1317a30e915" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana03.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-fe5772641c66b041df13e1317a30e915"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana03.png"></a></p>
+<a href="#R-image-7c1803cec6660cd037b27b2d48421c4e" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana02.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7c1803cec6660cd037b27b2d48421c4e"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana02.png"></a>
+<a href="#R-image-7caaecb85d89e596e3b8ff1b6793d1b2" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana03.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7caaecb85d89e596e3b8ff1b6793d1b2"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana03.png"></a></p>
 </li>
 <li>
 <p>Click on “Save &amp; test” to save your changes.</p>
@@ -637,14 +637,14 @@ We can save the dashboard and can even share with our team members which is one 
 <li>To import a Grafana Dashboard, follow these steps:</li>
 </ul>
 <p><a href="https://grafana.com/grafana/dashboards/" rel="external" target="_blank">Click here</a></p>
-<p><a href="#R-image-431427a6505a2888786463b043121db5" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana04.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-431427a6505a2888786463b043121db5"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana04.png"></a></p>
-<p><a href="#R-image-9349a99502f16c5a0e77e3d98110b82d" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana05.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-9349a99502f16c5a0e77e3d98110b82d"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana05.png"></a></p>
-<p><a href="#R-image-57edf499528f2a82d733a9d952065cf4" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana06.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-57edf499528f2a82d733a9d952065cf4"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana06.png"></a></p>
-<p><a href="#R-image-1e80623e17ae700091f34ea8ca958fbb" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana07.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1e80623e17ae700091f34ea8ca958fbb"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana07.png"></a></p>
+<p><a href="#R-image-b892e47ee0329cafe7acb520c20b2e6f" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana04.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-b892e47ee0329cafe7acb520c20b2e6f"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana04.png"></a></p>
+<p><a href="#R-image-77775035200ebf86388ac307431d109b" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana05.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-77775035200ebf86388ac307431d109b"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana05.png"></a></p>
+<p><a href="#R-image-d301813b7840ddfad01f472cbf263289" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana06.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d301813b7840ddfad01f472cbf263289"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana06.png"></a></p>
+<p><a href="#R-image-aff267c3808228d5d6d97714ae5ba0ac" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/Grafana07.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-aff267c3808228d5d6d97714ae5ba0ac"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/Grafana07.png"></a></p>
 <h3 id="kuberntes-monitoring-with-grafana-loki">Kuberntes Monitoring with Grafana Loki</h3>
 <h3 id="kubernetes-monitoring-1">Kubernetes Monitoring</h3>
 <h3 id="source-httpsartifacthubiopackageshelmgrafanaloki-stack">source <a href="https://artifacthub.io/packages/helm/grafana/loki-stack" rel="external" target="_blank">https://artifacthub.io/packages/helm/grafana/loki-stack</a></h3>
@@ -698,8 +698,8 @@ We can save the dashboard and can even share with our team members which is one 
 </li>
 </ul>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /etc/kubernetes/manifests/etcd.yaml</span></span></code></pre></div>
-<p><a href="#R-image-6ac791d333a4037edf1bd58a7d27a9f6" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/etcd01.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6ac791d333a4037edf1bd58a7d27a9f6"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/etcd01.png"></a></p>
+<p><a href="#R-image-d0cf94756deabf1b1c04dbf2c7b62f7e" class="lightbox-link"><img alt="image" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/etcd01.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d0cf94756deabf1b1c04dbf2c7b62f7e"><img alt="image" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/etcd01.png"></a></p>
 <ul>
 <li>Take an etcd snapshot backup using the following command.</li>
 </ul>
@@ -759,7 +759,7 @@ Kubernetes Documentation
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1734364735";
+          window.index_js_url="../searchindex.en.js?1734870145";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -772,12 +772,12 @@ Kubernetes Documentation
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1734364735" defer></script>
-        <script src="../js/lunr/lunr.min.js?1734364735" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1734364735" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1734364735" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1734364735" defer></script>
-        <script src="../js/search.js?1734364735" defer></script>
+        <script src="../js/auto-complete.js?1734870145" defer></script>
+        <script src="../js/lunr/lunr.min.js?1734870145" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1734870145" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1734870145" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1734870145" defer></script>
+        <script src="../js/search.js?1734870145" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -862,8 +862,8 @@ Kubernetes Documentation
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1734364735" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1734364735" defer></script>
-    <script src="../js/theme.js?1734364735" defer></script>
+    <script src="../js/clipboard.min.js?1734870145" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1734870145" defer></script>
+    <script src="../js/theme.js?1734870145" defer></script>
   </body>
 </html>

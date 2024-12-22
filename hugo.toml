@@ -1,4 +1,4 @@
-baseURL = 'https://khushiramsingh680.github.io/k8s/'
+baseURL = 'https://khushiramsingh680.github.io/docsold/'
 languageCode = 'en-us'
 title = 'Kubernetes Documentation'
 theme = 'relearn'
